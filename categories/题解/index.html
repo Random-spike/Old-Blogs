@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Random-spike">
 <meta name="twitter:card" content="summary">
-<meta name="generator" content="Hexo 8.1.1"></head>
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
     <div class="mdui-theme-layout-light">
     <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
@@ -113,93 +113,6 @@
     </div>
     <div class="mdui-container-fluid mdui-center" style="max-width:720px">
         <div class="mdui-theme-layout-light mdui-color-transparent">
-
-    <section class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
-    
-    <div class="mdui-card-primary mdui-ripple">
-    <div class="mdui-card-primary-title">
-        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" href="/Old-Blogs/044_%E9%A2%98%E8%A7%A3%EF%BC%9AP10821%20%5BEC%20Final%202020%5D%20Rooks/">题解：P10821 [EC Final 2020] Rooks</a>
-        
-        <small> <a class="mdui-text-color-theme-text category-link" href="/Old-Blogs/categories/%E9%A2%98%E8%A7%A3/">题解</a></small>
-        
-    </div>
-    <div class="mdui-card-primary-subtitle mdui-typo">
-        
-        <span mdui-tooltip="{content:'创建时间：2025-11-30 04:14<br>最后更新时间：2025-11-30 05:36'}">2025-11-30 -</span>
-        
-            <span>/044_题解：P10821 [EC Final 2020] Rooks/</span>
-        
-    </div>
-</div>
-    
-    
-    <div class="mdui-divider"></div>
-    <div class="mdui-card-content mdui-typo">
-        
-        <p>本题为签到题。</p>
-<h3 id="题目思路"><a href="#题目思路" class="headerlink" title="题目思路"></a>题目思路</h3><p>本题思路是根据题意进行模拟。</p>
-<p>输入时，将玩家的阵营，次序，两坐标值数据存储在结构体中。然后对 $x$ 轴坐标和 $y$ 轴坐标分别排序，其中相同的 $x$ 坐标则按照 $y$ 坐标顺次排序，反之亦然。这样可以保证所有相邻的汽车都经过遍历，保证答案的正确性。</p>
-<p>具体实现时，当相邻两点的玩家 $\text{p}$ 值不相同时，在该 $\text{id}$ 上的答案变成 $1$。</p>
-<h3 id="AC-代码"><a href="#AC-代码" class="headerlink" title="AC 代码"></a>AC 代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(i,a,b) for(int i=a;i&lt;=b;i++)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e6</span>;</span><br><span class="line"><span class="type">int</span> n1,n2;</span><br><span class="line"><span class="type">bool</span> ans1[N],ans2[N];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">spot</span>&#123;</span><br><span class="line">	<span class="type">int</span> id,x,y,p;</span><br><span class="line">&#125;a[N],b[N];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmpx</span><span class="params">(spot n,spot m)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n.x==m.x) <span class="keyword">return</span> n.y&lt;m.y;</span><br><span class="line">	<span class="keyword">return</span> n.x&lt;m.x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmpy</span><span class="params">(spot n,spot m)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n.y==m.y) <span class="keyword">return</span> n.x&lt;m.x;</span><br><span class="line">	<span class="keyword">return</span> n.y&lt;m.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n1+n2)&#123;</span><br><span class="line">		cout&lt;&lt;a[i].p&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;a[i].x&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;a[i].y&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;a[i].id&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n1+n2)&#123;</span><br><span class="line">		cout&lt;&lt;b[i].p&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;b[i].x&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;b[i].y&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;b[i].id&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;n1&gt;&gt;n2;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n1)&#123;</span><br><span class="line">		<span class="type">int</span> x,y;</span><br><span class="line">		cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">		a[i].x=x,a[i].y=y,a[i].id=i,a[i].p=<span class="number">1</span>;</span><br><span class="line">		b[i].x=x,b[i].y=y,b[i].id=i,b[i].p=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">rep</span>(i,n1<span class="number">+1</span>,n2+n1)&#123;</span><br><span class="line">		<span class="type">int</span> x,y;</span><br><span class="line">		cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">		a[i].x=x,a[i].y=y,a[i].id=i-n1,a[i].p=<span class="number">2</span>;</span><br><span class="line">		b[i].x=x,b[i].y=y,b[i].id=i-n1,b[i].p=<span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(a<span class="number">+1</span>,a<span class="number">+1</span>+n1+n2,cmpx);</span><br><span class="line">	<span class="built_in">sort</span>(b<span class="number">+1</span>,b<span class="number">+1</span>+n1+n2,cmpy);</span><br><span class="line"><span class="comment">//	print();</span></span><br><span class="line">	</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n1+n2)&#123;</span><br><span class="line">		<span class="type">int</span> tmp=a[i].p;</span><br><span class="line">		<span class="keyword">if</span>(i&lt;n1+n2)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i<span class="number">+1</span>].p!=tmp&amp;&amp;(a[i<span class="number">+1</span>].x==a[i].x||a[i<span class="number">+1</span>].y==a[i].y))</span><br><span class="line">				<span class="keyword">if</span>(tmp==<span class="number">1</span>) ans1[a[i].id]=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> ans2[a[i].id]=<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(i!=<span class="number">1</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i<span class="number">-1</span>].p!=tmp&amp;&amp;(a[i<span class="number">-1</span>].x==a[i].x||a[i<span class="number">-1</span>].y==a[i].y))</span><br><span class="line">				<span class="keyword">if</span>(tmp==<span class="number">1</span>) ans1[a[i].id]=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> ans2[a[i].id]=<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n1+n2)&#123;</span><br><span class="line">		<span class="type">int</span> tmp=b[i].p;</span><br><span class="line">		<span class="keyword">if</span>(i&lt;n1+n2)&#123;</span><br><span class="line">			<span class="keyword">if</span>(b[i<span class="number">+1</span>].p!=tmp&amp;&amp;(b[i<span class="number">+1</span>].x==b[i].x||b[i<span class="number">+1</span>].y==b[i].y))</span><br><span class="line">				<span class="keyword">if</span>(tmp==<span class="number">1</span>) ans1[b[i].id]=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> ans2[b[i].id]=<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(i!=<span class="number">1</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(b[i<span class="number">-1</span>].p!=tmp&amp;&amp;(b[i<span class="number">-1</span>].x==b[i].x||b[i<span class="number">-1</span>].y==b[i].y))</span><br><span class="line">				<span class="keyword">if</span>(tmp==<span class="number">1</span>) ans1[b[i].id]=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> ans2[b[i].id]=<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n1) <span class="keyword">if</span>(ans1[i]==<span class="number">1</span>) cout&lt;&lt;<span class="string">&quot;1&quot;</span>;<span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;0&quot;</span>;</span><br><span class="line">	cout&lt;&lt;endl;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n2) <span class="keyword">if</span>(ans2[i]==<span class="number">1</span>) cout&lt;&lt;<span class="string">&quot;1&quot;</span>;<span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;0&quot;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/Old-Blogs/044_%E9%A2%98%E8%A7%A3%EF%BC%9AP10821%20%5BEC%20Final%202020%5D%20Rooks/">https://random-spike.github.io/Old-Blogs/044_%E9%A2%98%E8%A7%A3%EF%BC%9AP10821%20%5BEC%20Final%202020%5D%20Rooks/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
-        
-    </div>
-    
-</section>
-
-    <section class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
-    
-    <div class="mdui-card-primary mdui-ripple">
-    <div class="mdui-card-primary-title">
-        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" href="/Old-Blogs/042_%E9%A2%98%E8%A7%A3%EF%BC%9AP10827%20%5BEC%20Final%202020%5D%20Square/">题解：P10827 [EC Final 2020] Square</a>
-        
-        <small> <a class="mdui-text-color-theme-text category-link" href="/Old-Blogs/categories/%E9%A2%98%E8%A7%A3/">题解</a></small>
-        
-    </div>
-    <div class="mdui-card-primary-subtitle mdui-typo">
-        
-        <span mdui-tooltip="{content:'创建时间：2025-11-30 04:14<br>最后更新时间：2025-11-30 04:53'}">2025-11-30 -</span>
-        
-            <span>/042_题解：P10827 [EC Final 2020] Square/</span>
-        
-    </div>
-</div>
-    
-    
-    <div class="mdui-divider"></div>
-    <div class="mdui-card-content mdui-typo">
-        
-        <h3 id="题目思路"><a href="#题目思路" class="headerlink" title="题目思路"></a>题目思路</h3><p>本题为数论题。</p>
-<p>在数列的每个元素 $a_i$ 中都有一个对应的 $t_i$。而为了配成完全平方数，该数每个质因子的指数必须为偶数。所以在操作的时候，如果该数 $a_i$ 有奇数个质因子，那么在数组中就将对应的该质因子的个数增加 $1$。</p>
-<p>最后在处理数组内所有质因子时，可以使用快速幂优化时间。</p>
-<h3 id="AC-代码"><a href="#AC-代码" class="headerlink" title="AC 代码"></a>AC 代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">#define rep(i,a,b) for(int i=a;i&lt;=b;i++)</span><br><span class="line">#define antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span><br><span class="line">#define speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e7+10;</span><br><span class="line">const int Mod=1e9+7;</span><br><span class="line">int a[N],n,cnt[N],ans=1;</span><br><span class="line">void work(int x)&#123;</span><br><span class="line">	rep(i,2,floor(sqrt(x)))&#123;</span><br><span class="line">		int y=0;</span><br><span class="line">		while(x%i==0)</span><br><span class="line">			x/=i,y++;</span><br><span class="line">		y%=2;</span><br><span class="line">		cnt[i]+=y;</span><br><span class="line">	&#125;</span><br><span class="line">	if(x&gt;1) cnt[x]++;</span><br><span class="line">&#125;</span><br><span class="line">int qpow(int a,int b) &#123;</span><br><span class="line">  int res = 1;</span><br><span class="line">  while (b&gt;0) &#123;</span><br><span class="line">    if(b&amp;1) res=res*a;</span><br><span class="line">    a*=a;</span><br><span class="line">    b&gt;&gt;=1;</span><br><span class="line">    res%=Mod,a%=Mod;</span><br><span class="line">  &#125;</span><br><span class="line">  return res;</span><br><span class="line">&#125;</span><br><span class="line">signed main()&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	rep(i,1,n) cin&gt;&gt;a[i],work(a[i]);</span><br><span class="line">	rep(i,2,N-10)</span><br><span class="line">		if(cnt[i]&gt;0)</span><br><span class="line">			ans*=(qpow(i,min(cnt[i],n-cnt[i]))%Mod),ans%=Mod;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/Old-Blogs/042_%E9%A2%98%E8%A7%A3%EF%BC%9AP10827%20%5BEC%20Final%202020%5D%20Square/">https://random-spike.github.io/Old-Blogs/042_%E9%A2%98%E8%A7%A3%EF%BC%9AP10827%20%5BEC%20Final%202020%5D%20Square/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
-        
-    </div>
-    
-</section>
 
     <section class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
     
@@ -620,6 +533,121 @@
     <strong>
         作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
         链接：<a href="https://random-spike.github.io/Old-Blogs/035_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA300%20Maya%20Calendar/">https://random-spike.github.io/Old-Blogs/035_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA300%20Maya%20Calendar/</a><br>
+        
+            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</section>
+
+    <section class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" href="/Old-Blogs/039_%E9%A2%98%E8%A7%A3%EF%BC%9AP10840%20%E3%80%90MX-J2-T1%E3%80%91Turtle%20and%20Sequences/">题解：P10840 【MX-J2-T1】Turtle and Sequences</a>
+        
+        <small> <a class="mdui-text-color-theme-text category-link" href="/Old-Blogs/categories/%E9%A2%98%E8%A7%A3/">题解</a></small>
+        
+    </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <span mdui-tooltip="{content:'创建时间：2024-08-04 09:49<br>最后更新时间：2025-11-30 05:29'}">2024-08-04 -</span>
+        
+            <span>/039_题解：P10840 【MX-J2-T1】Turtle and Sequences/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <h3 id="题目思路"><a href="#题目思路" class="headerlink" title="题目思路"></a>题目思路</h3><p>本题题意明确，可以用模拟的方式解决这道题。</p>
+<p>有以下几种特殊情况：</p>
+<ul>
+<li><p>$a$ 内数值全部相等。</p>
+</li>
+<li><p>删除 $a_{i+1}$ 后通过改变 $a_i$ 使得原本相等的 $a_{i-1}$ 和 $a_i$ 不再相等。</p>
+</li>
+<li><p>删除 $a_{i}$ 后通过删除使得原本不相邻的 $a_{i-1}$ 和 $a_{i+1}$ 相邻，增加可以删除的数量。</p>
+</li>
+</ul>
+<p>这三种情况的解决方法是：</p>
+<ul>
+<li><p>加入一个判断函数，只有当数组中只剩下 $1$ 个数或者全部相等的时候跳出循环。</p>
+</li>
+<li><p>用随机数赋值 $a_i$。</p>
+</li>
+<li><p>循环操作。</p>
+</li>
+</ul>
+<p>解决后可以写出正确的代码。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">#define rep(i,a,b) for(int i=a;i&lt;=b;i++)</span><br><span class="line">#define antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span><br><span class="line">#define speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6;</span><br><span class="line">int n,a[N],ans;</span><br><span class="line">bool check(int x)&#123;</span><br><span class="line">	rep(i,1,x-1)</span><br><span class="line">	if(a[i]!=a[i+1]) return 0;</span><br><span class="line">	return 1;</span><br><span class="line">&#125; </span><br><span class="line">signed main()&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	ans=0;</span><br><span class="line">	rep(i,1,n) cin&gt;&gt;a[i];</span><br><span class="line">	while(1)&#123;</span><br><span class="line">		if(check(n)||n==1) break;</span><br><span class="line">		antirep(i,n-1,1)&#123;</span><br><span class="line">			if(a[i]!=a[i+1])&#123;</span><br><span class="line">				a[i]=rand();</span><br><span class="line">				rep(j,i+1,n)&#123;</span><br><span class="line">					a[j]=a[j+1];</span><br><span class="line">				&#125;</span><br><span class="line">				n--;</span><br><span class="line">				ans++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
+        链接：<a href="https://random-spike.github.io/Old-Blogs/039_%E9%A2%98%E8%A7%A3%EF%BC%9AP10840%20%E3%80%90MX-J2-T1%E3%80%91Turtle%20and%20Sequences/">https://random-spike.github.io/Old-Blogs/039_%E9%A2%98%E8%A7%A3%EF%BC%9AP10840%20%E3%80%90MX-J2-T1%E3%80%91Turtle%20and%20Sequences/</a><br>
+        
+            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</section>
+
+    <section class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" href="/Old-Blogs/040_%E7%A7%91%E6%AF%94%E7%9A%84%E6%AF%94%E8%B5%9B/">科比的比赛</a>
+        
+        <small> <a class="mdui-text-color-theme-text category-link" href="/Old-Blogs/categories/%E9%A2%98%E8%A7%A3/">题解</a></small>
+        
+    </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <span mdui-tooltip="{content:'创建时间：2024-08-04 05:42<br>最后更新时间：2025-11-30 05:29'}">2024-08-04 -</span>
+        
+            <span>/040_科比的比赛/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <h2 id="科比·布莱恩特："><a href="#科比·布莱恩特：" class="headerlink" title="科比·布莱恩特："></a>科比·布莱恩特：</h2><p>科比·布莱恩特，这位NBA历史上最具标志性的球员之一，以其卓越的篮球技艺和无与伦比的职业精神，赢得了无数球迷的爱戴与敬仰。在这篇文章中，我们将分析科比的赛场表现，比较他与其他顶级球员的表现，并探讨他的个人影响力，尤其是在全球范围内的影响。</p>
+<h3 id="一、赛场表现分析"><a href="#一、赛场表现分析" class="headerlink" title="一、赛场表现分析"></a>一、赛场表现分析</h3><h4 id="1-投篮准确度"><a href="#1-投篮准确度" class="headerlink" title="1. 投篮准确度"></a>1. <strong>投篮准确度</strong></h4><p>科比以其得分能力闻名，他的投篮精准度是衡量其技术水平的重要指标：</p>
+<ul>
+<li><strong>三分球命中率</strong>：科比的职业生涯三分命中率为32.9%。虽然这一数据不如一些专注于外线投篮的球员（如斯蒂芬·库里或雷·阿伦）出色，但科比的三分球仍然是他进攻武器库中的一部分，特别是在关键时刻。</li>
+<li><strong>两分球命中率</strong>：科比的两分命中率约为47.9%。他的中距离投篮被认为是最致命的武器之一，他能够在防守严密的情况下创造出高质量的出手机会。</li>
+<li><strong>罚球命中率</strong>：作为一名稳定的罚球手，科比的职业生涯罚球命中率为83.7%。他在关键时刻的罚球表现尤为出色，成为了湖人队在比赛末段的得分保障。</li>
+</ul>
+<h4 id="2-运球与控球"><a href="#2-运球与控球" class="headerlink" title="2. 运球与控球"></a>2. <strong>运球与控球</strong></h4><p>科比的运球技术极其出色，能够轻松突破防守者，并在比赛的关键时刻创造得分机会。他的运球动作不仅技术娴熟，而且极具观赏性，使得他在一对一进攻中极具威胁。</p>
+<h4 id="3-防守能力"><a href="#3-防守能力" class="headerlink" title="3. 防守能力"></a>3. <strong>防守能力</strong></h4><p>科比不仅是一个得分手，还是一位优秀的防守者。他12次入选NBA最佳防守阵容，展示了他在防守端的杰出表现。科比以其快速的反应和高篮球智商著称，能够有效封锁对手的进攻路线，限制对手的得分机会。</p>
+<h3 id="二、与其他球员的比较"><a href="#二、与其他球员的比较" class="headerlink" title="二、与其他球员的比较"></a>二、与其他球员的比较</h3><p>与其他顶级球员相比，科比展现出了独特的优势和全面的能力。他的得分能力和防守技巧使他成为了联盟中不可忽视的力量。尽管科比的三分球命中率稍低，但他在中距离投篮和罚球方面的表现弥补了这一不足。相比迈克尔·乔丹和勒布朗·詹姆斯，科比在进攻手段的多样性和关键时刻的表现上表现尤为突出。</p>
+<h3 id="科比·布莱恩特球迷增长情况分析"><a href="#科比·布莱恩特球迷增长情况分析" class="headerlink" title="科比·布莱恩特球迷增长情况分析"></a>科比·布莱恩特球迷增长情况分析</h3><p>科比·布莱恩特不仅以其卓越的篮球技艺吸引了无数球迷，他的个人魅力和独特的“黑曼巴精神”更是让他的球迷群体在全球范围内迅速增长。以下是科比球迷增长情况的详细分析。</p>
+<h4 id="1-社交媒体粉丝增长"><a href="#1-社交媒体粉丝增长" class="headerlink" title="1. 社交媒体粉丝增长"></a>1. <strong>社交媒体粉丝增长</strong></h4><p>科比在社交媒体上的影响力持续扩大。特别是在他职业生涯的后期以及退役后的几年，他的Instagram账号粉丝数量激增。在他去世前夕，科比的Instagram粉丝数量已超过2100万，并且保持着高达7.23%的互动率。这表明，尽管他已经退役，他的粉丝群体依然活跃，且对他的内容非常感兴趣。</p>
+<p>他的去世引发了全球范围内的哀悼潮，进一步推动了社交媒体粉丝的增长。在去世后，科比的Instagram账号粉丝数量继续上升，反映了他的遗产对全球球迷的持续影响力。这种现象在其他社交媒体平台上也同样存在，如Twitter和Facebook上，关于科比的讨论在他去世后达到了历史高点，显示出他在数字时代的深远影响。</p>
+<h4 id="2-“Kobe”名字的流行"><a href="#2-“Kobe”名字的流行" class="headerlink" title="2. “Kobe”名字的流行"></a>2. <strong>“Kobe”名字的流行</strong></h4><p>随着科比职业生涯的进展，他的名字在全球范围内变得越来越受欢迎。以“科比”命名的新生儿数量随着他职业成就的增加而增长。例如，在1998年科比首次入选全明星赛后，超过1100名新生儿被命名为“Kobe”。到2000年，在他赢得第一个总冠军后，这一数字迅速增加到数千名。</p>
+<p>值得注意的是，这一趋势并不仅限于美国，在全球范围内，尤其是在热爱篮球的地区，如中国，科比的名字成为许多年轻人的偶像象征。在中国，科比的名字代表了勇气、毅力和成功，许多家长选择用“Kobe”来命名他们的孩子，这进一步扩大了科比在全球的文化影响力。</p>
+<h4 id="3-全球范围内的文化与经济影响"><a href="#3-全球范围内的文化与经济影响" class="headerlink" title="3. 全球范围内的文化与经济影响"></a>3. <strong>全球范围内的文化与经济影响</strong></h4><p>科比的影响力不仅限于篮球场，他在文化和商业领域也产生了深远的影响。在他活跃的职业生涯和退役后的几年里，科比多次访问中国，并且在那里拥有庞大的粉丝群体。他与耐克的合作推出的“Kobe”系列篮球鞋在中国市场非常受欢迎，销售数据显示，在他去世后，科比的相关商品的销售量暴涨，这显示出他的遗产在商业领域的强大生命力。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>科比·布莱恩特不仅是一个杰出的篮球运动员，还是一个全球文化符号。他在赛场上的表现让他成为了NBA历史上的传奇，而他的个人影响力更是超越了体育的界限，深刻影响了全球无数球迷和年轻一代。无论是在篮球场上，还是在社会文化领域，科比的名字将永远被铭记。</p>
+
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
+        链接：<a href="https://random-spike.github.io/Old-Blogs/040_%E7%A7%91%E6%AF%94%E7%9A%84%E6%AF%94%E8%B5%9B/">https://random-spike.github.io/Old-Blogs/040_%E7%A7%91%E6%AF%94%E7%9A%84%E6%AF%94%E8%B5%9B/</a><br>
         
             本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
         

@@ -34,18 +34,18 @@
     
     <title>题解：P10827 [EC Final 2020] Square | Old Blogs</title>
     <link rel="canonical" href="https://Random-spike.github.io/Old-Blogs/Old-Blogs/042_%E9%A2%98%E8%A7%A3%EF%BC%9AP10827%20%5BEC%20Final%202020%5D%20Square/">
-    <meta name="description" content="题目思路本题为数论题。 在数列的每个元素 $a_i$ 中都有一个对应的 $t_i$。而为了配成完全平方数，该数每个质因子的指数必须为偶数。所以在操作的时候，如果该数 $a_i$ 有奇数个质因子，那么在数组中就将对应的该质因子的个数增加 $1$。 最后在处理数组内所有质因子时，可以使用快速幂优化时间。 AC 代码12345678910111213141516171819202122232425262">
+    <meta name="description" content="题目思路本题为数论题。  在数列的每个元素 $a_i$ 中都有一个对应的 $t_i$。而为了配成完全平方数，该数每个质因子的指数必须为偶数。所以在操作的时候，如果该数 $a_i$ 有奇数个质因子，那么在数组中就将对应的该质因子的个数增加 $1$。 最后在处理数组内所有质因子时，可以使用快速幂优化时间。 AC 代码1234567891011121314151617181920212223242526">
 <meta property="og:type" content="article">
 <meta property="og:title" content="题解：P10827 [EC Final 2020] Square">
 <meta property="og:url" content="https://random-spike.github.io/Old-Blogs/042_%E9%A2%98%E8%A7%A3%EF%BC%9AP10827%20%5BEC%20Final%202020%5D%20Square/index.html">
 <meta property="og:site_name" content="Old Blogs">
-<meta property="og:description" content="题目思路本题为数论题。 在数列的每个元素 $a_i$ 中都有一个对应的 $t_i$。而为了配成完全平方数，该数每个质因子的指数必须为偶数。所以在操作的时候，如果该数 $a_i$ 有奇数个质因子，那么在数组中就将对应的该质因子的个数增加 $1$。 最后在处理数组内所有质因子时，可以使用快速幂优化时间。 AC 代码12345678910111213141516171819202122232425262">
+<meta property="og:description" content="题目思路本题为数论题。  在数列的每个元素 $a_i$ 中都有一个对应的 $t_i$。而为了配成完全平方数，该数每个质因子的指数必须为偶数。所以在操作的时候，如果该数 $a_i$ 有奇数个质因子，那么在数组中就将对应的该质因子的个数增加 $1$。 最后在处理数组内所有质因子时，可以使用快速幂优化时间。 AC 代码1234567891011121314151617181920212223242526">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-30T08:14:26.484Z">
-<meta property="article:modified_time" content="2025-11-30T08:53:06.461Z">
+<meta property="article:published_time" content="2024-07-01T15:01:23.000Z">
+<meta property="article:modified_time" content="2025-11-30T12:43:50.797Z">
 <meta property="article:author" content="Random-spike">
 <meta name="twitter:card" content="summary">
-<meta name="generator" content="Hexo 8.1.1"></head>
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
     <div class="mdui-theme-layout-light">
     <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
@@ -125,7 +125,7 @@
     </div>
     <div class="mdui-card-primary-subtitle mdui-typo">
         
-        <span mdui-tooltip="{content:'创建时间：2025-11-30 04:14<br>最后更新时间：2025-11-30 04:53'}">2025-11-30 -</span>
+        <span mdui-tooltip="{content:'创建时间：2024-07-01 11:01<br>最后更新时间：2025-11-30 08:43'}">2024-07-01 -</span>
         
             <span>/042_题解：P10827 [EC Final 2020] Square/</span>
         
@@ -136,7 +136,7 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h3 id="题目思路"><a href="#题目思路" class="headerlink" title="题目思路"></a>题目思路</h3><p>本题为数论题。</p>
+        <h3 id="题目思路"><a href="#题目思路" class="headerlink" title="题目思路"></a>题目思路</h3><p>本题为数论题。 </p>
 <p>在数列的每个元素 $a_i$ 中都有一个对应的 $t_i$。而为了配成完全平方数，该数每个质因子的指数必须为偶数。所以在操作的时候，如果该数 $a_i$ 有奇数个质因子，那么在数组中就将对应的该质因子的个数增加 $1$。</p>
 <p>最后在处理数组内所有质因子时，可以使用快速幂优化时间。</p>
 <h3 id="AC-代码"><a href="#AC-代码" class="headerlink" title="AC 代码"></a>AC 代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">#define rep(i,a,b) for(int i=a;i&lt;=b;i++)</span><br><span class="line">#define antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span><br><span class="line">#define speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e7+10;</span><br><span class="line">const int Mod=1e9+7;</span><br><span class="line">int a[N],n,cnt[N],ans=1;</span><br><span class="line">void work(int x)&#123;</span><br><span class="line">	rep(i,2,floor(sqrt(x)))&#123;</span><br><span class="line">		int y=0;</span><br><span class="line">		while(x%i==0)</span><br><span class="line">			x/=i,y++;</span><br><span class="line">		y%=2;</span><br><span class="line">		cnt[i]+=y;</span><br><span class="line">	&#125;</span><br><span class="line">	if(x&gt;1) cnt[x]++;</span><br><span class="line">&#125;</span><br><span class="line">int qpow(int a,int b) &#123;</span><br><span class="line">  int res = 1;</span><br><span class="line">  while (b&gt;0) &#123;</span><br><span class="line">    if(b&amp;1) res=res*a;</span><br><span class="line">    a*=a;</span><br><span class="line">    b&gt;&gt;=1;</span><br><span class="line">    res%=Mod,a%=Mod;</span><br><span class="line">  &#125;</span><br><span class="line">  return res;</span><br><span class="line">&#125;</span><br><span class="line">signed main()&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	rep(i,1,n) cin&gt;&gt;a[i],work(a[i]);</span><br><span class="line">	rep(i,2,N-10)</span><br><span class="line">		if(cnt[i]&gt;0)</span><br><span class="line">			ans*=(qpow(i,min(cnt[i],n-cnt[i]))%Mod),ans%=Mod;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -160,15 +160,15 @@
     
         <div class="mdui-col-xs-12 mdui-m-b-2">
             <a class="extend prev mdui-btn mdui-ripple mdui-float-left mdui-text-truncate" rel="prev"
-                style="max-width: 100%" href="/Old-Blogs/044_%E9%A2%98%E8%A7%A3%EF%BC%9AP10821%20%5BEC%20Final%202020%5D%20Rooks/">
-                <i class="mdui-icon mdui-icon-left material-icons">arrow_back</i>题解：P10821 [EC Final 2020] Rooks
+                style="max-width: 100%" href="/Old-Blogs/060_%E4%B8%BA%E4%BB%80%E4%B9%88nitianyi%E7%9A%84%E5%90%8D%E5%AD%97%E8%B5%B7%E7%9A%84%E9%9D%9E%E5%B8%B8%E5%A5%BD/">
+                <i class="mdui-icon mdui-icon-left material-icons">arrow_back</i>为什么nitianyi的名字起的非常好
             </a>
         </div>
     
         <div class="mdui-col-xs-12">
             <a class="extend next mdui-btn mdui-ripple mdui-float-right mdui-text-truncate" rel="next"
-                style="max-width: 100%" href="/Old-Blogs/001_%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E4%B8%8E%E7%90%86%E8%AE%BA/">
-                <i class="mdui-icon mdui-icon-right material-icons">arrow_forward</i>数学建模常用算法与理论
+                style="max-width: 100%" href="/Old-Blogs/062_How%20can%20I%20help%20you%20today_/">
+                <i class="mdui-icon mdui-icon-right material-icons">arrow_forward</i>How can I help you today
             </a>
         </div>
     
