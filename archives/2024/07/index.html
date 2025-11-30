@@ -61,12 +61,17 @@
         <a href="/Old-Blogs/about/"  class="mdui-list-item mdui-ripple">
             <div class="mdui-list-item-avatar">
                 
-                <i class="mdui-color-theme-primary mdui-icon material-icons">person</i>
+                <img alt="avatar" /images/avatar.jpg />
                 
             </div>
             <div class="mdui-list-item-content">Random-spike</div>
         </a>
         <div class="mdui-divider"></div>
+        
+        <a href="/Old-Blogs/search/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">search</i>
+            <div class="mdui-list-item-content">搜索</div>
+        </a>
         
         <a href="/Old-Blogs/" class="mdui-list-item mdui-ripple">
             <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
@@ -136,23 +141,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <p><strong>前情提要：</strong></p>
-<p>题目翻译有误，建议阅读英文题面。本题主要难点在于完全读懂题目。</p>
-<p><strong>题目思路：</strong></p>
-<p>根据题意，在根据题目给定的第一个数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span></span></span></span> 不断地和乘数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span></span></span></span> 相乘，再根据题目给定的进制数来求得当前的首位数，直到与目标值相等。</p>
-<p><strong>AC 代码：</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e7</span>;</span><br><span class="line"><span class="type">int</span> base,a,b,ans,x;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;base,&amp;a,&amp;b)==EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		ans=<span class="number">1</span>;</span><br><span class="line">		x=a*b;</span><br><span class="line">		<span class="keyword">while</span>(x!=a)&#123;</span><br><span class="line">			x=x%base*b+x/base,ans++;</span><br><span class="line">		&#125;</span><br><span class="line">		cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/046_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA550%20Multiplying%20by%20Rotation/">https://random-spike.github.io/046_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA550%20Multiplying%20by%20Rotation/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/046_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA550%20Multiplying%20by%20Rotation/">阅读全文</a>
         
     </div>
     
@@ -180,45 +171,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <p>其实我是来体验LG新专栏的（</p>
-<hr>
-<h3 class="mdui-valign" id="事情产生"><span>事情产生&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#事情产生"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>因为NaPF6在犇犇传播了一个人/组织的名字竞技场的名字没有标明出处和战队名，导致名字竞技场相关人员在犇犇里面围攻NaPF6，详情可以看MLE和luotianyi的犇犇。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pk747yd"><img src="https://s21.ax1x.com/2024/07/22/pk747yd.png" alt="pk747yd.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com/paste/mg7bwlwa">名字竞技场事件</a> （犇犇中提到的网址）</p>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com/article/s4x9mitq">luoyingan 三世 NaPF6__qwq 猴王出世</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com/article/knjzrp35">你们名竞玩家为什么非得追着 NaPF6 不放？</a></p>
-<p>总结一下就是NaPF6被名字竞技场团队认为盗用了别人找到的名字了。</p>
-<h3 class="mdui-valign" id="事情经过"><span>事情经过&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#事情经过"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>MLE开帖讲关于这件事情，并且迅速战胜了kkk的洛谷十周年帖子。</p>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/discuss/863337">帖子地址</a></p>
-<p>帖子讲的很详细，我不细说了。</p>
-<h3 class="mdui-valign" id="处罚"><span>处罚&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#处罚"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>（内容来自1群）</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pk7hP3Q"><img src="https://s21.ax1x.com/2024/07/22/pk7hP3Q.jpg" alt="pk7hP3Q.jpg"></a></p>
-<p>上图是小粉兔在帖子中的回复</p>
-<p>Q群的HuangBerry进行了总结：</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pk7hFjs"><img src="https://s21.ax1x.com/2024/07/22/pk7hFjs.png" alt="pk7hFjs.png"></a></p>
-<p>疑似处罚原因：开帖子对线需要花kkk的钱。帖子攻击性很强，指名道姓的来对线。</p>
-<p><s>反正MLE大D又氪钱又有勾，肯定马上解封</s></p>
-<hr>
-<p>搞笑言论：<br>
-<a target="_blank" rel="noopener" href="https://imgse.com/i/pk75imn"><img src="https://s21.ax1x.com/2024/07/22/pk75imn.png" alt="pk75imn.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pk75plQ"><img src="https://s21.ax1x.com/2024/07/22/pk75plQ.png" alt="pk75plQ.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pk75SSg"><img src="https://s21.ax1x.com/2024/07/22/pk75SSg.png" alt="pk75SSg.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pk759yj"><img src="https://s21.ax1x.com/2024/07/22/pk759yj.png" alt="pk759yj.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pk75EkV"><img src="https://s21.ax1x.com/2024/07/22/pk75EkV.png" alt="pk75EkV.png"></a></p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/047_%E5%A4%A7%E8%A7%84%E6%A8%A1%E7%A6%81%E8%A8%80%E4%BA%8B%E4%BB%B6%E6%97%B6%E9%97%B4%E7%BA%BF%E6%A2%B3%E7%90%86/">https://random-spike.github.io/047_%E5%A4%A7%E8%A7%84%E6%A8%A1%E7%A6%81%E8%A8%80%E4%BA%8B%E4%BB%B6%E6%97%B6%E9%97%B4%E7%BA%BF%E6%A2%B3%E7%90%86/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/047_%E5%A4%A7%E8%A7%84%E6%A8%A1%E7%A6%81%E8%A8%80%E4%BA%8B%E4%BB%B6%E6%97%B6%E9%97%B4%E7%BA%BF%E6%A2%B3%E7%90%86/">阅读全文</a>
         
     </div>
     
@@ -246,22 +201,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h3 class="mdui-valign" id="题目大意："><span>题目大意：&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#题目大意："><i class="mdui-icon material-icons">link</i></a></h3>
-<p>这道题基本意思就是给定一个整数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>，要求把这个整数分成尽可能多个互不整除的数，每个数的质因数只有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span></span></span></span>。</p>
-<h3 class="mdui-valign" id="基本思路："><span>基本思路：&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#基本思路："><i class="mdui-icon material-icons">link</i></a></h3>
-<p>因为每次分出了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>a</mi></msup><mo>×</mo><msup><mn>3</mn><mi>b</mi></msup></mrow><annotation encoding="application/x-tex">2^a\times3^b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.932438em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">a</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">×</span><span class="mord"><span class="mord mathrm">3</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">b</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，所以第一次取数在剩余的数量 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 可以最多取出的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 就会导致 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span></span></span></span> 最初可以保证尽可能大，而 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span></span></span></span> 尽可能的小。不断重复这个过程就可以发现 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span></span></span></span> 在不断变小，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span></span></span></span> 在不断变大，这样也就可以实现每个数之间互相不整除。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">#define rep(i,a,b) for(int i=a;i&lt;=b;i++)</span><br><span class="line">#define antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span><br><span class="line">#define speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6;</span><br><span class="line">int t,a,ans[N],cnt;</span><br><span class="line">signed main()&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;t;</span><br><span class="line">	while(t--)&#123;</span><br><span class="line">		cin&gt;&gt;a;</span><br><span class="line">		memset(ans,0,sizeof(ans));</span><br><span class="line">		cnt=0;</span><br><span class="line">		while(a&gt;0)&#123;</span><br><span class="line">		int tmp1=1,tmp2=1;</span><br><span class="line">			while(a%(tmp1*2)==0)tmp1*=2;</span><br><span class="line">			tmp2=tmp1;</span><br><span class="line">			while(tmp2*3&lt;a)tmp2*=3;</span><br><span class="line">			a-=tmp2;</span><br><span class="line">			ans[cnt]=tmp2;</span><br><span class="line">			cnt+=1; </span><br><span class="line">		&#125;</span><br><span class="line">		cout&lt;&lt;cnt&lt;&lt;endl;</span><br><span class="line">		rep(i,0,cnt-1) cout&lt;&lt;ans[i]&lt;&lt;&quot; &quot;;</span><br><span class="line">		cout&lt;&lt;endl;</span><br><span class="line">	&#125; </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/048_%E9%A2%98%E8%A7%A3%EF%BC%9AP7051%20%5BNWRRC2015%5D%20Distribution%20in%20Metagonia/">https://random-spike.github.io/048_%E9%A2%98%E8%A7%A3%EF%BC%9AP7051%20%5BNWRRC2015%5D%20Distribution%20in%20Metagonia/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/048_%E9%A2%98%E8%A7%A3%EF%BC%9AP7051%20%5BNWRRC2015%5D%20Distribution%20in%20Metagonia/">阅读全文</a>
         
     </div>
     
@@ -289,127 +231,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <blockquote>
-<p>918事件是中国现代历史的重要节点，标志着国家政权的转变和社会动荡的开始。</p>
-<p>——ChatGPT</p>
-</blockquote>
-<h2 id="科比●坠机●直升机"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/i54yledi">科比●坠机●直升机</a></h2>
-<h2 class="mdui-valign" id="空难●客机"><span>空难●客机&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#空难●客机"><i class="mdui-icon material-icons">link</i></a></h2>
-<ul>
-<li>
-<p><strong>Aaliyah</strong> - 美国知名女歌手和演员，在2001年的飞机空难中丧生。</p>
-</li>
-<li>
-<p><strong>巴西足球队</strong> - 于2016年在哥伦比亚发生的空难中丧生，当时有多名球员和教练团队成员在飞机事故中丧生。</p>
-</li>
-<li>
-<p><strong>乔治·哈里森</strong> - 披头士乐队成员之一，1970年代在航空事故中受重伤，虽然没有直接死于空难，但伤势影响了他的健康。</p>
-</li>
-<li>
-<p><strong>彼得·杰宁斯</strong> - 著名的美国乡村音乐歌手，在1991年的飞机空难中丧生。</p>
-</li>
-<li>
-<p><strong>坎迪·克拉克</strong> - 美国电视节目主持人和作家，在1999年的飞机空难中丧生。</p>
-</li>
-<li>
-<p><strong>奥尔德林·帕尔莫</strong> - 乔治亚州州长，在1958年的飞机空难中丧生。</p>
-</li>
-<li>
-<p><strong>鲍勃·马基尼</strong> - 美国国会众议员，在1954年的飞机空难中丧生。</p>
-</li>
-</ul>
-<h2 class="mdui-valign" id="客机●型号"><span>客机●型号&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#客机●型号"><i class="mdui-icon material-icons">link</i></a></h2>
-<h4 id="引言">引言</h4>
-<p>本部分分析了2010年至2020年间的飞机坠机记录，排除私人飞机、直升机和战斗机，目的是识别在事故频率和遇难人数方面最不可靠的飞机型号和制造商。分析还考虑了每种型号的总飞行量，以计算坠机率。</p>
-<h4 id="数据收集">数据收集</h4>
-<p>数据来自多个来源，包括航空安全网络和维基百科，涵盖事故数量、遇难人数、飞机型号和制造商。</p>
-<h4 id="主要发现">主要发现</h4>
-<ol>
-<li>
-<p><strong>按型号分类的坠机率</strong>：</p>
-<ul>
-<li><strong>波音737 MAX 7/8/9/10</strong>：坠机率为每百万次飞行3.08次，在此期间发生了两次重大坠机事故，导致该型号在全球范围内停飞 (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_accidents_and_incidents_involving_commercial_aircraft">Wikipedia</a>)。</li>
-<li><strong>空客A310</strong>：坠机率为每百万次飞行1.35次，共发生了九次致命事故 (AirSafe)。</li>
-<li><strong>波音747-100/200/300/SP</strong>：这一旧型号的坠机率为每百万次飞行1.02次，有多次高调事故 (AirSafe)。</li>
-</ul>
-</li>
-<li>
-<p><strong>按制造商分类的坠机率</strong>：</p>
-<ul>
-<li><strong>波音</strong>：波音737系列（包括MAX）的总坠机次数为83次，其中波音737-600/700/800/900的坠机率相对较低，为每百万次飞行0.07次。</li>
-<li><strong>空客</strong>：空客A300和A310系列的坠机率较高，相比之下，较新的A320系列的坠机率为每百万次飞行0.09次 (AirSafe)。</li>
-<li><strong>ATR</strong>：ATR 42和ATR 72的综合坠机率为每百万次飞行0.44次，反映出区域性飞机的事故发生率较高 (AirSafe)。</li>
-</ul>
-</li>
-</ol>
-<h4 id="统计分析">统计分析</h4>
-<ul>
-<li><strong>总事故和遇难人数（2010-2020）</strong>：
-<ul>
-<li>波音总飞行量为2.3884亿次，有83次坠机，坠机率为每百万次飞行0.24次。</li>
-<li>空客总飞行量为1.4982亿次，有37次坠机，坠机率为每百万次飞行0.25次。</li>
-<li>ATR总飞行量为2680万次，有15次坠机，坠机率为每百万次飞行0.44次 (AirSafe) (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_accidents_and_incidents_involving_commercial_aircraft">Wikipedia</a>)。</li>
-</ul>
-</li>
-</ul>
-<h4 id="对比分析">对比分析</h4>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th>制造商</th>
-<th>总飞行量（百万次）</th>
-<th>总坠机次数</th>
-<th>坠机率（每百万次飞行）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>波音</td>
-<td>238.84</td>
-<td>83</td>
-<td>0.24</td>
-</tr>
-<tr>
-<td>空客</td>
-<td>149.82</td>
-<td>37</td>
-<td>0.25</td>
-</tr>
-<tr>
-<td>ATR</td>
-<td>26.8</td>
-<td>15</td>
-<td>0.44</td>
-</tr>
-</tbody>
-</table></div>
-<h4 id="结论">结论</h4>
-<p>分析表明，波音737 MAX系列相比其他型号和制造商，坠机率显著较高。数据还显示，尽管波音和空客的整体坠机率相近，但特定型号如波音737 MAX和空客A310的风险较高。区域性飞机如ATR系列的坠机率也较高，这可能与其操作环境和较短的飞行周期有关。</p>
-<blockquote>
-<p>Boeing 737 是一款可靠的飞机</p>
-<p>——CarlosLiu</p>
-</blockquote>
-<p>来源:</p>
-<ul>
-<li>航空安全网络</li>
-<li><a target="_blank" rel="noopener" href="http://AirSafe.com">AirSafe.com</a></li>
-<li>维基百科</li>
-</ul>
-<h2 class="mdui-valign" id="后记"><span>后记&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#后记"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>可能读者会觉得这2篇文章的作者有点SJ。</p>
-<p>你说的对但是乘坐直升机是一款生命式冒险游戏。</p>
-<p>下期预告：科比的比赛。另外同宣：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/ovpzkxzi">科比的比赛</a> 。</p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/049_918%E2%97%8F%E7%A9%BA%E9%9A%BE%E2%97%8F%E5%AE%A2%E6%9C%BA/">https://random-spike.github.io/049_918%E2%97%8F%E7%A9%BA%E9%9A%BE%E2%97%8F%E5%AE%A2%E6%9C%BA/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/049_918%E2%97%8F%E7%A9%BA%E9%9A%BE%E2%97%8F%E5%AE%A2%E6%9C%BA/">阅读全文</a>
         
     </div>
     
@@ -437,522 +261,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <blockquote>
-<p><em>坠机是制造商的阴谋。</em></p>
-<p>——<em>Lu Xun</em></p>
-</blockquote>
-<h3 id="918●空难●客机"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/xu1ibfdf">918●空难●客机</a></h3>
-<h2 class="mdui-valign" id="著名坠机案例"><span>著名坠机案例&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#著名坠机案例"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>历史上有不少政治人物和公众人物在直升机坠机事故中丧生。以下是一些著名的例子：</p>
-<ul>
-<li>
-<p><strong>美国科比·布莱恩特（Kobe Bryant）</strong>：著名的NBA球星科比·布莱恩特于2020年1月26日与他的女儿及其他七人在加利福尼亚州的直升机坠毁事故中丧生。</p>
-</li>
-<li>
-<p><strong>波兰总统莱赫·卡钦斯基（Lech Kaczyński）</strong>：虽然他并不是在直升机坠机中丧生，但值得一提的是，他在2010年4月10日乘坐飞机前往俄罗斯斯摩棱斯克时，飞机坠毁，机上所有人遇难，包括总统在内的多名波兰高官。</p>
-</li>
-<li>
-<p><strong>尼泊尔国王比兰德拉（King Birendra of Nepal）</strong>：2001年，尼泊尔国王比兰德拉的弟弟，迪潘德拉王子（Crown Prince Dipendra）在一起直升机坠毁事故中丧生。</p>
-</li>
-<li>
-<p><strong>伊朗总统易卜拉欣·莱希（Ebrahim Raisi）</strong> 在2024年5月19日的直升机坠毁事件中丧生。该直升机属于伊朗空军。事故发生在伊朗东阿塞拜疆地区，当时直升机正与其他直升机组成的车队一同飞行。</p>
-</li>
-<li>
-<p><strong>鲍勃·马里（Bob Marley）</strong>：1977年11月，牙买加著名音乐家鲍勃·马里在牙买加的一次直升机坠机事故中受伤，但他最终在1981年死于癌症，而非坠机。</p>
-</li>
-<li>
-<p><strong>弗朗索瓦·迪瓦利埃（François Duvalier）</strong>：1964年，海地总统弗朗索瓦·迪瓦利埃的一个儿子在一次直升机坠机事故中丧生。</p>
-</li>
-<li>
-<p><strong>温多尔·威尔基（Wendell Willkie）</strong>：1944年，美国政治家温多尔·威尔基在乘坐直升机时因机械故障险些丧生，但他在几个月后死于心脏病。</p>
-</li>
-<li>
-<p><strong>穆罕默德·阿明·达迪亚布（Muhammad Amin Didi）</strong>：1954年，马尔代夫第一任总统穆罕默德·阿明·达迪亚布在一次直升机坠机事故中丧生。</p>
-</li>
-<li>
-<p><strong>查尔斯·O·杰克逊（Charles O. Jackson）</strong>：1960年，美国联邦航空局局长查尔斯·O·杰克逊在一次直升机坠机事故中丧生。</p>
-</li>
-<li>
-<p><strong>莫扎代格尔（Mostafa Chamran）</strong>：1981年，伊朗国防部长莫扎代格尔在一次直升机坠机事故中丧生。</p>
-</li>
-<li>
-<p><strong>鲍里斯·特拉伊科夫斯基（Boris Trajkovski）</strong>：2004年，北马其顿总统鲍里斯·特拉伊科夫斯基在前往波黑参加国际会议的途中，因直升机坠毁而丧生。</p>
-</li>
-<li>
-<p><strong>约瑟夫·伯顿（Joseph Burton）</strong>：1997年，美国众议院议员约瑟夫·伯顿在一次直升机坠机事故中丧生。</p>
-</li>
-<li>
-<p><strong>奥古斯都·平诺切特（Augusto Pinochet）</strong>：虽然他并没有在直升机坠机中丧生，但他曾多次乘坐直升机进行军事和政治活动。</p>
-</li>
-<li>
-<p><strong>卡齐米尔·瓦洛萨（Kazimierz Waliszewski）</strong>：2005年，波兰国防部长卡齐米尔·瓦洛萨在一次直升机坠机事故中丧生。</p>
-</li>
-</ul>
-<p>这些样本显然是不够的，为此我找到了更多的样本。</p>
-<ul>
-<li><strong>2015年3月，阿根廷电视节目《瑞士军刀》事故：</strong> Eurocopter AS350</li>
-<li><strong>2018年3月，纽约市直升机坠毁</strong>：Eurocopter AS350</li>
-<li><strong>2013年11月，格拉斯哥直升机坠毁</strong>：Eurocopter EC135</li>
-<li><strong>2009年3月，加拿大空中急救服务事故</strong>：Sikorsky S-92</li>
-<li><strong>2010年8月，阿富汗美军直升机坠毁</strong>：Sikorsky UH-60 Black Hawk</li>
-<li><strong>2004年4月，格鲁吉亚总统直升机事故</strong>：Mil Mi-8</li>
-<li><strong>2002年2月，美国NBA球星克里斯·波什事故</strong>：Bell 206</li>
-<li><strong>2001年10月，意大利航空公司直升机事故</strong>：Agusta A109</li>
-<li><strong>1997年8月，美国电视主播弗兰克·雷诺兹事故</strong>：Bell 206</li>
-<li><strong>1994年7月，阿根廷总统直升机事故</strong>：Eurocopter AS332 Super Puma</li>
-<li><strong>1993年7月，乌干达直升机坠毁</strong>：Bell UH-1H</li>
-<li><strong>1986年7月，法国政治家米歇尔·克雷波事故</strong>：Aérospatiale SA341 Gazelle</li>
-<li><strong>1980年8月，西班牙国王胡安·卡洛斯一世事故</strong>：Agusta A109</li>
-<li><strong>1977年9月，德国联邦警察直升机坠毁</strong>：Eurocopter BO105</li>
-<li><strong>1974年11月，澳大利亚总理高夫·惠特拉姆事故</strong>：Bell UH-1H</li>
-<li><strong>1972年9月，墨西哥总统路易斯·埃切维里亚事故</strong>：Bell 212</li>
-<li><strong>1970年3月，智利总统萨尔瓦多·阿连德事故</strong>：Sikorsky S-61</li>
-<li><strong>1969年7月，巴基斯坦总统叶海亚·汗事故</strong>：Bell 47G</li>
-<li><strong>1967年5月，菲律宾总统费迪南德·马科斯事故</strong>：Bell UH-1H</li>
-<li><strong>1966年6月，南非总统查尔斯·罗伯茨事故</strong>：Aérospatiale Alouette III</li>
-<li><strong>1964年1月，意大利国防部长阿方索·阿尔比诺事故</strong>：Bell UH-1H</li>
-<li><strong>1963年11月，巴西总统若昂·古拉特事故</strong>：Bell UH-1H</li>
-<li><strong>1962年12月，伊拉克总统阿卜杜勒·卡里姆·卡西姆事故</strong>：Mil Mi-4</li>
-<li><strong>1960年9月，土耳其总统杰拉勒·拜亚尔事故</strong>：Mil Mi-4</li>
-<li><strong>1958年10月，叙利亚总统沙克里·库瓦特利事故</strong>：Mil Mi-4</li>
-<li><strong>1955年5月，苏联总理尼基塔·赫鲁晓夫事故</strong>：Mil Mi-4</li>
-<li><strong>1953年7月，英国首相温斯顿·丘吉尔事故</strong>：Westland Whirlwind</li>
-<li><strong>1951年3月，印度总理贾瓦哈拉尔·尼赫鲁事故</strong>：Sikorsky S-55</li>
-<li><strong>1949年2月，南斯拉夫总统约瑟普·布罗兹·铁托事故</strong>：Mil Mi-4</li>
-</ul>
-<p>然后是直升机型号的出现频率，以进行可靠性分析。</p>
-<h2 class="mdui-valign" id="直升机型号可靠性分析"><span>直升机型号可靠性分析&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#直升机型号可靠性分析"><i class="mdui-icon material-icons">link</i></a></h2>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th>直升机型号</th>
-<th>事故次数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sikorsky S-76B</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Eurocopter AS350</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Eurocopter EC135</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Sikorsky S-92</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Sikorsky UH-60 Black Hawk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Mil Mi-8</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Bell 206</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Agusta A109</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Eurocopter AS332 Super Puma</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Bell UH-1H</td>
-<td>6</td>
-</tr>
-<tr>
-<td>Aérospatiale SA341 Gazelle</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Eurocopter BO105</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Sikorsky S-61</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Bell 47G</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Aérospatiale Alouette III</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Mil Mi-4</td>
-<td>6</td>
-</tr>
-<tr>
-<td>Westland Whirlwind</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Sikorsky S-55</td>
-<td>1</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li><strong>Bell UH-1H</strong> 和 <strong>Mil Mi-4</strong> 的事故次数最多，各有6起。这些型号在过去被广泛使用，特别是在军事用途上，因此事故频率较高。</li>
-<li><strong>Eurocopter AS350</strong> 和 <strong>Bell 206</strong> 也出现了多次，这些型号在民用和商用中应用广泛。</li>
-<li><strong>Sikorsky</strong> 系列（S-76B、S-92、UH-60）在高级别和重要人物使用中较为常见，但事故率相对较低。</li>
-</ul>
-<h2 class="mdui-valign" id="直升飞机公司可靠性分析"><span>直升飞机公司可靠性分析&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#直升飞机公司可靠性分析"><i class="mdui-icon material-icons">link</i></a></h2>
-<h3 class="mdui-valign" id="直升机生产公司分类及其事故次数"><span>直升机生产公司分类及其事故次数&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#直升机生产公司分类及其事故次数"><i class="mdui-icon material-icons">link</i></a></h3>
-<h4 id="Sikorsky-Aircraft-Corporation">Sikorsky Aircraft Corporation</h4>
-<ol>
-<li>Sikorsky S-76B</li>
-<li>Sikorsky S-92</li>
-<li>Sikorsky UH-60 Black Hawk</li>
-<li>Sikorsky S-61</li>
-<li>Sikorsky S-55</li>
-</ol>
-<h4 id="Airbus-Helicopters-包括Eurocopter">Airbus Helicopters (包括Eurocopter)</h4>
-<ol>
-<li>Eurocopter AS350</li>
-<li>Eurocopter EC135</li>
-<li>Eurocopter AS332 Super Puma</li>
-<li>Eurocopter BO105</li>
-</ol>
-<h4 id="Bell-Helicopter">Bell Helicopter</h4>
-<ol>
-<li>Bell 206</li>
-<li>Bell UH-1H</li>
-<li>Bell 212</li>
-<li>Bell 47G</li>
-</ol>
-<h4 id="Mil-Moscow-Helicopter-Plant">Mil Moscow Helicopter Plant</h4>
-<ol>
-<li>Mil Mi-8</li>
-<li>Mil Mi-4</li>
-</ol>
-<h4 id="AgustaWestland-现为Leonardo">AgustaWestland (现为Leonardo)</h4>
-<ol>
-<li>Agusta A109</li>
-<li>Aérospatiale SA341 Gazelle (现为Airbus Helicopters)</li>
-<li>Aérospatiale Alouette III (现为Airbus Helicopters)</li>
-</ol>
-<h4 id="Westland-Helicopters">Westland Helicopters</h4>
-<ol>
-<li>Westland Whirlwind</li>
-</ol>
-<h3 class="mdui-valign" id="统计结果"><span>统计结果&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#统计结果"><i class="mdui-icon material-icons">link</i></a></h3>
-<h4 id="Sikorsky-Aircraft-Corporation-2">Sikorsky Aircraft Corporation</h4>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th>型号</th>
-<th>事故次数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sikorsky S-76B</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Sikorsky S-92</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Sikorsky UH-60 Black Hawk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Sikorsky S-61</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Sikorsky S-55</td>
-<td>1</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>总计：5起事故</strong></p>
-<h4 id="Airbus-Helicopters-包括Eurocopter-2">Airbus Helicopters (包括Eurocopter)</h4>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th>型号</th>
-<th>事故次数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Eurocopter AS350</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Eurocopter EC135</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Eurocopter AS332 Super Puma</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Eurocopter BO105</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Aérospatiale SA341 Gazelle</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Aérospatiale Alouette III</td>
-<td>1</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>总计：7起事故</strong></p>
-<h4 id="Bell-Helicopter-2">Bell Helicopter</h4>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th>型号</th>
-<th>事故次数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bell 206</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Bell UH-1H</td>
-<td>6</td>
-</tr>
-<tr>
-<td>Bell 212</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Bell 47G</td>
-<td>1</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>总计：10起事故</strong></p>
-<h4 id="Mil-Moscow-Helicopter-Plant-2">Mil Moscow Helicopter Plant</h4>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th>型号</th>
-<th>事故次数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mil Mi-8</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Mil Mi-4</td>
-<td>6</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>总计：7起事故</strong></p>
-<h4 id="AgustaWestland-现为Leonardo-2">AgustaWestland (现为Leonardo)</h4>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th>型号</th>
-<th>事故次数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Agusta A109</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Aérospatiale SA341 Gazelle</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Aérospatiale Alouette III</td>
-<td>1</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>总计：4起事故</strong></p>
-<h4 id="Westland-Helicopters-2">Westland Helicopters</h4>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th>型号</th>
-<th>事故次数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Westland Whirlwind</td>
-<td>1</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>总计：1起事故</strong></p>
-<h3 class="mdui-valign" id="可靠性分析"><span>可靠性分析&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#可靠性分析"><i class="mdui-icon material-icons">link</i></a></h3>
-<ol>
-<li>
-<p><strong>Bell Helicopter</strong>：事故次数最多，共10起。这可能是因为Bell直升机广泛应用于军事、民用和商用领域，使用频率较高。</p>
-</li>
-<li>
-<p><strong>Airbus Helicopters</strong>：总计7起事故。这些直升机在民用和商用中应用广泛，其事故率可能与其普及率有关。</p>
-</li>
-<li>
-<p><strong>Mil Moscow Helicopter Plant</strong>：总计7起事故，其中Mil Mi-4占6起。这些直升机主要在军事和政府用途上使用，且历史悠久。</p>
-</li>
-<li>
-<p><strong>Sikorsky Aircraft Corporation</strong>：总计5起事故。Sikorsky直升机常用于高层人员运输和军事用途，事故率相对较低。</p>
-</li>
-<li>
-<p><strong>AgustaWestland (现为Leonardo)</strong>：总计4起事故。该公司的直升机在高端商用和政府用途上应用较多。</p>
-</li>
-<li>
-<p><strong>Westland Helicopters</strong>：仅1起事故。这个样本量较小，不足以全面反映其可靠性。</p>
-</li>
-</ol>
-<h3 class="mdui-valign" id="结论"><span>结论&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#结论"><i class="mdui-icon material-icons">link</i></a></h3>
-<ul>
-<li><strong>Bell Helicopter</strong> 和 <strong>Mil Moscow Helicopter Plant</strong> 的事故次数较多，可能与其直升机使用的广泛性和频率有关。</li>
-<li><strong>Airbus Helicopters</strong> 和 <strong>Sikorsky Aircraft Corporation</strong> 的事故次数较为平均，但考虑到这些公司直升机在全球的广泛使用，其事故率不算高。</li>
-<li><strong>AgustaWestland</strong> 和 <strong>Westland Helicopters</strong> 的事故次数较少，但样本量有限，难以做出全面结论。</li>
-</ul>
-<p>可靠性分析不仅依赖于事故次数，还需考虑每个型号的生产数量、使用年限、操作环境等因素。总体来看，使用广泛的型号往往事故次数较多，但并不一定代表其本质上的不可靠性。</p>
-<h2 class="mdui-valign" id="直升机？"><span>直升机？&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#直升机？"><i class="mdui-icon material-icons">link</i></a></h2>
-<h3 class="mdui-valign" id="销量估计（基于公开数据和历史记录）"><span>销量估计（基于公开数据和历史记录）&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#销量估计（基于公开数据和历史记录）"><i class="mdui-icon material-icons">link</i></a></h3>
-<ul>
-<li><strong>Sikorsky Aircraft Corporation</strong>：估计总销量约为10,000架</li>
-<li><strong>Airbus Helicopters (包括Eurocopter)</strong>：估计总销量约为12,000架</li>
-<li><strong>Bell Helicopter</strong>：估计总销量约为13,000架</li>
-<li><strong>Mil Moscow Helicopter Plant</strong>：估计总销量约为7,000架</li>
-<li><strong>AgustaWestland (现为Leonardo)</strong>：估计总销量约为4,000架</li>
-<li><strong>Westland Helicopters</strong>：估计总销量约为1,000架</li>
-</ul>
-<h3 class="mdui-valign" id="坠机次数统计"><span>坠机次数统计&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#坠机次数统计"><i class="mdui-icon material-icons">link</i></a></h3>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th>公司名称</th>
-<th>坠机次数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sikorsky Aircraft Corporation</td>
-<td>5</td>
-</tr>
-<tr>
-<td>Airbus Helicopters</td>
-<td>7</td>
-</tr>
-<tr>
-<td>Bell Helicopter</td>
-<td>10</td>
-</tr>
-<tr>
-<td>Mil Moscow Helicopter Plant</td>
-<td>7</td>
-</tr>
-<tr>
-<td>AgustaWestland</td>
-<td>4</td>
-</tr>
-<tr>
-<td>Westland Helicopters</td>
-<td>1</td>
-</tr>
-</tbody>
-</table></div>
-<h3 class="mdui-valign" id="可靠性对比表"><span>可靠性对比表&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#可靠性对比表"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>我们将计算每个公司直升机的总销量与坠机次数的比值，以评估其相对可靠性：</p>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th>公司名称</th>
-<th>总销量（估计）</th>
-<th>坠机次数</th>
-<th>销量与坠机次数比值（每多少架一坠机）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sikorsky Aircraft Corporation</td>
-<td>10,000</td>
-<td>5</td>
-<td>2,000</td>
-</tr>
-<tr>
-<td>Airbus Helicopters</td>
-<td>12,000</td>
-<td>7</td>
-<td>1,714</td>
-</tr>
-<tr>
-<td>Bell Helicopter</td>
-<td>13,000</td>
-<td>10</td>
-<td>1,300</td>
-</tr>
-<tr>
-<td>Mil Moscow Helicopter Plant</td>
-<td>7,000</td>
-<td>7</td>
-<td>1,000</td>
-</tr>
-<tr>
-<td>AgustaWestland</td>
-<td>4,000</td>
-<td>4</td>
-<td>1,000</td>
-</tr>
-<tr>
-<td>Westland Helicopters</td>
-<td>1,000</td>
-<td>1</td>
-<td>1,000</td>
-</tr>
-</tbody>
-</table></div>
-<h3 class="mdui-valign" id="分析与结论"><span>分析与结论&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#分析与结论"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>从表格中可以看出：</p>
-<ol>
-<li><strong>Sikorsky Aircraft Corporation</strong> 的直升机可靠性相对较高，每2,000架中有1架坠机。</li>
-<li><strong>Airbus Helicopters</strong> 的可靠性也较好，每1,714架中有1架坠机。</li>
-<li><strong>Bell Helicopter</strong> 的销量与坠机次数比值为1,300，说明其可靠性相对较低。</li>
-<li><strong>Mil Moscow Helicopter Plant</strong> 和 <strong>AgustaWestland</strong> 的可靠性相近，每1,000架中有1架坠机。</li>
-<li><strong>Westland Helicopters</strong> 的样本较小，每1,000架中有1架坠机，但该数据样本量有限，不足以全面评估其可靠性。</li>
-</ol>
-<p>总体来看，<strong>Sikorsky Aircraft Corporation</strong> 和 <strong>Airbus Helicopters</strong> 的直升机在事故发生率方面表现相对较好，而 <strong>Bell Helicopter</strong> 的事故频率较高。需要注意的是，这些数据仅基于已知的事故样本和估计的销量，实际的可靠性评估还需更全面的数据和分析。</p>
-<h2 class="mdui-valign" id="后记"><span>后记&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#后记"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>可能读者会觉得这2篇文章的作者有点SJ。</p>
-<p>你说的对但是乘坐直升机是一款生命式冒险游戏。</p>
-<p>下期预告：科比的比赛。另外同宣：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/ovpzkxzi">科比的比赛</a> 。</p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/050_%E7%A7%91%E6%AF%94%E2%97%8F%E5%9D%A0%E6%9C%BA%E2%97%8F%E7%9B%B4%E5%8D%87%E6%9C%BA/">https://random-spike.github.io/050_%E7%A7%91%E6%AF%94%E2%97%8F%E5%9D%A0%E6%9C%BA%E2%97%8F%E7%9B%B4%E5%8D%87%E6%9C%BA/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/050_%E7%A7%91%E6%AF%94%E2%97%8F%E5%9D%A0%E6%9C%BA%E2%97%8F%E7%9B%B4%E5%8D%87%E6%9C%BA/">阅读全文</a>
         
     </div>
     
@@ -980,36 +291,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h2 class="mdui-valign" id="思路分析"><span>思路分析&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#思路分析"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>这道题大概题意是给定我们的主人公 <code>Kobe Bryant</code> 的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 个对手，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 场比赛相对应的获胜概率。求 <code>Kobe Bryant</code> 最大全部获胜概率和打败对手能力值之和。</p>
-<p>这道题可以使用 <code>dfs</code> 的思路解决。但是 <code>Kobe Bryant</code> 的对手非常多（也就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 的值非常大），直接搜索的时间复杂度肯定非常高，就需要一些有效的剪枝。</p>
-<p>最容易想到的是最优性剪枝，也就是如果当目前答案已经不优于已经存在的答案就可以直接放弃这个答案。</p>
-<p>具体来说就是在 <code>dfs</code> 函数中加入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(cmp_double(tmp1,ans1)==0) return;</span><br></pre></td></tr></table></figure>
-<p>但是这样的优化显然是明显不够的。</p>
-<p>这个题目有一个写的很明显特性是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n\le m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.63597em;"></span><span class="strut bottom" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathit">m</span></span></span></span>。由于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 的值很小，而 <code>Kobe Bryant</code> 在每场比赛只能对战一个对手，所以 <code>Kobe Bryant</code> 只需要对战 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个对手并不是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span> 个。翻译成白话文就是  <code>Kobe Bryant</code> 可以只找弱的打，也就是找成功概率高的打。根据这个特性，我们可以在搜索时只搜前 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 弱的对手。也可以理解这个剪枝是贪心的思路，因此 <code>Kobe Bryant</code> 的对手就少了很多。再根据前一条剪枝可以拿到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">40</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">4</span><span class="mord mathrm">0</span></span></span></span> 分。</p>
-<p>最后考虑到的是可以使用启发式搜索剪枝优化，对当前的结果进行估计，也就是即使是当前状态的最优情况，目前 <code>Kobe Bryant</code> 的获胜概率仍然没有已有最优情况高的时候舍弃。为了保证估计的效率，可以使用预处理的方式让每次询问复杂度降到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>。</p>
-<p>进行以上三次优化的思路是已经可以通过本题了。</p>
-<h2 class="mdui-valign" id="代码"><span>代码&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#代码"><i class="mdui-icon material-icons">link</i></a></h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">#define rep(i,a,b) for(int i=a;i&lt;=b;i++)</span><br><span class="line">#define antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6,M=1e3;</span><br><span class="line">const double err=1e-10;</span><br><span class="line">bool vst[N];</span><br><span class="line">double ans1,pr[N],Gl[N];</span><br><span class="line">int n,m,a[N],ans2;</span><br><span class="line">struct node&#123;int id;double p;&#125;k[M][M];</span><br><span class="line">int cmp_double(double x,double y)&#123;</span><br><span class="line">	if(abs(x-y)&lt;err) return 2;</span><br><span class="line">	if(x-y&gt;err) return 1;</span><br><span class="line">	if(x-y&lt;err) return 0;</span><br><span class="line">	return 0x7fffffff;</span><br><span class="line">&#125;</span><br><span class="line">bool cmp(node x,node y)&#123;</span><br><span class="line">	if(cmp_double(x.p,y.p)==2) return a[x.id]&gt;a[y.id];</span><br><span class="line">	return x.p&gt;y.p;</span><br><span class="line">&#125;</span><br><span class="line">int f(int cur,double tmp1)&#123;</span><br><span class="line">	return cmp_double(tmp1*pr[cur],ans1);</span><br><span class="line">&#125;</span><br><span class="line">void prepare()&#123;</span><br><span class="line">	pr[n]=k[n][1].p;</span><br><span class="line">	antirep(i,n-1,1)</span><br><span class="line">		pr[i]=pr[i+1]*k[i][1].p;</span><br><span class="line">&#125;</span><br><span class="line">void dfs(int cur,double tmp1,int tmp2)&#123;</span><br><span class="line">	if(cur&gt;n)&#123;</span><br><span class="line">		if(cmp_double(tmp1,ans1)==1||cmp_double(tmp1,ans1)==2)&#123;</span><br><span class="line">			ans1=tmp1;</span><br><span class="line">			if(tmp2&gt;ans2) ans2=tmp2;</span><br><span class="line">		&#125;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	if(cmp_double(tmp1,ans1)==0) return;</span><br><span class="line">	if(f(cur,tmp1)==0)return;</span><br><span class="line">	rep(i,1,n)&#123;</span><br><span class="line">		int ID=k[cur][i].id;</span><br><span class="line">		if(vst[ID]==1) continue;</span><br><span class="line">		vst[ID]=1;</span><br><span class="line">		tmp1*=k[cur][i].p,tmp2+=a[ID];</span><br><span class="line">		dfs(cur+1,tmp1,tmp2);</span><br><span class="line">		tmp1/=k[cur][i].p,tmp2-=a[ID],vst[ID]=0;</span><br><span class="line">	&#125;</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line">signed main()&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	rep(i,1,m) cin&gt;&gt;a[i];</span><br><span class="line">	rep(i,1,n)&#123;</span><br><span class="line">		rep(j,1,m)</span><br><span class="line">			cin&gt;&gt;k[i][j].p,k[i][j].id=j;</span><br><span class="line">		sort(k[i]+1,k[i]+1+m,cmp);</span><br><span class="line">	&#125;</span><br><span class="line">	prepare();</span><br><span class="line">	dfs(1,1,0);</span><br><span class="line">	cout&lt;&lt;fixed&lt;&lt;setprecision(12)&lt;&lt;ans1&lt;&lt;endl;</span><br><span class="line">	cout&lt;&lt;ans2&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>这里对代码进行一些解释，因为本题是浮点数操作，浮点数会在精度很高的时候产生误差，因此这里使用了 <code>cmp_double</code> 函数进行比较浮点数大小。</p>
-<p>预处理之所以是逆序的储存是因为正序的搜索每次询问的都是剩余比赛的最有情况。</p>
-<p>排序可以保证把 <code>Kobe Bryant</code> 最弱（也就是获胜概率最高）的对手放在每场比赛的最前面。</p>
-<h2 class="mdui-valign" id="后记"><span>后记&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#后记"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>备注：<code>Kobe Bryant</code> 是本题主人公科比的原名。而在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>0</mn><mn>2</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">2020</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">0</span></span></span></span> 年，科比本人乘坐的西科斯基 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>−</mo><mn>7</mn><mn>6</mn></mrow><annotation encoding="application/x-tex">S-76</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mbin">−</span><span class="mord mathrm">7</span><span class="mord mathrm">6</span></span></span></span> 直升机在美国加利福尼亚州洛杉矶县卡拉巴萨斯市坠毁。年仅 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn><mn>1</mn></mrow><annotation encoding="application/x-tex">41</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">4</span><span class="mord mathrm">1</span></span></span></span> 岁。</p>
-<p>虽然我们不能跟题目重所描述的那样帮助科比赢得比赛,但是我们可以通过解出这道题淡化对科比离去的哀伤。</p>
-<p><s>牢大，我想你了。</s></p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/051_%E9%A2%98%E8%A7%A3%EF%BC%9AP2460%20%5BSDOI2007%5D%20%E7%A7%91%E6%AF%94%E7%9A%84%E6%AF%94%E8%B5%9B/">https://random-spike.github.io/051_%E9%A2%98%E8%A7%A3%EF%BC%9AP2460%20%5BSDOI2007%5D%20%E7%A7%91%E6%AF%94%E7%9A%84%E6%AF%94%E8%B5%9B/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/051_%E9%A2%98%E8%A7%A3%EF%BC%9AP2460%20%5BSDOI2007%5D%20%E7%A7%91%E6%AF%94%E7%9A%84%E6%AF%94%E8%B5%9B/">阅读全文</a>
         
     </div>
     
@@ -1037,31 +321,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h1>题解：P10479 匹配统计</h1>
-<h2 class="mdui-valign" id="思路"><span>思路&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#思路"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>使用字符串哈希，然后二分答案最大匹配长度。</p>
-<h2 class="mdui-valign" id="解题方法"><span>解题方法&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#解题方法"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>使用了自然溢出，跑一遍 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> 字符串的哈希，然后根据题意，预处理 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span> 字符串的每个前缀和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> 字符串的匹配长度，储存到一个 \texttt{map} 里面。（节约空间）</p>
-<h2 class="mdui-valign" id="复杂度"><span>复杂度&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#复杂度"><i class="mdui-icon material-icons">link</i></a></h2>
-<h3 class="mdui-valign" id="时间复杂度"><span>时间复杂度:&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#时间复杂度"><i class="mdui-icon material-icons">link</i></a></h3>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span></p>
-<h3 class="mdui-valign" id="空间复杂度"><span>空间复杂度:&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#空间复杂度"><i class="mdui-icon material-icons">link</i></a></h3>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span></p>
-<h3 class="mdui-valign" id="注意点："><span>注意点：&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#注意点："><i class="mdui-icon material-icons">link</i></a></h3>
-<p>洛谷评测机不接受函数名词为 <code>hash</code>。</p>
-<h2 class="mdui-valign" id="Code"><span>Code&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#Code"><i class="mdui-icon material-icons">link</i></a></h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6,bs=1321;</span><br><span class="line">int n,m,pw[N],T,hs_a[N],hs_b[N];</span><br><span class="line">string a,b;</span><br><span class="line">map&lt;int,int&gt; ans;</span><br><span class="line">void Hash(string s,int len,int hs[])&#123;</span><br><span class="line">	for(int i=1;i&lt;=len;i++)</span><br><span class="line">	hs[i]=hs[i-1]*bs+s[i];</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line">int gethash(int hs[],int l,int r)&#123;</span><br><span class="line">	return hs[r]-hs[l-1]*pw[r-l+1];</span><br><span class="line">&#125;</span><br><span class="line">bool check(int mid,int x)&#123;</span><br><span class="line">	return gethash(hs_a,x,x+mid-1)==gethash(hs_b,1,mid);</span><br><span class="line">&#125;</span><br><span class="line">int work(int x)&#123;</span><br><span class="line">	int l=-1,r=min(n-x+1,m+1)+1;</span><br><span class="line">	while(l+1&lt;r)&#123;</span><br><span class="line">		int mid=(l+r)&gt;&gt;1;</span><br><span class="line">		if(check(mid,x))</span><br><span class="line">			l=mid;</span><br><span class="line">		else r=mid;</span><br><span class="line">	&#125;</span><br><span class="line">	return l;</span><br><span class="line">&#125;</span><br><span class="line">signed main()&#123;</span><br><span class="line">	pw[0]=1;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m&gt;&gt;T;</span><br><span class="line">	cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">	a=&quot; &quot;+a;</span><br><span class="line">	b=&quot; &quot;+b;</span><br><span class="line">	Hash(a,n,hs_a);</span><br><span class="line">	Hash(b,m,hs_b);</span><br><span class="line">	for(int i=1;i&lt;=max(n,m);i++)</span><br><span class="line">	pw[i]=pw[i-1]*bs;</span><br><span class="line">	for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">		int x=work(i);</span><br><span class="line">		ans[x]+=1;</span><br><span class="line">	&#125;</span><br><span class="line">	while(T--)&#123;</span><br><span class="line">		int x;</span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">		cout&lt;&lt;ans[x]&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/052_%E9%A2%98%E8%A7%A3%EF%BC%9AP10479%20%E5%8C%B9%E9%85%8D%E7%BB%9F%E8%AE%A1/">https://random-spike.github.io/052_%E9%A2%98%E8%A7%A3%EF%BC%9AP10479%20%E5%8C%B9%E9%85%8D%E7%BB%9F%E8%AE%A1/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/052_%E9%A2%98%E8%A7%A3%EF%BC%9AP10479%20%E5%8C%B9%E9%85%8D%E7%BB%9F%E8%AE%A1/">阅读全文</a>
         
     </div>
     
@@ -1089,36 +351,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <p><strong>题目大意：</strong></p>
-<p>求从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>1</mn><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(1,1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span> 点到点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>n</mi><mo separator="true">,</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(n,m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathit">m</span><span class="mclose">)</span></span></span></span> 的最少步数。如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 为偶数，那么第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 步只能往上下左右移动任意偶数长度。如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 为奇数，那么第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 步只能往上下左右移动任意奇数长度。</p>
-<p><strong>题目思路：</strong></p>
-<p>分为两种情况，第一种情况如下图所示：</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pkWBf78"><img src="https://s21.ax1x.com/2024/07/07/pkWBf78.png" alt="pkWBf78.png"></a></p>
-<p>当 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 都为奇数时，从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>1</mn><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(1,1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span> 点出发移动第一步可以使得该点横坐标或者纵坐标值与目标点的对应值相等。因为另一个值的差仍然为奇数。所以需要至少2步完成操作，加在一起就是三步。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pkWBOBV"><img src="https://s21.ax1x.com/2024/07/07/pkWBOBV.png" alt="pkWBOBV.png"></a></p>
-<p>移动方法给出后给出具体证明：因为每一次移动只能移动一个坐标值，且目标值和起始点两坐标均不相等，两次操作的距离都为奇数，所以至少需要 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span></span></span></span> 次操作（在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span></span></span></span> 中有两个奇数出现）。</p>
-<p>相似的，对于两坐标之差均为偶数的情况，也需要用两个偶数操作距离实现，但由于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span></span></span></span> 步的两奇数移动距离可以相加得出偶数，因此最少也是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span></span></span></span> 次操作。</p>
-<p>对于另一种情况，如下图所示：</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pkWBvAU"><img src="https://s21.ax1x.com/2024/07/07/pkWBvAU.png" alt="pkWBvAU.png"></a></p>
-<p>当 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 的奇偶性不同时，可以通过先操作移动奇数距离的，再移动偶数距离的方法实现。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pkWBzh4"><img src="https://s21.ax1x.com/2024/07/07/pkWBzh4.png" alt="pkWBzh4.png"></a></p>
-<p>因为要对横坐标和纵坐标分别操作，所以移动距离至少是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 步，也就是这种情况对应的最小次数。</p>
-<p><strong>最终结论：</strong></p>
-<p>当 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 奇偶性相同时，答案是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span></span></span></span> 次。</p>
-<p>当 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 奇偶性不同时，答案是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 次。</p>
-<p><strong>AC 代码：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6;</span><br><span class="line">int n,m;</span><br><span class="line">signed main()&#123;</span><br><span class="line">	int T;</span><br><span class="line">	cin&gt;&gt;T;</span><br><span class="line">	while(T--)&#123;//多次询问 </span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	int i;</span><br><span class="line">	if((n-1)%2==0&amp;&amp;(m-1)%2==0)&#123;//奇偶性相同 </span><br><span class="line">		cout&lt;&lt;3&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	if((n-1)%2==1&amp;&amp;(m-1)%2==1)&#123;//奇偶性相同 </span><br><span class="line">		cout&lt;&lt;3&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	if((n-1)%2==1&amp;&amp;(m-1)%2==0)&#123;//奇偶性不同 </span><br><span class="line">		cout&lt;&lt;2&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	if((n-1)%2==0&amp;&amp;(m-1)%2==1)&#123;//奇偶性不同 </span><br><span class="line">		cout&lt;&lt;2&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/">https://random-spike.github.io/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/">阅读全文</a>
         
     </div>
     
@@ -1146,41 +381,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <p><strong>题目思路：</strong></p>
-<p>题目给定了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(x_1,y_1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(x_2,y_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mn>3</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>3</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(x_3,y_3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span> 三个坐标，因此可以根据勾股定理求出三角形三边长度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span></span></span></span>。</p>
-<p>接下来的思路是通过正弦定理来求出外接圆的直径，但是正弦定理中的正弦值仍然未知，因此需要通过海伦公式先求出面积。</p>
-<p>令 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>=</mo><mfrac><mrow><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>+</mo><mi>c</mi><mo>)</mo></mrow><mrow><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">p=\frac{(a+b+c)}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.355em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord mathit">p</span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mopen">(</span><span class="mord mathit">a</span><span class="mbin">+</span><span class="mord mathit">b</span><span class="mbin">+</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>。</p>
-<p>通过海伦公式可知：</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><msqrt><mrow><mi>p</mi><mo>(</mo><mi>p</mi><mo>−</mo><mi>a</mi><mo>)</mo><mo>(</mo><mi>p</mi><mo>−</mo><mi>b</mi><mo>)</mo><mo>(</mo><mi>p</mi><mo>−</mo><mi>c</mi><mo>)</mo></mrow></msqrt></mrow><annotation encoding="application/x-tex">S=\sqrt{p(p-a)(p-b)(p-c)}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9838800000000001em;"></span><span class="strut bottom" style="height:1.24001em;vertical-align:-0.2561299999999999em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mrel">=</span><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.09388000000000007em;"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size1">√</span></span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord displaystyle textstyle cramped"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">a</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">b</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span><span style="top:-0.90388em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span></span></p>
-<p>又根据：</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mi>A</mi><mo>×</mo><mi>b</mi><mi>c</mi></mrow><mrow><mn>2</mn></mrow></mfrac><mo>=</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">\frac{sinA\times b c}{2}=S
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.37144em;"></span><span class="strut bottom" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord mathit">A</span><span class="mbin">×</span><span class="mord mathit">b</span><span class="mord mathit">c</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05764em;">S</span></span></span></span></span></p>
-<p>所以可以求得：</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mi>A</mi><mo>=</mo><mfrac><mrow><mn>2</mn><msqrt><mrow><mi>p</mi><mo>(</mo><mi>p</mi><mo>−</mo><mi>a</mi><mo>)</mo><mo>(</mo><mi>p</mi><mo>−</mo><mi>b</mi><mo>)</mo><mo>(</mo><mi>p</mi><mo>−</mo><mi>c</mi><mo>)</mo></mrow></msqrt></mrow><mrow><mi>b</mi><mi>c</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">sinA=\frac{2\sqrt{p(p-a)(p-b)(p-c)}}{b c}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.63001em;"></span><span class="strut bottom" style="height:2.31601em;vertical-align:-0.686em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord mathit">A</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit">b</span><span class="mord mathit">c</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.6950049999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathrm">2</span><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.04500500000000007em;"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size1">√</span></span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">a</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">b</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span><span style="top:-0.855005em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
-<p>然后根据正弦定理：</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>a</mi></mrow><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mi>A</mi></mrow></mfrac><mo>=</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">\frac{a}{sinA}=d
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.10756em;"></span><span class="strut bottom" style="height:1.7935600000000003em;vertical-align:-0.686em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord mathit">A</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">a</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="mord mathit">d</span></span></span></span></span></p>
-<p>所以求得：</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mo>=</mo><mfrac><mrow><mi>a</mi><mi>b</mi><mi>c</mi></mrow><mrow><mn>2</mn><msqrt><mrow><mi>p</mi><mo>(</mo><mi>p</mi><mo>−</mo><mi>a</mi><mo>)</mo><mo>(</mo><mi>p</mi><mo>−</mo><mi>b</mi><mo>)</mo><mo>(</mo><mi>p</mi><mo>−</mo><mi>c</mi><mo>)</mo></mrow></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">d=\frac{a b c}{2 \sqrt{p(p-a)(p-b)(p-c)}}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.37144em;"></span><span class="strut bottom" style="height:2.50145em;vertical-align:-1.13001em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">d</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.825005em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.04500500000000007em;"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size1">√</span></span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">a</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">b</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span><span style="top:-0.855005em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">a</span><span class="mord mathit">b</span><span class="mord mathit">c</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
-<p>最后求得外接圆的周长：</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><mi>π</mi><mo>×</mo><mfrac><mrow><mi>a</mi><mi>b</mi><mi>c</mi></mrow><mrow><mn>2</mn><msqrt><mrow><mi>p</mi><mo>(</mo><mi>p</mi><mo>−</mo><mi>a</mi><mo>)</mo><mo>(</mo><mi>p</mi><mo>−</mo><mi>b</mi><mo>)</mo><mo>(</mo><mi>p</mi><mo>−</mo><mi>c</mi><mo>)</mo></mrow></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">C=\pi \times \frac{a b c}{2 \sqrt{p(p-a)(p-b)(p-c)}}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.37144em;"></span><span class="strut bottom" style="height:2.50145em;vertical-align:-1.13001em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mbin">×</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.825005em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.04500500000000007em;"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size1">√</span></span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">a</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">b</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathit">p</span><span class="mbin">−</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span><span style="top:-0.855005em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">a</span><span class="mord mathit">b</span><span class="mord mathit">c</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
-<p><strong>AC 代码</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6;</span><br><span class="line">double a,b,c;</span><br><span class="line">double x1,Y1,x2,y2,x3,y3;</span><br><span class="line">double lenth(double x,double y)&#123;</span><br><span class="line">	return sqrt(x*x+y*y);</span><br><span class="line">&#125;</span><br><span class="line">signed main()&#123;</span><br><span class="line">	while(1)&#123;</span><br><span class="line">		if(scanf(&quot;%lf%lf%lf%lf%lf%lf&quot;,&amp;x1,&amp;Y1,&amp;x2,&amp;y2,&amp;x3,&amp;y3) == EOF) return 0;</span><br><span class="line">		a=lenth(abs(x3-x2),abs(y3-y2)),b=lenth(abs(x3-x1),abs(y3-Y1)),c=lenth(abs(x2-x1),abs(y2-Y1));</span><br><span class="line">//		cout&lt;&lt;a&lt;&lt;&quot; &quot;&lt;&lt;b&lt;&lt;&quot; &quot;&lt;&lt;c&lt;&lt;endl;</span><br><span class="line">		double p=(a+b+c)/2;</span><br><span class="line">		double S=sqrt(p*(p-a)*(p-b)*(p-c));</span><br><span class="line">//		cout&lt;&lt;S&lt;&lt;endl;</span><br><span class="line">		double d=a*b*c/S/2;</span><br><span class="line">		</span><br><span class="line">		cout&lt;&lt;fixed&lt;&lt;setprecision(2)&lt;&lt;acos(-1.0)*d&lt;&lt;endl;</span><br><span class="line">	&#125; </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/054_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA438%20The%20Circumference%20of%20the%20Circle/">https://random-spike.github.io/054_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA438%20The%20Circumference%20of%20the%20Circle/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/054_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA438%20The%20Circumference%20of%20the%20Circle/">阅读全文</a>
         
     </div>
     
@@ -1208,22 +411,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <p><strong>题目思路</strong></p>
-<p>本题大意是在每组数据中给定一个序列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span></span></span></span>，对这个序列进行一定次数的提问。每次提问给定一个值 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>。求 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo>+</mo><msub><mi>a</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">a_i+a_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.8694379999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 使得 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo>+</mo><msub><mi>a</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">a_i+a_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.8694379999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 的差的绝对值最小。</p>
-<p>本来以为这题用二分查找做，后来发现时间限制为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span></span></span></span> 秒，那么暴力枚举即可。枚举序号 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>，记录下最小的绝对值和相应的答案，最后按照题目要求输出。</p>
-<p><strong>AC 代码</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e7;</span><br><span class="line">int n,a[N],T,casee;</span><br><span class="line">signed main()&#123;</span><br><span class="line">	while(1)&#123;</span><br><span class="line">	casee++;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	if(n==0) break;</span><br><span class="line">	memset(a,0,sizeof(a));</span><br><span class="line">	for(int i=1;i&lt;=n;i++)</span><br><span class="line">	cin&gt;&gt;a[i];</span><br><span class="line">	cin&gt;&gt;T;</span><br><span class="line">	cout&lt;&lt;&quot;Case &quot;&lt;&lt;casee&lt;&lt;&quot;:&quot;&lt;&lt;endl;</span><br><span class="line">	while(T--)&#123;</span><br><span class="line">		int m;</span><br><span class="line">		cin&gt;&gt;m;</span><br><span class="line">		int MIN=N,Min=0;</span><br><span class="line">		for(int i=2;i&lt;=n;i++)</span><br><span class="line">			for(int j=1;j&lt;i;j++)&#123;</span><br><span class="line">				if(MIN&gt;abs(a[i]+a[j]-m))&#123;</span><br><span class="line">					MIN=abs(a[i]+a[j]-m);</span><br><span class="line">					Min=a[i]+a[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout&lt;&lt;&quot;Closest sum to &quot;&lt;&lt;m&lt;&lt;&quot; is &quot;&lt;&lt;Min&lt;&lt;&quot;.&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/055_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10487%20Closest%20Sums/">https://random-spike.github.io/055_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10487%20Closest%20Sums/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/055_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA10487%20Closest%20Sums/">阅读全文</a>
         
     </div>
     

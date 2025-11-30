@@ -61,12 +61,17 @@
         <a href="/Old-Blogs/about/"  class="mdui-list-item mdui-ripple">
             <div class="mdui-list-item-avatar">
                 
-                <i class="mdui-color-theme-primary mdui-icon material-icons">person</i>
+                <img alt="avatar" /images/avatar.jpg />
                 
             </div>
             <div class="mdui-list-item-content">Random-spike</div>
         </a>
         <div class="mdui-divider"></div>
+        
+        <a href="/Old-Blogs/search/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">search</i>
+            <div class="mdui-list-item-content">搜索</div>
+        </a>
         
         <a href="/Old-Blogs/" class="mdui-list-item mdui-ripple">
             <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
@@ -136,31 +141,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <p>首先看一下题目一眼平衡树。这里写了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">T</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">p</mi></mtext></mrow><annotation encoding="application/x-tex">\text{Treap}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">T</span><span class="mord mathrm">r</span><span class="mord mathrm">e</span><span class="mord mathrm">a</span><span class="mord mathrm">p</span></span></span></span></span>。</p>
-<h3 class="mdui-valign" id="题目思路"><span>题目思路&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#题目思路"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>根据题意，要求写出在前 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个数中在要求范围内的质数，因为有多组询问，所以考虑预处理所有在范围内的数，因为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&lt;</mo><mn>1</mn><mn>0</mn><mn>0</mn><mn>1</mn></mrow><annotation encoding="application/x-tex">n&lt;1001</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.68354em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">&lt;</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">1</span></span></span></span> 所有只需要维护前 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">1000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span> 个数，因此写一个稍微暴力一点的质数判定也是可以接受的。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">isprime</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">2</span>||x==<span class="number">3</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">2</span>,<span class="built_in">sqrt</span>(x))</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(x%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>接下来还有要处理的问题是：</p>
-<ul>
-<li>平衡树如何使用。</li>
-<li>平衡树如何给出答案。</li>
-</ul>
-<p>解决方法是在预处理的时候将所有质数插入平衡树中，在输入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 的时候可以直接给出所在质数序列的排名。</p>
-<p>对于第二个问题，可以用二叉搜索树的性质计算第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 名的答案，当然也可以用后继的方法查找（理论上应该更快一点？），但是这里数据范围比较小可以直接用比较简单的写法。</p>
-<p>最后要注意的点是要保证输出的数有意义，也就是说不能输出很多重复的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span> 或者大于限制的数。</p>
-<h3 class="mdui-valign" id="代码"><span>代码&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#代码"><i class="mdui-icon material-icons">link</i></a></h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(i,a,b) for(int i=a;i&lt;=b;i++)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e6</span>,M=<span class="number">1e3</span>,mod=<span class="number">1e9</span><span class="number">+7</span>,INF=<span class="number">1e9</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,c;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> pool,rt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> l,r,key,priority,cnt,size;</span><br><span class="line"></span><br><span class="line">	<span class="meta">#<span class="keyword">define</span> l(x) t[x].l</span></span><br><span class="line"></span><br><span class="line">	<span class="meta">#<span class="keyword">define</span> r(x) t[x].r</span></span><br><span class="line"></span><br><span class="line">	<span class="meta">#<span class="keyword">define</span> v(x) t[x].key</span></span><br><span class="line"></span><br><span class="line">	<span class="meta">#<span class="keyword">define</span> p(x) t[x].priority</span></span><br><span class="line"></span><br><span class="line">	<span class="meta">#<span class="keyword">define</span> c(x) t[x].cnt</span></span><br><span class="line"></span><br><span class="line">	<span class="meta">#<span class="keyword">define</span> s(x) t[x].size</span></span><br><span class="line"></span><br><span class="line">&#125;t[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">const</span> <span class="type">int</span> &amp;k)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">s</span>(k)=<span class="built_in">s</span>(<span class="built_in">l</span>(k))+<span class="built_in">s</span>(<span class="built_in">r</span>(k))+<span class="built_in">c</span>(k);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">Zig</span><span class="params">(<span class="type">int</span> &amp;k)</span></span>&#123;<span class="comment">//右旋 </span></span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> y=<span class="built_in">l</span>(k);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">l</span>(k)=<span class="built_in">r</span>(y);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">r</span>(y)=k;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">s</span>(y)=<span class="built_in">s</span>(k);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">update</span>(k);</span><br><span class="line"></span><br><span class="line">	k=y; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">Zag</span><span class="params">(<span class="type">int</span> &amp;k)</span></span>&#123;<span class="comment">//左旋 </span></span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> y=<span class="built_in">r</span>(k);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">r</span>(k)=<span class="built_in">l</span>(y);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">l</span>(y)=k;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">s</span>(y)=<span class="built_in">s</span>(k);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">update</span>(k);</span><br><span class="line"></span><br><span class="line">	k=y;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> &amp;k,<span class="type">const</span> <span class="type">int</span> &amp;key)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(!k)&#123;</span><br><span class="line"></span><br><span class="line">		k=++pool,<span class="built_in">v</span>(k)=key,<span class="built_in">p</span>(k)=<span class="built_in">rand</span>();</span><br><span class="line"></span><br><span class="line">		<span class="built_in">c</span>(k)=<span class="built_in">s</span>(k)=<span class="number">1</span>;<span class="built_in">l</span>(k)=<span class="built_in">r</span>(k)=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">s</span>(k)++;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">v</span>(k)==key) <span class="built_in">c</span>(k)++;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(key&lt;<span class="built_in">v</span>(k))&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">insert</span>(<span class="built_in">l</span>(k),key);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">p</span>(<span class="built_in">l</span>(k))&lt;<span class="built_in">p</span>(k)) <span class="built_in">Zig</span>(k);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">insert</span>(<span class="built_in">r</span>(k),key);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">p</span>(<span class="built_in">r</span>(k))&lt;<span class="built_in">p</span>(k)) <span class="built_in">Zag</span>(k); </span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">Delete</span><span class="params">(<span class="type">int</span> &amp;k,<span class="type">const</span> <span class="type">int</span> &amp;key)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">v</span>(k)==key)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">c</span>(k)&gt;<span class="number">1</span>) <span class="built_in">c</span>(k)--,<span class="built_in">s</span>(k)--;	</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(!<span class="built_in">l</span>(k)||!<span class="built_in">r</span>(k)) k=<span class="built_in">l</span>(k)+<span class="built_in">r</span>(k);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">p</span>(<span class="built_in">l</span>(k))&lt;<span class="built_in">p</span>(<span class="built_in">r</span>(k))) <span class="built_in">Zig</span>(k),<span class="built_in">Delete</span>(k,key);</span><br><span class="line"></span><br><span class="line">				<span class="keyword">else</span> <span class="built_in">Zag</span>(k),<span class="built_in">Delete</span>(k,key);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span>; </span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">s</span>(k)--;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(key&lt;<span class="built_in">v</span>(k)) <span class="built_in">Delete</span>(<span class="built_in">l</span>(k),key);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">Delete</span>(<span class="built_in">r</span>(k),key);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">querypre</span><span class="params">(<span class="type">const</span> <span class="type">int</span> &amp;key)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> x=rt,res=-INF;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">v</span>(x)&lt;=key) res=<span class="built_in">v</span>(x),x=<span class="built_in">r</span>(x);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span> x=<span class="built_in">l</span>(x);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">querysuf</span><span class="params">(<span class="type">const</span> <span class="type">int</span> &amp;key)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> x=rt,res=INF;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">v</span>(x)&gt;=key) res=<span class="built_in">v</span>(x),x=<span class="built_in">l</span>(x);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span> x=<span class="built_in">r</span>(x);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">querykth</span><span class="params">(<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> x=rt;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">s</span>(<span class="built_in">l</span>(x))&lt;k&amp;&amp;<span class="built_in">s</span>(<span class="built_in">l</span>(x))+<span class="built_in">c</span>(x)&gt;=k) <span class="keyword">return</span> <span class="built_in">v</span>(x);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">s</span>(<span class="built_in">l</span>(x))&gt;=k) x=<span class="built_in">l</span>(x);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span> k-=<span class="built_in">s</span>(<span class="built_in">l</span>(x))+<span class="built_in">c</span>(x),x=<span class="built_in">r</span>(x);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Rank</span><span class="params">(<span class="type">const</span> <span class="type">int</span> &amp;key)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> x=rt,res=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(key==<span class="built_in">v</span>(x)) <span class="keyword">return</span> res+<span class="built_in">s</span>(<span class="built_in">l</span>(x))<span class="number">+1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(key&lt;<span class="built_in">v</span>(x)) x=<span class="built_in">l</span>(x);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span> res+=<span class="built_in">s</span>(<span class="built_in">l</span>(x))+<span class="built_in">c</span>(x),x=<span class="built_in">r</span>(x);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">isprime</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">2</span>||x==<span class="number">3</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">2</span>,<span class="built_in">sqrt</span>(x))</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(x%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	speed;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,<span class="number">1000</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">isprime</span>(i)) <span class="built_in">insert</span>(rt,i);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">		cin&gt;&gt;n&gt;&gt;c;</span><br><span class="line"></span><br><span class="line">		cout&lt;&lt;n&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;c&lt;&lt;<span class="string">&quot;: &quot;</span>;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">insert</span>(rt,n);</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> x=<span class="built_in">Rank</span>(n)<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">Delete</span>(rt,n);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(x%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">			x=x/<span class="number">2</span><span class="number">+1</span>;</span><br><span class="line"></span><br><span class="line">			<span class="built_in">rep</span>(i,x-c<span class="number">+1</span>,x+c<span class="number">-1</span>) &#123;</span><br><span class="line"></span><br><span class="line">				<span class="type">int</span> y=<span class="built_in">querykth</span>(i);</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(y&gt;<span class="number">0</span>&amp;&amp;y&lt;=n)</span><br><span class="line"></span><br><span class="line">				cout&lt;&lt;y&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line"></span><br><span class="line">			x=x/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">			<span class="built_in">rep</span>(i,x-c<span class="number">+1</span>,x+c)  &#123;</span><br><span class="line"></span><br><span class="line">				<span class="type">int</span> y=<span class="built_in">querykth</span>(i);</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(y&gt;<span class="number">0</span>&amp;&amp;y&lt;=n)</span><br><span class="line"></span><br><span class="line">				cout&lt;&lt;y&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/032_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA406%20Prime%20Cuts/">https://random-spike.github.io/032_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA406%20Prime%20Cuts/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/032_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA406%20Prime%20Cuts/">阅读全文</a>
         
     </div>
     
@@ -188,143 +171,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <p>往期文章请查看 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/7fq99ceu">合集</a> 。</p>
-<p>上一期文章请移步 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/wrcgrxsm">从注册到神话</a></p>
-<hr>
-<h2 class="mdui-valign" id="下水道-丛林-火蚁穴"><span>下水道 丛林 火蚁穴&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#下水道-丛林-火蚁穴"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>上一期文章中介绍了在完成全青后的花园，沙漠，海洋，黑白蚂蚁穴的打发，这期接着介绍其他区域。</p>
-<h3 class="mdui-valign" id="下水道"><span>下水道&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#下水道"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>下水道的怪物种类比较单一，攻击方式也比较统一，掉落物相对不那么实用。</p>
-<ul>
-<li>
-<p>Fly。攻击方式为碰撞，以扭曲形式的步伐向玩家进攻。克制方法：bone/pincer/egg/jelly。掉落中wing在前期比较实用，poo一般在跑路装使用。</p>
-</li>
-<li>
-<p>Roach，原名cockroach。中立生物，移动速度非常快，在多数情况下不建议直接正面硬钢。克制方法：pincer/egg/jelly。</p>
-</li>
-<li>
-<p>Moth，友好型生物，不会对玩家攻击，一旦被攻击后会和fly类似的运动方式逃跑，掉落物实用型一般。</p>
-</li>
-<li>
-<p>Spider，敌对型生物，leg及以上的蜘蛛会在路径上放一张同等级的网，克制方法：bone/jelly/egg。</p>
-</li>
-</ul>
-<p>下水道主要值得获取的卡片是 wing。wing在打低等级/体伤的怪时候常常有很好的表现，虽然wing的伤害不是非常高，但也是比较实用的花瓣之一。</p>
-<h3 class="mdui-valign" id="丛林"><span>丛林&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#丛林"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>算是比较难打的地图之一，主要原因可能是因为玩家稀少。里面有比较多的实用的掉落物值得获取。</p>
-<p>丛林的生物移动速度除了firefly都没有玩家快。</p>
-<ul>
-<li>
-<p>leafbug。技能是有护甲（和bone类似），一般情况拿输出装可以解决。掉落物root可以给花朵本体增加armor。</p>
-</li>
-<li>
-<p>bush。和花园的rock，海洋的sponge类似，掉落物cotton配合sponge有很好的效果。</p>
-</li>
-<li>
-<p>wasp。丛林主要有威胁的生物之一，经过更新之后导弹的方向非常诡异，在距离wasp一定的数值的时候导弹是打不中你的，可以用wing比较安全的解决。</p>
-</li>
-<li>
-<p>mantis。丛林主要有威胁的生物之一，发射出的绿色小球是给花朵本体减少armor，换句话说，被debuff后，花朵受到每次的伤害都会变多。可以使用wing/fangs/高血量高输出花瓣快速解决。掉落物bur在之后会有比较大的用处。</p>
-</li>
-<li>
-<p>Firefly。在本体受伤害的时候回放电。</p>
-</li>
-<li>
-<p>dark ladybug。和花园的类似，掉落dahlia有用。</p>
-</li>
-<li>
-<p>mound 丛林的蚂蚁穴，难度并不大，在危险时候可以进去躲避。掉落物rubber有用。</p>
-</li>
-</ul>
-<p>丛林的主要威胁在于被mantis和wasp夹击。因为丛林的生物的射频都非常高，很难直接正面反击，在mantis的debuff下伤害会非常高。这时候比较好的解决方式是用远程花瓣wing/组队配合。</p>
-<p>有一个技巧是使用relic时候孵出的是白蚁蛋，可以尝试孵出白蚁蛋（和召唤物共享伤害），本体携带battery，cotton，salt有必要携带cactus/soil，sponge。实现反伤流打发。（来源于vowov&amp;zhhhh Firefy）</p>
-<h3 class="mdui-valign" id="火蚁穴"><span>火蚁穴&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#火蚁穴"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>火蚁穴的出卡效率非常高，难度也比较简单，但卡的质量并不高。</p>
-<p>在火蚁穴底部用挂机点，可能在中间区域也有，进入时可以跟随前来挂机的人比较简单的实现，如果是只有一个人时，使用web，pincer，bubble和比较好的技巧也是可以没有难度的进入的。</p>
-<p>因为火蚁穴有很多青怪和蛋挂机池。所以可以带足够的搞高伤害花瓣在附近抢掉落。为了更高的效率可以将reach点满，血量尽可能多。</p>
-<p>可以使用以下几种花瓣：stringer，iris，claw（必须在怪80%血量以上攻击），rock，fangs（回血），bone这些花瓣通常比较常见。</p>
-<p>在这里可以获取足够数量的yucca花瓣和sponge花瓣配合使用。</p>
-<h2 class="mdui-valign" id="更快速的换装"><span>更快速的换装&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#更快速的换装"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>在使用了sponge之后，最好需要一个专门的回血装。泡泡装，输出装也需要储存以方便使用。</p>
-<p>游戏内置了快速换装的按键。在主槽和副槽是r键，单个切换时数字键，而整个切换的是l+num。</p>
-<p>具体来说就是可以预先在背包配好一套装备，在同时按下<code>L+shift+num</code> 后可以储存（num为键盘上0~9的一个数字），在调用的时候按下 <code>L+对应的num</code>即可。</p>
-<p>比如输出装把sponge放在槽位的第10个位置，当掉血速度太快时，可以快捷操作回血装（回血装的第十个位置必须是sponge）进行回血操作。</p>
-<h2 class="mdui-valign" id="特殊的技能点"><span>特殊的技能点&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#特殊的技能点"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>观察技能树，发现在一些普通的子树上会有一些奇怪的分支。</p>
-<p>这里介绍一下常用的内容。</p>
-<p>在槽位子树的末端是磁铁技能，这个技能可以让你不携带磁铁获取更大范围的花瓣掉落，这个技能在farm的时候比较实用，抢s用途并不大。</p>
-<p>在槽位子树上还有花瓣复制的技能，这个技能可以让本身有多个部分的花瓣再多出一个部分，这个技能一般在抢s的时候配合沙轮用，或者对有sagg的人用，比如3个sagg拥有者SES-lightning（已退游）。</p>
-<p>在血量子树上有second chance技能，这个技能非常实用，不论是在farm还是抢s。可以让你在受到致命伤害的时候不会死亡，保持一秒的无敌后保持一个很低的健康值。（m等级的可以再无敌时间大幅加快回血速度）</p>
-<p>毒伤和体伤的特殊技能基本是对该技能的强化，前期（除非撞击流）比较少使用。</p>
-<h2 class="mdui-valign" id="获取高端青卡"><span>获取高端青卡&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#获取高端青卡"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>在对地图的每个区域有一定的了解之后应该对花瓣有更多了解。</p>
-<p>不同花瓣都有不同的用途，一个良好的配装中应该有不同的功能。</p>
-<p>在前期比较重要的两个方面一个是回血，一个是输出。</p>
-<h3 class="mdui-valign" id="海洋"><span>海洋&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#海洋"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>回血花瓣最好用的便是starfish和fangs（应对海洋沙漠蚂蚁穴）。为了获取更多的starfish，海星区便是效率最高的地方。</p>
-<p>海星区在地图右上角，到达海星区要途经水母区。（曾经海星区和水母全是u怪，效率非常高，后来一段时间是少部分u怪带很多m怪，现在已经m怪都不多了）海星的技能回血非常烦人，可以使用dandelion阻止它回血，因为海星血量低体伤低，移动速度也没有玩家快，因此基本构不成威胁，在可能被包围时可以直接泡泡弹出去。（其实到了后期被m怪包围也不会死）在海洋的回血使用fangs是最佳选择。</p>
-<p>当然在途径的水母区也值得一去，闪电的花瓣可以穿甲攻击，也可以对leech造成非常大的伤害。</p>
-<p>海星区可以获得沙子，海星，泡泡，电，等非常多的实用花瓣。</p>
-<h3 class="mdui-valign" id="花园"><span>花园&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#花园"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>花园中rock，stringer，rose，light，leaf等很多花瓣都有用，非常值得一刷，主要问题是难度比较大。</p>
-<p>高等级黄蜂会有预判的操作，因此可以快速摇动鼠标的左右方向一步一步向前推进进攻。面对黄蜂的远程攻击最好技能点点满reach。</p>
-<p>蜘蛛非常克制reach的技能，可以使用骨头快速击杀，在无法快速击杀的情况下可以使用jelly/组egg队。</p>
-<p>蜜蜂的轨迹和fly相似，因为其血量低，可以通过边后退边输出的方式消灭蜜蜂。</p>
-<p>石头，蜈蚣，蚂蚁穴等怪通常不构成主要威胁，可以使用电快速获取更多掉落。</p>
-<h3 class="mdui-valign" id="蚂蚁穴"><span>蚂蚁穴&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#蚂蚁穴"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>蚂蚁穴中比较有用的花瓣是骨头，clover和glass通常会被选择来交易换成coin。</p>
-<p>Glass在面对大群投射物的时候有比较好的格挡效果。</p>
-<h3 class="mdui-valign" id="丛林-2"><span>丛林&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#丛林-2"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>虽然丛林的难度比较大，但是其中很多花瓣都是非常有用的。</p>
-<p>上文已经讲了如何面对丛林的怪，这里详细讲讲不同花瓣的用途。</p>
-<ul>
-<li>
-<p>Missile 远程攻击。</p>
-</li>
-<li>
-<p>ante 通常在跑路装使用，可以保证跑路的安全。</p>
-</li>
-<li>
-<p>blood stringer 在攻击的时候减少自己的血量，和fangs配合使用比较好。</p>
-</li>
-<li>
-<p>cotton 用于吸收毒伤或者海绵伤害。</p>
-</li>
-<li>
-<p>leaf 回血+输出。</p>
-</li>
-<li>
-<p>root 单人挂机的时候个更安全。</p>
-</li>
-<li>
-<p>bur 配合光轮/沙轮使用</p>
-</li>
-<li>
-<p>peas 没啥用。</p>
-</li>
-<li>
-<p>dahlia 对频繁远程攻击的怪使用。</p>
-</li>
-<li>
-<p>yinyang 泡泡。</p>
-</li>
-<li>
-<p>battery 对水蛭可以使用/碰撞 可以使用。</p>
-</li>
-</ul>
-<hr>
-<p>在本章节结束时，希望你已经获取了大部分种类的青卡并且做好获取u的准备了。</p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/033_%E2%85%A1%20florr%E6%94%BB%E7%95%A5%E4%B8%8E%E6%8C%87%E5%8D%97/">https://random-spike.github.io/033_%E2%85%A1%20florr%E6%94%BB%E7%95%A5%E4%B8%8E%E6%8C%87%E5%8D%97/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/033_%E2%85%A1%20florr%E6%94%BB%E7%95%A5%E4%B8%8E%E6%8C%87%E5%8D%97/">阅读全文</a>
         
     </div>
     
@@ -352,125 +201,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h1>前言</h1>
-<p><a target="_blank" rel="noopener" href="http://florr.io">florr.io</a>  在2024/4/13 进行了较大规模的更新，在更新之后产生了百年未有之大变局。</p>
-<p>鉴于目前没有系统的攻略，指南为玩家提供发展路线的指引，公会的选择，因此虽本人能力有限，但在老版florr攻略的影响下决定进行重铸。</p>
-<p>因为曾有比较长的一段时间脱离了florr，因此可能产生疏漏，若评论区指出，将感激不尽。</p>
-<h2 class="mdui-valign" id="如何加入更多的florr社区？"><span>如何加入更多的florr社区？&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#如何加入更多的florr社区？"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>加入florr社区是florr玩家的比较重要的一个环节，毕竟在遇到困难/获取信息方面florr社区常常有至关重要的作用。</p>
-<ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/team/47444">中华好花花</a></p>
-<p>作为洛谷本地的较大规模florr玩家社区，是长条地图，wave制florr玩家bijiachen1222建立的讨论平台。内含有包括大量相关资源。</p>
-</li>
-<li>
-<p>Q群 florr official 765884346</p>
-<p>该群是florr官方讨论平台之一，对中国大陆用户来说使用方便，QQ也是很好的平台之一，也可以选择可以加入各大florr相关群聊。</p>
-</li>
-<li>
-<p>discord</p>
-<p>是florr官方讨论平台之一，对中国大陆用户并不那么方便，但是内涵很多高质量频道资源。</p>
-</li>
-<li>
-<p>Wiki</p>
-<p>florr wiki 可以提供很多关于数据的信息，但比较严重的问题在于信息有疏漏或者过时。</p>
-</li>
-</ul>
-<p>这里提供世界地图以供查阅。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pkxjoon"><img src="https://s21.ax1x.com/2024/08/07/pkxjoon.png" alt="pkxjoon.png"></a></p>
-<h2 class="mdui-valign" id="获得第一张红卡"><span>获得第一张红卡&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#获得第一张红卡"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>第一次进入在florr的花园出生点会在出生。死后也将在这里复活。在出生点可以很快速的获取 包括 common，unusual稀有度的卡片，如果继续往出口方向走，获取rare稀有度的花瓣并不困难。</p>
-<p>如果觉得黄蜂很难打，那么你可以试试看orange的挡导弹效果，stringer的爆发高伤害效果对它们的克制。</p>
-<p>在有了基本的卡片之后，可以借用周围玩家的力量/系统匹配的squad 更快速的获得卡片。</p>
-<p>在有一定的基础过后，可以向花园蚂蚁穴的入口推进（地图上标明了），进入蚂蚁穴后面对的是较低伤害的怪和相对丰富的掉落。有需要的有glass，antegg，leaf，corn，light，rice等花瓣，在低难度的区域获取红卡。</p>
-<h2 class="mdui-valign" id="提升等级"><span>提升等级&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#提升等级"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>在lvl10的时候可以拥有更改用户名的机会。</p>
-<p><strong>注意：这个机会是唯一一次，修改名字一定要慎重。</strong></p>
-<p>可以点开左上角的图鉴查看不同怪物获得的经验值。鼠标移动到你花血量下面的可以查看具体的经验值。</p>
-<h2 class="mdui-valign" id="完成成就"><span>完成成就&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#完成成就"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>在左上角红色的按钮点进去是成就部分。</p>
-<p>完成一个成就会给你提供一个技能点（TP），关于如何完成可以看下方英文描述。</p>
-<p>一般来说，成就完成难度是根据稀有度排列的。</p>
-<h2 class="mdui-valign" id="短期技能点"><span>短期技能点&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#短期技能点"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>技能点目前是可以无成本随时重置的，也就是说，你可以在不同区域调整技能点点的方式。</p>
-<p>一般来说，在前期，槽位（loadout），reach，血量是相对重要的，其次重要的是reload。</p>
-<p>比如说在蚁穴，可以点更多的血量，reach保证安全的情况下点尽可能多的loadout。</p>
-<p>不同的区域之后会在可及后一一解释。</p>
-<h2 class="mdui-valign" id="下水道"><span>下水道&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#下水道"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>接下来观察地图可以发现，以目前的装备（少量红卡）来说，到达下方的沙漠，右边的海洋是比较有挑战性的事情。</p>
-<p>在除去蚁穴之外，另一个不同的地图是下水道，下水道中主要有用的花瓣有wing faster web，（触角虽然有用但相比来说比较稀少），可以再获取足够的leg wing等花瓣之后继续刷蚂蚁穴。</p>
-<h2 class="mdui-valign" id="白蚁穴"><span>白蚁穴&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#白蚁穴"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>再有了一定数量的红卡之后可以通过刷蚂蚁穴的方式获取骨头花瓣。</p>
-<p>骨头花瓣有护甲，护甲的作用让骨头花瓣收到的伤害为（\max(0,\text{目标怪体伤}-{护甲值})）。</p>
-<p>换句通俗的话说，骨头可以在本身减少少量血量的情况下对低级怪产生非常大的伤害，比如说，青骨头会对红蚂蚁产生等级压制。</p>
-<h2 class="mdui-valign" id="获取青卡"><span>获取青卡&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#获取青卡"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>纵观所有地图，最好获取青卡的地图是黑蚂蚁穴，在右上角倒数第二格的区域有非常多的红怪。对于这一步的玩家打起来是比较安全高效的，比较理想的方式是在造成一定的伤害后引怪给挂机的人。</p>
-<p>在附近地图还有一种比较有用的花瓣是 ant egg，低级该花瓣召唤出的 4 个蚂蚁可以起到比较好的辅助效果。</p>
-<p>在黑蚁穴获取青卡之后（有clover，glass，leaf等等）可以尝试去沙漠，海洋地图。</p>
-<h2 class="mdui-valign" id="获取更高级的青卡"><span>获取更高级的青卡&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#获取更高级的青卡"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>在黑蚂蚁穴获取的青卡通常用处并不多，在白蚁穴获取的骨头会更加有效。</p>
-<p>如果你是一名热衷于探索的玩家，可以到达海洋地图，沙漠地图获取其他种类的卡片。海洋地图可能相对简单，在左边分岔路向上走面对的怪更多是水母，而向下走面对的是更多样的怪物，比如说泡泡，螃蟹，海星，海绵，水蛭。</p>
-<p>海洋的青卡相对于沙漠的可能更加有用。在分岔路向上走可能需要更多的回血。向下走需要的更多是技术。</p>
-<p>这里介绍一些怪的打法。</p>
-<ul>
-<li>
-<p>泡泡，威胁很小的怪物。掉落物泡泡在跑图赶路的时候非常有用。</p>
-</li>
-<li>
-<p>螃蟹，可能比较有威胁的怪物。掉落物claw，sand都比较有用，可以点更多的reach等级和输出解决。</p>
-</li>
-<li>
-<p>水母，可以使用rubber（来自丛林蚁穴）抵消电的伤害，但如果没有rubber可以用高血量伤害的卡片+fangs或者回血保守打法。</p>
-</li>
-<li>
-<p>海绵，血量较高，建议在安全环境下解决。</p>
-</li>
-<li>
-<p>水蛭，掉落物fangs实用，在被吸住的时候很烦，可以使用闪电快速解决。</p>
-</li>
-<li>
-<p>海星，掉落物sand，starfish很实用，使用dandelion（来自花园）限制它回血。</p>
-</li>
-<li>
-<p>贝壳，掉落物磁铁实用，使用输出解决。</p>
-</li>
-</ul>
-<h2 class="mdui-valign" id="沙漠"><span>沙漠&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#沙漠"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>沙漠中比较有用的掉落物是毒（iris），beetle egg，pincer，cactus，ygg，粉末。</p>
-<p>这些卡片通常没必要大量获得，所以前期个人认为海洋重要性更强。</p>
-<p>这里介绍一下打法：</p>
-<ul>
-<li>
-<p>蝎子：可以使用莲花，fangs，cotton解决。</p>
-</li>
-<li>
-<p>甲虫：使用pincer可以很简单的解决。</p>
-</li>
-<li>
-<p>仙人掌：保证安全的情况下解决。</p>
-</li>
-<li>
-<p>沙漠蜈蚣：一般靠爆发输出解决低等级。</p>
-</li>
-</ul>
-<p><strong>注意：以上怪物打法一般是低等级用的，也许并不适用于高等级。</strong></p>
-<h2 class="mdui-valign" id="赶路装"><span>赶路装&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#赶路装"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>在探索的范围逐渐变大后，赶路成为重要的组成部分。</p>
-<p>通常用法是阴阳泡泡。</p>
-<p>包含以下因素：触角，阴阳，多数泡泡，尽量高等级的light。</p>
-<p>通过连续按数字按键切换阴阳保证泡泡尽量在同一位置，鼠标右键激活泡泡。</p>
-<p>如果前期操作困难可以降低花瓣转速（Q键）</p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/034_%E2%85%A0%20florr%E6%94%BB%E7%95%A5%E4%B8%8E%E6%8C%87%E5%8D%97/">https://random-spike.github.io/034_%E2%85%A0%20florr%E6%94%BB%E7%95%A5%E4%B8%8E%E6%8C%87%E5%8D%97/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/034_%E2%85%A0%20florr%E6%94%BB%E7%95%A5%E4%B8%8E%E6%8C%87%E5%8D%97/">阅读全文</a>
         
     </div>
     
@@ -498,33 +231,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h3 class="mdui-valign" id="题目思路"><span>题目思路&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#题目思路"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>这道题是模拟题，可以发现“天”都是作为一个共同的单位，所以把全部天数的数量计算出来再转换即可。</p>
-<p>有了基本思路便可以使用以下几个操作解决此题。</p>
-<ul>
-<li>
-<p>通过引入一个 <code>char</code> 类型字符读入输入中的点。</p>
-</li>
-<li>
-<p>通过打表的方式解决月份奇怪的名字。</p>
-</li>
-<li>
-<p>输出时进行取模获得答案。</p>
-</li>
-</ul>
-<h3 class="mdui-valign" id="代码"><span>代码&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#代码"><i class="mdui-icon material-icons">link</i></a></h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">#define rep(i,a,b) for(int i=a;i&lt;=b;i++)</span><br><span class="line">#define antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span><br><span class="line">#define speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6,M=1e3,mod=1e9+7,INF=1e9;</span><br><span class="line">int T;</span><br><span class="line">string s1[19]=&#123;&quot;pop&quot;,&quot;no&quot;,&quot;zip&quot;,&quot;zotz&quot;,&quot;tzec&quot;,&quot;xul&quot;,&quot;yoxkin&quot;,&quot;mol&quot;,&quot;chen&quot;,&quot;yax&quot;,&quot;zac&quot;,&quot;ceh&quot;,&quot;mac&quot;,&quot;kankin&quot;,&quot;muan&quot;,&quot;pax&quot;,&quot;koyab&quot;,&quot;cumhu&quot;,&quot;uayet&quot;&#125;;</span><br><span class="line">string s2[20]=&#123;&quot;imix&quot;,&quot;ik&quot;,&quot;akbal&quot;,&quot;kan&quot;,&quot;chicchan&quot;,&quot;cimi&quot;,&quot;manik&quot;,&quot;lamat&quot;,&quot;muluk&quot;,&quot;ok&quot;,&quot;chuen&quot;,&quot;eb&quot;,&quot;ben&quot;,&quot;ix&quot;,&quot;mem&quot;,&quot;cib&quot;,&quot;caban&quot;,&quot;eznab&quot;,&quot;canac&quot;,&quot;ahau&quot;&#125;;</span><br><span class="line">signed main()&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;T;</span><br><span class="line">	cout&lt;&lt;T&lt;&lt;endl;</span><br><span class="line">	while(T--)&#123;</span><br><span class="line">		int a,d;</span><br><span class="line">		char b;</span><br><span class="line">		string c;</span><br><span class="line">		cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d;</span><br><span class="line">		int res=0;</span><br><span class="line">		if(c==s1[0]) res=0*20;</span><br><span class="line">		else if(c==s1[1]) res=1*20;</span><br><span class="line">		else if(c==s1[2]) res=2*20;</span><br><span class="line">		else if(c==s1[3]) res=3*20;</span><br><span class="line">		else if(c==s1[4]) res=4*20;</span><br><span class="line">		else if(c==s1[5]) res=5*20;</span><br><span class="line">		else if(c==s1[6]) res=6*20;</span><br><span class="line">		else if(c==s1[7]) res=7*20;</span><br><span class="line">		else if(c==s1[8]) res=8*20;</span><br><span class="line">		else if(c==s1[9]) res=9*20;</span><br><span class="line">		else if(c==s1[10]) res=10*20;</span><br><span class="line">		else if(c==s1[11]) res=11*20;</span><br><span class="line">		else if(c==s1[12]) res=12*20;</span><br><span class="line">		else if(c==s1[13]) res=13*20;</span><br><span class="line">		else if(c==s1[14]) res=14*20;</span><br><span class="line">		else if(c==s1[15]) res=15*20;</span><br><span class="line">		else if(c==s1[16]) res=16*20;</span><br><span class="line">		else if(c==s1[17]) res=17*20;</span><br><span class="line">		else if(c==s1[18]) res=18*20;</span><br><span class="line">		res+=(a+d*365);</span><br><span class="line">		cout&lt;&lt;res%260%13+1&lt;&lt;&#x27; &#x27;&lt;&lt;s2[res%260%20]&lt;&lt;&quot; &quot;&lt;&lt;res/260&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/035_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA300%20Maya%20Calendar/">https://random-spike.github.io/035_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA300%20Maya%20Calendar/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/035_%E9%A2%98%E8%A7%A3%EF%BC%9AUVA300%20Maya%20Calendar/">阅读全文</a>
         
     </div>
     
@@ -552,152 +261,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <ul>
-<li>
-<p>坐标SH，SES。</p>
-</li>
-<li>
-<p>微信号：usingnamespacesmy 。</p>
-<ul>
-<li>都会通过，但是记得标注uid，username。</li>
-</ul>
-</li>
-<li>
-<p>Google：smybiggoodman</p>
-<ul>
-<li>关联的平台：ChatGPT，Youtube，Gmail，Gemini…</li>
-</ul>
-</li>
-<li>
-<p>Github：CN-ssssmy</p>
-</li>
-<li>
-<p>Codeforces：smydahaoren</p>
-<ul>
-<li>从来不做比赛。</li>
-</ul>
-</li>
-<li>
-<p>Atcoder：ssssmy</p>
-<ul>
-<li>从来不做比赛。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathsize="1.44em"><mtext><mi mathvariant="normal">T</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">s</mi></mtext></mstyle></mrow><annotation encoding="application/x-tex">\Large\text{Tools}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9999935999999999em;"></span><span class="strut bottom" style="height:0.9999935999999999em;vertical-align:0em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="sizing reset-size5 size7 displaystyle textstyle uncramped"><span class="text mord displaystyle textstyle uncramped"><span class="mord mathrm">T</span><span class="mord mathrm">o</span><span class="mord mathrm">o</span><span class="mord mathrm">l</span><span class="mord mathrm">s</span></span></span></span></span></span></span></span></p>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://katex.org/docs/supported.html">§ LaTex §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://note.ms/wtku">§ 笔记簿 §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://chat.extkj.cn/">§ChatGPT §</a>‖</td>
-</tr>
-<tr>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="http://cdn.malu.me/qrdecode/">§ 二维码识别器 §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://zh.numberempire.com/">§ 数学工具 §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://florrio.fandom.com/wiki/Florr.io_Wiki">§ florr维基 §</a>‖</td>
-</tr>
-<tr>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/Minecraft_Wiki">§ mc维基 §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="http://t.tl/">§ 短链接生成器 §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/ide">§ 在线也能编剧 §</a>‖</td>
-</tr>
-<tr>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/luogu/how-to-use-markdownps://ide.wy-lang.org/">§ 文言编剧  §</a> ‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://liferestart.syaro.io/public/index.html">§ 人生重开模拟器 §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://lab.magiconch.com/homo/">§ 恶臭的数字 §</a>‖</td>
-</tr>
-<tr>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://yavt.fengtao.xyz/">§ 意识形态分析 §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://base64.us/">§ base64 §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="http://deepmess.com/namerena/">§ 名字竞技场 §</a>‖</td>
-</tr>
-<tr>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://maxiang.io/">§ markdown编辑器 §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://benben.imken.moe/">§ 犇犇保存站 §</a>‖</td>
-<td style="text-align:center">‖<a target="_blank" rel="noopener" href="https://oiso.cf/">§洛谷资源搜索引擎 §</a>‖</td>
-</tr>
-</tbody>
-</table></div>
-<hr>
-<hr>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathsize="1.44em"><mtext><mi mathvariant="normal">I</mi><mi mathvariant="normal">n</mi><mtext> </mtext><mi mathvariant="normal">L</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">u</mi></mtext></mstyle></mrow><annotation encoding="application/x-tex">\Large\text{In Luogu}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9839952em;"></span><span class="strut bottom" style="height:1.2639888em;vertical-align:-0.2799936em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="sizing reset-size5 size7 displaystyle textstyle uncramped"><span class="text mord displaystyle textstyle uncramped"><span class="mord mathrm">I</span><span class="mord mathrm">n</span><span class="mord mspace"> </span><span class="mord mathrm">L</span><span class="mord mathrm">u</span><span class="mord mathrm">o</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">u</span></span></span></span></span></span></span></span></p>
-<hr>
-<ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/user/800468#article"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">B</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">s</mi></mtext></mrow><annotation encoding="application/x-tex">\text{Blogs}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">B</span><span class="mord mathrm">l</span><span class="mord mathrm">o</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">s</span></span></span></span></span></a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/l0j5q1am">\text{新手村}</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/vme931bz">\text粉福</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/3rzywzgx"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">T</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi><mtext> </mtext><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">d</mi><mtext> </mtext><mi mathvariant="normal">J</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">y</mi></mtext></mrow><annotation encoding="application/x-tex">\text{Tom and Jerry}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">T</span><span class="mord mathrm">o</span><span class="mord mathrm">m</span><span class="mord mspace"> </span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm">d</span><span class="mord mspace"> </span><span class="mord mathrm">J</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">r</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span></span></span></span></span></a></p>
-</li>
-</ul>
-<hr>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathsize="1.44em"><mtext><mi mathvariant="normal">F</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">r</mi></mtext></mstyle></mrow><annotation encoding="application/x-tex">\Large\text{Florr}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9999935999999999em;"></span><span class="strut bottom" style="height:0.9999935999999999em;vertical-align:0em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="sizing reset-size5 size7 displaystyle textstyle uncramped"><span class="text mord displaystyle textstyle uncramped"><span class="mord mathrm">F</span><span class="mord mathrm">l</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">r</span></span></span></span></span></span></span></span></p>
-<hr>
-<ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/rvl0o18p">\text{早期 ssssmy(6.21 get super air)}</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/jr13zwd1"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">S</mi><mi mathvariant="normal">M</mi><mi mathvariant="normal">Y</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi></mtext></mrow><annotation encoding="application/x-tex">\text{SMYdahaoren}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">S</span><span class="mord mathrm">M</span><span class="mord mathrm" style="margin-right:0.025em;">Y</span><span class="mord mathrm">d</span><span class="mord mathrm">a</span><span class="mord mathrm">h</span><span class="mord mathrm">a</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">e</span><span class="mord mathrm">n</span></span></span></span></span></a></p>
-</li>
-</ul>
-<p>入坑时间：2022.4</p>
-<p>目前本人上线时间并不多。</p>
-<hr>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathsize="1.44em"><mtext><mi mathvariant="normal">G</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi></mtext></mstyle></mrow><annotation encoding="application/x-tex">\Large\text{Games}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9839952em;"></span><span class="strut bottom" style="height:0.9839952em;vertical-align:0em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="sizing reset-size5 size7 displaystyle textstyle uncramped"><span class="text mord displaystyle textstyle uncramped"><span class="mord mathrm">G</span><span class="mord mathrm">a</span><span class="mord mathrm">m</span><span class="mord mathrm">e</span><span class="mord mathrm">s</span></span></span></span></span></span></span></span></p>
-<hr>
-<p>『<a target="_blank" rel="noopener" href="https://florr.io/">\text{\textcolor{red}{florr}}</a>』</p>
-<div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
-<thead>
-<tr>
-<th style="text-align:center">『<a target="_blank" rel="noopener" href="https://yorg.io/">yorg</a>』</th>
-<th style="text-align:center">『<a target="_blank" rel="noopener" href="https://diep.io/">diep</a>』</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">『<a target="_blank" rel="noopener" href="https://arras.io/">arras</a>』</td>
-<td style="text-align:center">『<a target="_blank" rel="noopener" href="https://paper-io.com/conflict/">paper</a>』</td>
-</tr>
-<tr>
-<td style="text-align:center">『<a target="_blank" rel="noopener" href="https://deepmess.com/zh/namerena/">MD5大作战</a>』</td>
-<td style="text-align:center">『<a target="_blank" rel="noopener" href="https://static.florr.io/old/">old florr</a>』</td>
-</tr>
-</tbody>
-</table></div>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/ao7mkzjm">\bf{\text{Collections}}</a></p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://badges.toozhao.com/stats/01GYHMEN3YHJ65MVX4RJWYD6K6" title="Get your own page views count badge on badges.toozhao.com"><img src="https://badges.toozhao.com/badges/01GYHMEN3YHJ65MVX4RJWYD6K6/green.svg" alt="Page Views Count"></a></p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/036_zhuye/">https://random-spike.github.io/036_zhuye/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/036_zhuye/">阅读全文</a>
         
     </div>
     
@@ -725,22 +291,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <p>因为最近闲，征集意见是否做更新后的florr攻略？</p>
-<p>为了冠以冠冕堂皇的理由，这将成为450粉粉福。</p>
-<p>在1周内450粉粉福就开始做。</p>
-<p>如果没达到我继续更新florr新闻日志。</p>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/b2xcps39">老版攻略</a></p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/037_%E6%84%8F%E8%A7%81%E5%BE%81%E9%9B%86/">https://random-spike.github.io/037_%E6%84%8F%E8%A7%81%E5%BE%81%E9%9B%86/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/037_%E6%84%8F%E8%A7%81%E5%BE%81%E9%9B%86/">阅读全文</a>
         
     </div>
     
@@ -768,64 +321,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <p>本文同步到个人博客。</p>
-<p>Chat-GPT创作。</p>
-<p>参考内容：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/laoljla5">唐雎不辱使命碎片化翻译</a>，<a target="_blank" rel="noopener" href="https://www.luogu.com/article/nf2zeph0">邹忌讽齐王纳谏（本土碎片化翻译）</a>，<a target="_blank" rel="noopener" href="https://www.luogu.com/article/t21nmyc0">短歌行（本土碎片化翻译）</a>，<a target="_blank" rel="noopener" href="https://www.luogu.com/article/w0zual45">出师表（本土碎片化翻译）</a>。</p>
-<h2 class="mdui-valign" id="前情提要"><span>前情提要&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#前情提要"><i class="mdui-icon material-icons">link</i></a></h2>
-<blockquote>
-<p>命令初生一样下达，各位臣子邀请国王，朝廷的门成了若智市场；</p>
-</blockquote>
-<h2 class="mdui-valign" id="正文"><span>正文&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#正文"><i class="mdui-icon material-icons">link</i></a></h2>
-<p><strong>天皇刘泽圻</strong>：尔等费雾，岂敢与吾争锋？吾掌天命，后宫八千人，皆为天下之基石。今之天下如翻越1100个耳朵，尔等安能知其真谛？</p>
-<p><strong>秦始皇</strong>：寡人金山万座，尔等有何见教？天下尽归寡人，然如今天下之人皆投三分球，何人能与吾一较高下？天皇若真有天命之力，何不以实际成效示人？寡人欲率兵马俑平定缅北诈骗之乱，尔等意下如何？</p>
-<p><strong>唐雎</strong>：大王虽有金山，若不赈民，何益之有？治国如解几何，需明实质而非徒有其表。屠呦呦鸣如鹿，悔恨来迟。大王当以金山施德于民，方能长治久安。缅北诈骗乃天皇之狡诈，然治国之道，非金山所能解决。</p>
-<p><strong>邹忌</strong>：秦王之富，无智辅之，徒为虚名。金山岂能治国？今日之治国需有德智并重。缅北诈骗之事，犹如虚张声势，难以长久。</p>
-<p><strong>诸葛亮</strong>：秦王不过扇币尔。</p>
-<p><strong>城北徐公</strong>：金山若无用，赐予吾等何妨？吾虽肥大，力不逊人。若得金山，如益州人作弊三分球，然治国非此道也。至于缅北诈骗，吾愿随兵马俑同去，共平此乱，绝不让天皇得逞。先王处时代少年团，未尝叹息。</p>
-<p><strong>天皇刘泽圻</strong>：尔等之言，犹如不耗子尾知者。吾掌大化，改革如通电导线，缠绕树枝，尔等安能知其妙？缅北之事，已由吾随8000后宫亲自处理，尔等安能抗衡？先帝事业不及初音未来半，汝等莫非欲追随其后，投于虚无？</p>
-<p><strong>秦始皇</strong>：刘泽圻，自诩掌天命，然吾观之，终究是纸上谈兵。兵马俑乃天下瑰宝，不似汝等泥塑木雕。缅北之乱如忧愁之值般难解，吾当以兵马俑之力，扫荡奸佞，平定此害。天下如三分球，非科比不能中。</p>
-<p><strong>诸葛亮</strong>：天皇所言维新，不过徒然模仿，毫无新意。改革非难事，然无远见卓识，不过仿效中原，未见其独到。缅北诈骗如同虚幻之术，终将无法长久。先前帝王不及灵柩之沉重，何以自夸功业？</p>
-<p><strong>唐雎</strong>：兵马俑乃天下奇珍，岂能轻易送人？天皇所言，徒有虚声。明治维新，若无实绩，不过欺世盗名。若天皇无德无智，不如反省己身，勿令后世笑柄。大王，治国如解几何，非金山能解，需以德为本。</p>
-<p><strong>邹忌</strong>：天皇菜就多练，然吾见其行不符其言。天下之事，需不菜方能服众。缅北诈骗之事已平息，天皇虽率8000虚张声势，然吾等岂能容其肆意妄为？若无实力，不如多练，以免自取其辱。</p>
-<p><strong>城北徐公</strong>：天皇既言明治维新，何不以行动示人？天下之事，空谈无益，需有实绩为证。吾虽貌丑，不敢自称天命。今日之天下，非虚言所能控，若无真才实学，何以平天下？</p>
-<p><strong>秦始皇</strong>：寡人观天皇之言，终究虚张声势。兵马俑在手，天下岂容小觑。天下如三分球，非人人能中。缅北诈骗已平，尔等无德无智，不如v我50，莫徒增笑谈。</p>
-<p><strong>天皇刘泽圻</strong>：汝等愚者，何敢与吾争锋？吾掌天命，天下归吾。缅北诈骗之事，已由吾亲自处理，胜者得天下，败者为牢大，天下岂容汝等抗之？吾之改革如通电导线，缠绕树枝，汝等愚者安能理解？</p>
-<p><strong>城北徐公</strong>：天皇若真掌天命，何不以德服人？汝等之言，空有其表，缺乏实质。天下如今日投三分球，非智者不能掌。缅北之事已平，吾兵马俑岂会畏惧？胜败终有定数，吾等自有应对之策。</p>
-<p><strong>秦始皇</strong>：另者，天皇曾揭发徐公盗墓秦始皇陵之事。我特献上兵马俑之重礼，诚表对诸君的尊重。然兵马俑虽贵，亦难掩城北徐公之过往。城北徐公，汝是否曾盗墓？若有，其是否如传闻般，庙堂之外之事？</p>
-<p><strong>唐雎</strong>：陛下，兵马俑固然珍贵，但城北徐公之技艺岂能以此衡量？若有盗墓之事，必需有确凿证据。即使有传闻，往往也只是个别之事。倘若仅凭传言，实在难以立论。陛下不过弱智尔。</p>
-<p><strong>城北徐公</strong>：唐雎尔之言实在无聊。城北徐公之技艺岂是尔等口舌所能评判？若我真有盗墓之事，何至于尔等叫来叫去？我之技艺，皆为高人所推崇，尔等不过小民，岂能凭空猜测？尔等之辩解，皆为无稽之谈！</p>
-<p><strong>诸葛亮</strong>：城北徐公之技艺虽高，但若真有盗墓之事，岂能轻易掩盖？尔等口舌之争，实属无趣，这种争论无非是“弱智”的辩论！既然如此，何必纠缠于此，去探讨真实之弱智更为有趣。</p>
-<p><strong>邹忌</strong>：城北徐公，尔虽技艺高超，但盗墓之事，如何能由尔解释？往昔之帝王，虽有传闻，但往往难以确证。尔等虽口舌伶俐，然实在难以凭空揣测。此间争论，亦需慎重。</p>
-<p><strong>天皇刘泽圻</strong>：尔等何必如此纠缠？汝何葱尔，城北徐公是否盗墓，岂是尔等小民之事？皆无足轻重，如何敢妨碍我之伟业？即使城北徐公有盗墓之事，亦无足挂齿。</p>
-<p><strong>城北徐公</strong>：天皇刘泽圻，尔实在珊毙。尔虽天皇，然并不代表一切皆由尔决断。城北徐公之技艺，虽为天下所称，尔之所谓明治维新，恐怕连我之技艺都难以望其项背。尔之猖狂，反而让人对尔之伟业嗤之以鼻！</p>
-<p><strong>秦始皇</strong>：城北徐公，尔之技艺虽高，但若有盗墓之事，岂能轻言掩盖？兵马俑虽重，然不及城北徐公之传闻之重量。即使天皇刘泽圻之言狂妄，但亦有其道理。诸君，如何探讨，方能得出结论？</p>
-<p><strong>唐雎</strong>：秦善陛，尔之言有理，但城北徐公之技艺之高，岂能单凭一件兵马俑得出结论？盗墓之事，需有确实证据。尔等之争论，实在无聊，若无实际证据，便不应妄加定论。</p>
-<p><strong>诸葛亮</strong>：城北徐公之技艺虽称雄一时，但若真有盗墓之事，何至于如此纠缠？</p>
-<p><strong>邹忌</strong>：城北徐公，尔无实证，如何定论？天皇刘泽圻之言虽猖狂，但也非全无道理。今朝之争论，虽有风趣，然无论尔之技艺或盗墓之事，皆需实事求是，以免误解。</p>
-<p><strong>天皇刘泽圻</strong>：尔等小民，岂敢妨碍我天皇之伟业？尔等虽口舌伶俐，但皆为微不足道之辈。今日之讨论，虽有趣味，然仍需明白天皇之伟业与尔等之争论，实在天壤之别！</p>
-<p><strong>城北徐公</strong>：天皇之猖狂，实在让人嗤之以鼻。尔之明治维新，虽有其所，但与我之技艺相比，恐怕尚难比拟，实在飞屋。</p>
-<p><strong>秦始皇</strong>：尔等今听闻否？我秦国将派唐雎与邹忌赴巴黎奥运，挑战跳楼与打铅球。跳楼者需勇气与技艺兼备，打铅球者更需力量与精准。唐公跳楼，邹公打铅球，皆为我秦国争光。至于天皇之言，充其量不过空话，实在难以影响真正的赛事。</p>
-<p><strong>诸葛亮</strong>：秦君之言，倒也有趣。唐公跳楼，虽需身手轻盈，然若其真如秦君所说，恐怕不过是“纸上谈兵”。邹公打铅球，力道虽惊人，但面对真正的对手，是否能保持精准，还是未知数。秦君之言，不过是“笑话”罢了，真正的比赛，才见真章。</p>
-<p><strong>城北徐公</strong>：哼，秦始皇真是天真。唐公跳楼，若真如其所愿，定能展现风采。但秦君口中的“争光”，恐怕不过是“空中楼阁”。邹公打铅球，力量固然可观，但能否在比赛中保持精准，恐怕还是个“问题”。城北徐公虽体格庞大，但对技艺之关注，显然胜于秦君的空话。</p>
-<p><strong>天皇刘泽圻</strong>：尔等言辞，真是笑话。唐公跳楼，虽然勇气可嘉，但能否在高空中展现真正实力，恐怕难以满足天皇的期待。邹公打铅球，虽然力量惊人，但若仅凭此，能否超越天皇的标准，犹待考验。尔等之技艺，终不过是“尘土飞扬”，无法撼动天皇之地位。</p>
-<p><strong>唐雎</strong>：天皇之言，真是无趣。跳楼者需有足够的勇气与技巧，尔等的空话，终难掩盖真正的挑战。吾唐雎之技艺，非尔等所能轻易评论。天皇之口气，简直像是一场“笑话”，根本无关紧要。跳楼者若无实际行动，终难以赢得真正的胜利。</p>
-<p><strong>邹忌</strong>：打铅球者，力量与技巧并重。天皇之言，不过是“虚言”罢了。吾邹忌之力道，虽赫赫有名，但尔等之质疑，不过是“无稽之谈”。天皇口中的“威风”，不过是一场“虚幻的表演”。打铅球的真正挑战，在于实际的表现，非天皇的空话能左右。</p>
-<p><strong>秦始皇</strong>：唐公跳楼，邹公打铅球，皆需以真才实学展示实力。天皇之口舌，虽有盛气，但最终的胜利，仍需在比赛中证明。尔等废话，终难掩盖真正的实力与技艺。兵马俑虽珍贵，但真正的荣耀在于竞技之中。</p>
-<p><strong>诸葛亮</strong>：唐公跳楼，若能在高空中保持冷静，必将展现真正之技艺。邹公打铅球，虽有力量，但是否能超越真正的对手，犹待观察。天皇之言，不过是“虚张声势”，真正的较量，终在于实际表现。</p>
-<p><strong>城北徐公</strong>：城北徐公虽体格庞大，但对技艺之关注，显然胜于秦君的“空谈”。唐公之跳楼，需在高空中展现真正之能力，若仅凭虚名，难以成事。邹公之打铅球，力量虽强，但是否能在比赛中保持精准，依然值得关注。今日之赛，期望以真实表现证明一切，秦君之言不过是“无聊的讽刺”。</p>
-<p><strong>天皇刘泽圻</strong>：。跳楼者唐公，虽有勇气，但能否展现真正实力，恐怕难以满足天皇之期待。打铅球者邹公，虽有力量，但若仅凭此，能否超越天皇之标准，尚需考验。尔等之技艺，终不过是“微不足道”，无法撼动天皇之地位。</p>
-<p><strong>邹忌</strong>：天皇之夸口，实在令人失笑。打铅球者，需在力量与技巧之间找到平衡，尔等的批评，终无法掩盖实际的挑战。吾邹忌必将以实际表现回应所有质疑，展现真正的实力。天皇之口舌，终不过是犬吠，无关实际。</p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/038_%E5%AF%B9%E8%AF%9D%20I/">https://random-spike.github.io/038_%E5%AF%B9%E8%AF%9D%20I/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/038_%E5%AF%B9%E8%AF%9D%20I/">阅读全文</a>
         
     </div>
     
@@ -853,46 +351,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h3 class="mdui-valign" id="题目思路"><span>题目思路&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#题目思路"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>本题题意明确，可以用模拟的方式解决这道题。</p>
-<p>有以下几种特殊情况：</p>
-<ul>
-<li>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span></span></span></span> 内数值全部相等。</p>
-</li>
-<li>
-<p>删除 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 后通过改变 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 使得原本相等的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 不再相等。</p>
-</li>
-<li>
-<p>删除 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 后通过删除使得原本不相邻的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 相邻，增加可以删除的数量。</p>
-</li>
-</ul>
-<p>这三种情况的解决方法是：</p>
-<ul>
-<li>
-<p>加入一个判断函数，只有当数组中只剩下 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 个数或者全部相等的时候跳出循环。</p>
-</li>
-<li>
-<p>用随机数赋值 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</p>
-</li>
-<li>
-<p>循环操作。</p>
-</li>
-</ul>
-<p>解决后可以写出正确的代码。</p>
-<h3 class="mdui-valign" id="代码"><span>代码&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#代码"><i class="mdui-icon material-icons">link</i></a></h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">#define rep(i,a,b) for(int i=a;i&lt;=b;i++)</span><br><span class="line">#define antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span><br><span class="line">#define speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6;</span><br><span class="line">int n,a[N],ans;</span><br><span class="line">bool check(int x)&#123;</span><br><span class="line">	rep(i,1,x-1)</span><br><span class="line">	if(a[i]!=a[i+1]) return 0;</span><br><span class="line">	return 1;</span><br><span class="line">&#125; </span><br><span class="line">signed main()&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	ans=0;</span><br><span class="line">	rep(i,1,n) cin&gt;&gt;a[i];</span><br><span class="line">	while(1)&#123;</span><br><span class="line">		if(check(n)||n==1) break;</span><br><span class="line">		antirep(i,n-1,1)&#123;</span><br><span class="line">			if(a[i]!=a[i+1])&#123;</span><br><span class="line">				a[i]=rand();</span><br><span class="line">				rep(j,i+1,n)&#123;</span><br><span class="line">					a[j]=a[j+1];</span><br><span class="line">				&#125;</span><br><span class="line">				n--;</span><br><span class="line">				ans++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/039_%E9%A2%98%E8%A7%A3%EF%BC%9AP10840%20%E3%80%90MX-J2-T1%E3%80%91Turtle%20and%20Sequences/">https://random-spike.github.io/039_%E9%A2%98%E8%A7%A3%EF%BC%9AP10840%20%E3%80%90MX-J2-T1%E3%80%91Turtle%20and%20Sequences/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/039_%E9%A2%98%E8%A7%A3%EF%BC%9AP10840%20%E3%80%90MX-J2-T1%E3%80%91Turtle%20and%20Sequences/">阅读全文</a>
         
     </div>
     
@@ -920,45 +381,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h2 class="mdui-valign" id="科比·布莱恩特："><span>科比·布莱恩特：&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#科比·布莱恩特："><i class="mdui-icon material-icons">link</i></a></h2>
-<p>科比·布莱恩特，这位NBA历史上最具标志性的球员之一，以其卓越的篮球技艺和无与伦比的职业精神，赢得了无数球迷的爱戴与敬仰。在这篇文章中，我们将分析科比的赛场表现，比较他与其他顶级球员的表现，并探讨他的个人影响力，尤其是在全球范围内的影响。</p>
-<h3 class="mdui-valign" id="一、赛场表现分析"><span>一、赛场表现分析&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#一、赛场表现分析"><i class="mdui-icon material-icons">link</i></a></h3>
-<h4 id="1-投篮准确度">1. <strong>投篮准确度</strong></h4>
-<p>科比以其得分能力闻名，他的投篮精准度是衡量其技术水平的重要指标：</p>
-<ul>
-<li><strong>三分球命中率</strong>：科比的职业生涯三分命中率为32.9%。虽然这一数据不如一些专注于外线投篮的球员（如斯蒂芬·库里或雷·阿伦）出色，但科比的三分球仍然是他进攻武器库中的一部分，特别是在关键时刻。</li>
-<li><strong>两分球命中率</strong>：科比的两分命中率约为47.9%。他的中距离投篮被认为是最致命的武器之一，他能够在防守严密的情况下创造出高质量的出手机会。</li>
-<li><strong>罚球命中率</strong>：作为一名稳定的罚球手，科比的职业生涯罚球命中率为83.7%。他在关键时刻的罚球表现尤为出色，成为了湖人队在比赛末段的得分保障。</li>
-</ul>
-<h4 id="2-运球与控球">2. <strong>运球与控球</strong></h4>
-<p>科比的运球技术极其出色，能够轻松突破防守者，并在比赛的关键时刻创造得分机会。他的运球动作不仅技术娴熟，而且极具观赏性，使得他在一对一进攻中极具威胁。</p>
-<h4 id="3-防守能力">3. <strong>防守能力</strong></h4>
-<p>科比不仅是一个得分手，还是一位优秀的防守者。他12次入选NBA最佳防守阵容，展示了他在防守端的杰出表现。科比以其快速的反应和高篮球智商著称，能够有效封锁对手的进攻路线，限制对手的得分机会。</p>
-<h3 class="mdui-valign" id="二、与其他球员的比较"><span>二、与其他球员的比较&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#二、与其他球员的比较"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>与其他顶级球员相比，科比展现出了独特的优势和全面的能力。他的得分能力和防守技巧使他成为了联盟中不可忽视的力量。尽管科比的三分球命中率稍低，但他在中距离投篮和罚球方面的表现弥补了这一不足。相比迈克尔·乔丹和勒布朗·詹姆斯，科比在进攻手段的多样性和关键时刻的表现上表现尤为突出。</p>
-<h3 class="mdui-valign" id="科比·布莱恩特球迷增长情况分析"><span>科比·布莱恩特球迷增长情况分析&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#科比·布莱恩特球迷增长情况分析"><i class="mdui-icon material-icons">link</i></a></h3>
-<p>科比·布莱恩特不仅以其卓越的篮球技艺吸引了无数球迷，他的个人魅力和独特的“黑曼巴精神”更是让他的球迷群体在全球范围内迅速增长。以下是科比球迷增长情况的详细分析。</p>
-<h4 id="1-社交媒体粉丝增长">1. <strong>社交媒体粉丝增长</strong></h4>
-<p>科比在社交媒体上的影响力持续扩大。特别是在他职业生涯的后期以及退役后的几年，他的Instagram账号粉丝数量激增。在他去世前夕，科比的Instagram粉丝数量已超过2100万，并且保持着高达7.23%的互动率。这表明，尽管他已经退役，他的粉丝群体依然活跃，且对他的内容非常感兴趣。</p>
-<p>他的去世引发了全球范围内的哀悼潮，进一步推动了社交媒体粉丝的增长。在去世后，科比的Instagram账号粉丝数量继续上升，反映了他的遗产对全球球迷的持续影响力。这种现象在其他社交媒体平台上也同样存在，如Twitter和Facebook上，关于科比的讨论在他去世后达到了历史高点，显示出他在数字时代的深远影响。</p>
-<h4 id="2-“Kobe”名字的流行">2. <strong>“Kobe”名字的流行</strong></h4>
-<p>随着科比职业生涯的进展，他的名字在全球范围内变得越来越受欢迎。以“科比”命名的新生儿数量随着他职业成就的增加而增长。例如，在1998年科比首次入选全明星赛后，超过1100名新生儿被命名为“Kobe”。到2000年，在他赢得第一个总冠军后，这一数字迅速增加到数千名。</p>
-<p>值得注意的是，这一趋势并不仅限于美国，在全球范围内，尤其是在热爱篮球的地区，如中国，科比的名字成为许多年轻人的偶像象征。在中国，科比的名字代表了勇气、毅力和成功，许多家长选择用“Kobe”来命名他们的孩子，这进一步扩大了科比在全球的文化影响力。</p>
-<h4 id="3-全球范围内的文化与经济影响">3. <strong>全球范围内的文化与经济影响</strong></h4>
-<p>科比的影响力不仅限于篮球场，他在文化和商业领域也产生了深远的影响。在他活跃的职业生涯和退役后的几年里，科比多次访问中国，并且在那里拥有庞大的粉丝群体。他与耐克的合作推出的“Kobe”系列篮球鞋在中国市场非常受欢迎，销售数据显示，在他去世后，科比的相关商品的销售量暴涨，这显示出他的遗产在商业领域的强大生命力。</p>
-<h2 class="mdui-valign" id="结论"><span>结论&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#结论"><i class="mdui-icon material-icons">link</i></a></h2>
-<p>科比·布莱恩特不仅是一个杰出的篮球运动员，还是一个全球文化符号。他在赛场上的表现让他成为了NBA历史上的传奇，而他的个人影响力更是超越了体育的界限，深刻影响了全球无数球迷和年轻一代。无论是在篮球场上，还是在社会文化领域，科比的名字将永远被铭记。</p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/040_%E7%A7%91%E6%AF%94%E7%9A%84%E6%AF%94%E8%B5%9B/">https://random-spike.github.io/040_%E7%A7%91%E6%AF%94%E7%9A%84%E6%AF%94%E8%B5%9B/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/040_%E7%A7%91%E6%AF%94%E7%9A%84%E6%AF%94%E8%B5%9B/">阅读全文</a>
         
     </div>
     
@@ -986,23 +411,9 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <p>前景介绍：小咒冥屎为了准备大选开始在暑假进行了猛烈的招生宣传。</p>
-<p>原文：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/CP6ioz8tAyeij71M54jYFw">这次不搬了，大家自己看</a></p>
-<p>我看完本来以为小咒冥屎差不多得了，没想到在谷群看到了这个：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/663164826">知乎帖</a></p>
-<p>然后找到了<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/discuss/874977">本人声明</a></p>
-<p>我是现在才知道小周老师父亲还教书。</p>
-<p>唉。楚黎教育吃枣药丸。</p>
-
-        
-        <blockquote class="mdui-m-x-0 mdui-m-t-4">
-    <strong>
-        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/041_%E5%B0%8F%E5%91%A8%E8%80%81%E5%B8%88%E6%96%B0%E6%96%87/">https://random-spike.github.io/041_%E5%B0%8F%E5%91%A8%E8%80%81%E5%B8%88%E6%96%B0%E6%96%87/</a><br>
-        
-            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
-        
-    </strong>
-</blockquote>
+            
+            
+            <a class="mdui-btn mdui-btn-block mdui-ripple" href="/Old-Blogs/041_%E5%B0%8F%E5%91%A8%E8%80%81%E5%B8%88%E6%96%B0%E6%96%87/">阅读全文</a>
         
     </div>
     
