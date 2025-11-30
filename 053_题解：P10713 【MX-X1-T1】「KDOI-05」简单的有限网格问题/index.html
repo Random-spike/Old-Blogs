@@ -33,11 +33,11 @@
 </style>
     
     <title>题解：P10713 【MX-X1-T1】「KDOI-05」简单的有限网格问题 | Old Blogs</title>
-    <link rel="canonical" href="https://Random-spike.github.io/Old-Blogs/Old-Blogs/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/">
+    <link rel="canonical" href="https://random-spike.github.io/Old-Blogs/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/">
     <meta name="description" content="题目大意： 求从 (1,1)(1,1)(1,1) 点到点 (n,m)(n,m)(n,m) 的最少步数。如果 iii 为偶数，那么第 iii 步只能往上下左右移动任意偶数长度。如果 iii 为奇数，那么第 iii 步只能往上下左右移动任意奇数长度。 题目思路： 分为两种情况，第一种情况如下图所示：  当 n−1n-1n−1 和 m−1m-1m−1 都为奇数时，从 (1,1)(1,1)(1,1) 点出">
 <meta property="og:type" content="article">
 <meta property="og:title" content="题解：P10713 【MX-X1-T1】「KDOI-05」简单的有限网格问题">
-<meta property="og:url" content="https://random-spike.github.io/Old-Blogs/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:url" content="https://random-spike.github.io/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Old Blogs">
 <meta property="og:description" content="题目大意： 求从 (1,1)(1,1)(1,1) 点到点 (n,m)(n,m)(n,m) 的最少步数。如果 iii 为偶数，那么第 iii 步只能往上下左右移动任意偶数长度。如果 iii 为奇数，那么第 iii 步只能往上下左右移动任意奇数长度。 题目思路： 分为两种情况，第一种情况如下图所示：  当 n−1n-1n−1 和 m−1m-1m−1 都为奇数时，从 (1,1)(1,1)(1,1) 点出">
 <meta property="og:locale" content="zh_CN">
@@ -165,7 +165,7 @@
         <blockquote class="mdui-m-x-0 mdui-m-t-4">
     <strong>
         作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
-        链接：<a href="https://random-spike.github.io/Old-Blogs/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/">https://random-spike.github.io/Old-Blogs/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/</a><br>
+        链接：<a href="https://random-spike.github.io/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/">https://random-spike.github.io/053_%E9%A2%98%E8%A7%A3%EF%BC%9AP10713%20%E3%80%90MX-X1-T1%E3%80%91%E3%80%8CKDOI-05%E3%80%8D%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%89%E9%99%90%E7%BD%91%E6%A0%BC%E9%97%AE%E9%A2%98/</a><br>
         
             本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
         
@@ -192,6 +192,27 @@
         </div>
     
 </nav>
+
+    
+    <div class="mdui-theme-layout-light mdui-color-transparent">
+<div class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    <div id="comment-utterances" class="comment mdui-card-content">
+        <script type="text/javascript">
+    (() => {
+        const utterances = document.createElement('script');
+        utterances.type = 'text/javascript';
+        utterances.async = true;
+        utterances.setAttribute('theme', 'github-light')
+        utterances.setAttribute('issue-term', 'pathname')
+        utterances.setAttribute('repo', 'Random-spike/Old-Blogs')
+        utterances.setAttribute('crossorigin', 'anonymous');
+        utterances.src = 'https://utteranc.es/client.js';
+        document.getElementById('comment-utterances').appendChild(utterances);
+    })();
+</script>
+    </div>
+</div>
+</div>
 
     </div>
     <a href="#" class="mdui-fab mdui-fab-fixed mdui-hidden-xs mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">keyboard_arrow_up</i></a>
