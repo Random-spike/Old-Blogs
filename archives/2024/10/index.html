@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Random-spike">
 <meta name="twitter:card" content="summary">
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
     <div class="mdui-theme-layout-light">
     <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
@@ -136,33 +136,38 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h4><p>给定一个字符串 $S$，要求删除 $k$ 个字母 <code>s</code>，使得剩余字符串的字典序最小。</p>
+        <h3 class="mdui-valign" id="题解"><span>题解&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#题解"><i class="mdui-icon material-icons">link</i></a></h3>
+<h4 id="题目解析">题目解析</h4>
+<p>给定一个字符串 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span></span></span></span>，要求删除 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 个字母 <code>s</code>，使得剩余字符串的字典序最小。</p>
 <p><strong>输入限制：</strong></p>
 <ul>
-<li>字符串长度 $|S|\leq10^5$</li>
-<li>删除次数 $k\leq10^5$</li>
+<li>字符串长度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>S</mi><mi mathvariant="normal">∣</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">|S|\leq10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">∣</span><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mord mathrm">∣</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></li>
+<li>删除次数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">k\leq10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></li>
 </ul>
-<p>需要确保在删除 $k$ 个字母 <code>s</code> 后，字符串按字典序尽可能小。这一题的核心在于如何高效删除满足条件的字符，以达到字典序最小的目的。</p>
+<p>需要确保在删除 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 个字母 <code>s</code> 后，字符串按字典序尽可能小。这一题的核心在于如何高效删除满足条件的字符，以达到字典序最小的目的。</p>
 <hr>
-<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>根据题目要求，可以发现字典序最小化的主要策略是尽量优先删除在合适位置的字母 <code>s</code>。具体思路如下：</p>
+<h4 id="解题思路">解题思路</h4>
+<p>根据题目要求，可以发现字典序最小化的主要策略是尽量优先删除在合适位置的字母 <code>s</code>。具体思路如下：</p>
 <ol>
 <li><strong>贪心删除策略</strong>：优先删除靠前位置、且前后相邻字符较小的 <code>s</code>，因为删除这些字符可以更明显地减小字典序。</li>
-<li><strong>连续删除判断</strong>：在出现一段连续的 <code>s</code> 时，如果其后一个字符字典序较小且删除次数 $k$ 足够，那么我们可以优先删除整段连续的 <code>s</code>。</li>
-<li><strong>补充删除</strong>：若遍历完字符串后仍有剩余删除次数 $k$，则从字符串的末尾向前删除 <code>s</code>，这样可以进一步减小字典序。</li>
+<li><strong>连续删除判断</strong>：在出现一段连续的 <code>s</code> 时，如果其后一个字符字典序较小且删除次数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 足够，那么我们可以优先删除整段连续的 <code>s</code>。</li>
+<li><strong>补充删除</strong>：若遍历完字符串后仍有剩余删除次数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>，则从字符串的末尾向前删除 <code>s</code>，这样可以进一步减小字典序。</li>
 </ol>
 <hr>
-<h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
-<li><strong>遍历字符串</strong>：从前向后遍历字符串 $S$，对于每个字符 <code>s</code>：<ul>
-<li>若后一个字符的字典序小于 <code>s</code>，且删除次数 $k$ 足够，则删除该字符 <code>s</code>。</li>
-<li>若连续的 <code>s</code> 后一个字符较小且 $k$ 足够，删除整段连续 <code>s</code>。</li>
+<h4 id="算法步骤">算法步骤</h4>
+<ol>
+<li><strong>遍历字符串</strong>：从前向后遍历字符串 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span></span></span></span>，对于每个字符 <code>s</code>：
+<ul>
+<li>若后一个字符的字典序小于 <code>s</code>，且删除次数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 足够，则删除该字符 <code>s</code>。</li>
+<li>若连续的 <code>s</code> 后一个字符较小且 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 足够，删除整段连续 <code>s</code>。</li>
 </ul>
 </li>
-<li><strong>尾部补删</strong>：若遍历结束后删除次数 $k$ 仍未用完，从字符串末尾向前继续删除剩余的 <code>s</code>，这样对字典序影响最小。</li>
+<li><strong>尾部补删</strong>：若遍历结束后删除次数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 仍未用完，从字符串末尾向前继续删除剩余的 <code>s</code>，这样对字典序影响最小。</li>
 <li><strong>输出结果</strong>：遍历完后输出剩余的字符串，即为字典序最小的结果。</li>
 </ol>
 <hr>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(i,a,b) for(int i=a;i&lt;=b;i++)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e6</span>,M=<span class="number">1e3</span>,mod=<span class="number">1e9</span><span class="number">+7</span>,INF=<span class="number">1e9</span>;</span><br><span class="line"><span class="type">int</span> k;</span><br><span class="line">string s;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">modify</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;s.<span class="built_in">erase</span>(l,r-l<span class="number">+1</span>);&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;k&gt;&gt;s;</span><br><span class="line">	s=<span class="string">&#x27; &#x27;</span>+s+<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,s.<span class="built_in">size</span>()<span class="number">-2</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(s[i]-<span class="string">&#x27;s&#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="type">int</span> len=<span class="number">1</span>;<span class="keyword">while</span>(s[i<span class="number">+1</span>]==<span class="string">&#x27;s&#x27;</span>) len++,i++;</span><br><span class="line">		<span class="keyword">if</span>(k&gt;=len&amp;&amp;s[i<span class="number">+1</span>]&lt;<span class="string">&#x27;s&#x27;</span>) <span class="built_in">modify</span>(i-len<span class="number">+1</span>,i),k-=len,i-=(len<span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(k&gt;<span class="number">0</span>&amp;&amp;k&lt;len&amp;&amp;s[i<span class="number">+1</span>]&lt;<span class="string">&#x27;s&#x27;</span>) <span class="built_in">modify</span>(i-k<span class="number">+1</span>,i),k=<span class="number">0</span>,i-=(k<span class="number">-1</span>);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span>(k&gt;<span class="number">0</span>) <span class="built_in">antirep</span>(i,s.<span class="built_in">size</span>()<span class="number">-2</span>,<span class="number">1</span>)<span class="keyword">if</span>(s[i]==<span class="string">&#x27;s&#x27;</span>&amp;&amp;k&gt;<span class="number">0</span>) <span class="built_in">modify</span>(i,i),k--;</span><br><span class="line">	cout&lt;&lt;s;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<h4 id="代码实现">代码实现</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(i,a,b) for(int i=a;i&lt;=b;i++)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e6</span>,M=<span class="number">1e3</span>,mod=<span class="number">1e9</span><span class="number">+7</span>,INF=<span class="number">1e9</span>;</span><br><span class="line"><span class="type">int</span> k;</span><br><span class="line">string s;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">modify</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;s.<span class="built_in">erase</span>(l,r-l<span class="number">+1</span>);&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;k&gt;&gt;s;</span><br><span class="line">	s=<span class="string">&#x27; &#x27;</span>+s+<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,s.<span class="built_in">size</span>()<span class="number">-2</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(s[i]-<span class="string">&#x27;s&#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="type">int</span> len=<span class="number">1</span>;<span class="keyword">while</span>(s[i<span class="number">+1</span>]==<span class="string">&#x27;s&#x27;</span>) len++,i++;</span><br><span class="line">		<span class="keyword">if</span>(k&gt;=len&amp;&amp;s[i<span class="number">+1</span>]&lt;<span class="string">&#x27;s&#x27;</span>) <span class="built_in">modify</span>(i-len<span class="number">+1</span>,i),k-=len,i-=(len<span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(k&gt;<span class="number">0</span>&amp;&amp;k&lt;len&amp;&amp;s[i<span class="number">+1</span>]&lt;<span class="string">&#x27;s&#x27;</span>) <span class="built_in">modify</span>(i-k<span class="number">+1</span>,i),k=<span class="number">0</span>,i-=(k<span class="number">-1</span>);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span>(k&gt;<span class="number">0</span>) <span class="built_in">antirep</span>(i,s.<span class="built_in">size</span>()<span class="number">-2</span>,<span class="number">1</span>)<span class="keyword">if</span>(s[i]==<span class="string">&#x27;s&#x27;</span>&amp;&amp;k&gt;<span class="number">0</span>) <span class="built_in">modify</span>(i,i),k--;</span><br><span class="line">	cout&lt;&lt;s;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <hr>
 
         
@@ -202,20 +207,23 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h2 id="前期提要"><a href="#前期提要" class="headerlink" title="前期提要"></a>前期提要</h2><p><strong>无穷小变化量</strong>同学在我们班电脑上放映了此神作，引来班主任的批评教育。</p>
-<h2 id="作文内容"><a href="#作文内容" class="headerlink" title="作文内容"></a>作文内容</h2><blockquote>
-<p>　　一天，仵沉蛋给我打来电话。他说：“你敢不敢和我举行碰碰车大战？”我豪爽的答应了：“我当然敢！”，周日下午在xx路xx大厦举行，谁不来谁就是怂货。</p>
-<p>　　我原本以为我恐吓了仵沉蛋，仵沉蛋应该躲在家，不敢找我，可正当这时，我听见了音乐声，原来是我手机响了，一看，竟然是仵沉蛋打来的电话，他还真有勇气，我接通了电话，听道电话那头骂道：“小废物，你怎么还不来，再不来你妈的泌尿系统就被我搞坏了。”我听到他对我的毒骂之后，我回骂道：“我要把你挂到同性恋网站上，帮你炒作一番，你说好不好啊。”</p>
-<p>　　他吓得没再回应我，可是到了周日，仵沉蛋竟然又给我打电话了，他还真要和我举行碰碰车大战，于是我按照约定，到达了xx大厦，可他已经等我很久了。</p>
-<p>　　第一回合，我占今上风，他比不过我，到了第六回合，他就主动认输了。</p>
-<p>　　第二局，他开始占上风，我也不甘势弱，我们僵持了一百多个回合，我因为轻敌，被他击败了。</p>
-<p>　　从那时开始，我就不轻敌了，我认真研究他的套路，于是我总结出了一种方案。</p>
-<p>　　第二天，我们举行第三局，他使用祖传方案，对我发动猛烈的攻击，我们势均力敌，平分秋色，我们比了3个多小时，也没分出胜负。</p>
-<p>　　后来，他不知不觉的睡着了，我趁着这个好机会，一记凌车漂移，一飞冲天，打的他不敢还手，对他的打击比屠杀亲娘还大。</p>
+        <h2 class="mdui-valign" id="前期提要"><span>前期提要&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#前期提要"><i class="mdui-icon material-icons">link</i></a></h2>
+<p><strong>无穷小变化量</strong>同学在我们班电脑上放映了此神作，引来班主任的批评教育。</p>
+<h2 class="mdui-valign" id="作文内容"><span>作文内容&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#作文内容"><i class="mdui-icon material-icons">link</i></a></h2>
+<blockquote>
+<p>一天，仵沉蛋给我打来电话。他说：“你敢不敢和我举行碰碰车大战？”我豪爽的答应了：“我当然敢！”，周日下午在xx路xx大厦举行，谁不来谁就是怂货。</p>
+<p>我原本以为我恐吓了仵沉蛋，仵沉蛋应该躲在家，不敢找我，可正当这时，我听见了音乐声，原来是我手机响了，一看，竟然是仵沉蛋打来的电话，他还真有勇气，我接通了电话，听道电话那头骂道：“小废物，你怎么还不来，再不来你妈的泌尿系统就被我搞坏了。”我听到他对我的毒骂之后，我回骂道：“我要把你挂到同性恋网站上，帮你炒作一番，你说好不好啊。”</p>
+<p>他吓得没再回应我，可是到了周日，仵沉蛋竟然又给我打电话了，他还真要和我举行碰碰车大战，于是我按照约定，到达了xx大厦，可他已经等我很久了。</p>
+<p>第一回合，我占今上风，他比不过我，到了第六回合，他就主动认输了。</p>
+<p>第二局，他开始占上风，我也不甘势弱，我们僵持了一百多个回合，我因为轻敌，被他击败了。</p>
+<p>从那时开始，我就不轻敌了，我认真研究他的套路，于是我总结出了一种方案。</p>
+<p>第二天，我们举行第三局，他使用祖传方案，对我发动猛烈的攻击，我们势均力敌，平分秋色，我们比了3个多小时，也没分出胜负。</p>
+<p>后来，他不知不觉的睡着了，我趁着这个好机会，一记凌车漂移，一飞冲天，打的他不敢还手，对他的打击比屠杀亲娘还大。</p>
 <p>指导老师：戴薇</p>
 </blockquote>
-<h2 id="逐句赏析"><a href="#逐句赏析" class="headerlink" title="逐句赏析"></a>逐句赏析</h2><blockquote>
-<p>　　一天，仵沉蛋给我打来电话。</p>
+<h2 class="mdui-valign" id="逐句赏析"><span>逐句赏析&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#逐句赏析"><i class="mdui-icon material-icons">link</i></a></h2>
+<blockquote>
+<p>一天，仵沉蛋给我打来电话。</p>
 </blockquote>
 <p>开门见山的交代了文中主要出现的「未知定义形式」的变量：<code>仵沉蛋</code> 和 <code>我</code> 。</p>
 <blockquote>
@@ -278,7 +286,8 @@
 <p>指导老师：戴薇</p>
 </blockquote>
 <p><strong>这句话是本文的点睛之笔。背后蕴含深意</strong>。</p>
-<h2 id="你需要完成的事情"><a href="#你需要完成的事情" class="headerlink" title="你需要完成的事情"></a>你需要完成的事情</h2><ol>
+<h2 class="mdui-valign" id="你需要完成的事情"><span>你需要完成的事情&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#你需要完成的事情"><i class="mdui-icon material-icons">link</i></a></h2>
+<ol>
 <li>通读并背诵全文。</li>
 <li>最后一句话「指导老师：戴薇」是本文的点睛之笔。背后蕴含深意。请你在评论区赏析此句。</li>
 </ol>
@@ -322,11 +331,13 @@
         
         <p>因为本人很懒，所以很长一段时间并没有更新这一个系列。我需要证明我没那么懒。</p>
 <p>没什么逻辑的放一些具体的事情吧。</p>
-<h3 id="汗血宝马"><a href="#汗血宝马" class="headerlink" title="汗血宝马"></a>汗血宝马</h3><p>我也不知道是哪一天。</p>
+<h3 class="mdui-valign" id="汗血宝马"><span>汗血宝马&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#汗血宝马"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我也不知道是哪一天。</p>
 <p>zsy和wy和我是习惯于晚上放学从小门回家的。</p>
 <p>zsy对于他初中的数学老师whs是一直非常感兴趣的。因此他自然是知道whs的车的。</p>
 <p>放学的时候，zsy途径whs的车。调用了那个属于他的独特语气，表示他认为那是海生的汗血宝马。并且响度极大。可惜他并没有注意到车内的whs。</p>
-<h3 id="餐便分离"><a href="#餐便分离" class="headerlink" title="餐便分离"></a>餐便分离</h3><p>在数学课的时候，dt总是发表他的看法。</p>
+<h3 class="mdui-valign" id="餐便分离"><span>餐便分离&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#餐便分离"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>在数学课的时候，dt总是发表他的看法。</p>
 <p>比如，他曾经说过</p>
 <blockquote>
 <p>餐便分离是高中数学最伟大的发明之一。可以解决几乎所有问题。</p>
@@ -334,41 +345,48 @@
 <p>我们都很相信餐便分离可以解决几何问题的。</p>
 <p>因为餐便分离甚至可以解决食堂中的问题。</p>
 <p>可惜在食堂中的食物我们似乎没有找到餐。也就不需要分离了。</p>
-<h3 id="食堂"><a href="#食堂" class="headerlink" title="食堂"></a>食堂</h3><p>说道食堂，这不得提及一下为人民服务的好食堂了。</p>
-<p>在1年前，学校食堂负责人，也可以亲切地称呼他为：<br><code>大胖子</code> 。就总是想涨价。</p>
+<h3 class="mdui-valign" id="食堂"><span>食堂&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#食堂"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>说道食堂，这不得提及一下为人民服务的好食堂了。</p>
+<p>在1年前，学校食堂负责人，也可以亲切地称呼他为：<br>
+<code>大胖子</code> 。就总是想涨价。</p>
 <p>在我们中三下学期的时候，食堂就开始拿各种神奇的制度来诱惑我们同意他涨价。</p>
 <p>比如，他把多种品种的东西放在一起，可以让我们更好的选择粪便实用。便称其为<code>自助便</code>。对于面食，<code>大胖子</code>一改曾经1周只能吃一次面的规定。允许我们可以吃足够的面。可惜面已经逐渐趋近于便。</p>
 <p>在9月，<code>大胖子</code>发起了一个征询单，想把食堂的价格提升为24元（教委支付1元）。我们都选择了不同意，但是最后竟然还是施行了。我不知道是谁的权值这么大。</p>
 <p>大胖子承诺给我们提供<code>西式浓汤</code>和<code>营养果汁</code>，以及<code>西式元素的餐饮</code>。</p>
 <p>可惜我们得到是 便，稀释浓汤，和苹果醋。</p>
 <p>由于食物和苹果醋实在难以下咽。我我们开发了更多玩法，比如，给同学的面里面滴加苹果醋。</p>
-<h3 id="化学课"><a href="#化学课" class="headerlink" title="化学课"></a>化学课</h3><p>化学课也是比较奇妙的。</p>
+<h3 class="mdui-valign" id="化学课"><span>化学课&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#化学课"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>化学课也是比较奇妙的。</p>
 <p>mzy喜欢称呼化学实习老师为<code>大胖子</code>。</p>
-<p>老师使用了稀硫酸和镁做测试气体摩尔体积。成功的在室温下测出来 $V_m&#x3D;22.4 L$ 。（22.4应该是标准状况下，室温应该是 24.5）</p>
+<p>老师使用了稀硫酸和镁做测试气体摩尔体积。成功的在室温下测出来 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mi>m</mi></msub><mo>=</mo><mn>2</mn><mn>2</mn><mi mathvariant="normal">.</mi><mn>4</mn><mi>L</mi></mrow><annotation encoding="application/x-tex">V_m=22.4 L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.22222em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">m</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">2</span><span class="mord mathrm">.</span><span class="mord mathrm">4</span><span class="mord mathit">L</span></span></span></span> 。（22.4应该是标准状况下，室温应该是 24.5）</p>
 <p>做完实验后，老师抓取mzy，zcx和我去放置实验器材回实验室。</p>
 <p>可惜我们打不开门。</p>
 <p>后来mzy去叫了<code>大胖子</code>，来给我们开门。</p>
 <p><code>大胖子</code>来的过程中，mzy大放厥词“大胖子怎么还不来啊”</p>
 <p>后来他来了，mzy至今仍然不相信<code>大胖子</code>听到了他对他的称呼。</p>
-<h3 id="zsy"><a href="#zsy" class="headerlink" title="zsy"></a>zsy</h3><p>我认为zsy有必要单独列举一个小标题。</p>
+<h3 class="mdui-valign" id="zsy"><span>zsy&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#zsy"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我认为zsy有必要单独列举一个小标题。</p>
 <p>zsy喜欢tla，有过sp3d2杂化的壮举。</p>
 <p>zsy会嫉妒别人tla。</p>
 <p>在我去打黑工放置实验器材的时候，zsy在tla。wzx给zsy背后贴了一张纸条。</p>
 <p>我回来的时候发现了这个纸条。欺骗zsy说我没有看见这个纸条，并且说出了合理推测，可能被放进浓硫酸中脱水碳化了。</p>
 <p>zsy相信我了。</p>
-<h3 id="体育课"><a href="#体育课" class="headerlink" title="体育课"></a>体育课</h3><p>体育课很神奇，是专项课训练。</p>
+<h3 class="mdui-valign" id="体育课"><span>体育课&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#体育课"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>体育课很神奇，是专项课训练。</p>
 <p>报名篮球专项课的同学比较凄惨，因为篮球课的老师比较抽象。因此我也比较凄惨。虽然我对篮球没有什么兴趣。</p>
 <p>他喜欢把我们带领到操场上进行位移为0的活动。</p>
 <p>有时候他会让我们做一些奇怪的动作。有人的锐评我就不说了。</p>
 <p>他有时候会提出一些很抽象的看法，比如，他认为小A跑1000米套半圈800米所有女生的，小A将会善于追求女同学。</p>
 <p>小A最后被证明指代zme和一个我不认识的人。</p>
-<h3 id="至尊杰哥王"><a href="#至尊杰哥王" class="headerlink" title="至尊杰哥王"></a>至尊杰哥王</h3><p>我认为至尊杰哥王也有必要单独列出一个小标题。</p>
+<h3 class="mdui-valign" id="至尊杰哥王"><span>至尊杰哥王&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#至尊杰哥王"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我认为至尊杰哥王也有必要单独列出一个小标题。</p>
 <p>至尊杰哥王有一个比例比例账号，账号名就是至尊杰哥王。他敢于放置自己在军训期间寝室内歌唱小苹果的视频。（别想了，视频里面没有我，我大约是在隔壁吃泡面）</p>
 <p>他敢于在上班主任的课堂中，锐评学校的整改是<code>金玉其外败絮其中</code>。</p>
 <p>杰哥王喜欢和npy打羽毛球和篮球。</p>
-<p>他号召我们在信息课上完 kour.io。由于它独特的地理位置，他的电脑背对老师。老师凝视他的时候，他会一手托腮，一手控鼠标，非常自信的打着游戏。</p>
+<p>他号召我们在信息课上完 <a target="_blank" rel="noopener" href="http://kour.io">kour.io</a>。由于它独特的地理位置，他的电脑背对老师。老师凝视他的时候，他会一手托腮，一手控鼠标，非常自信的打着游戏。</p>
 <p>相反的，老师是喜欢站在我的后面。</p>
-<h3 id="中午的活动"><a href="#中午的活动" class="headerlink" title="中午的活动"></a>中午的活动</h3><p>中午我们可能会很无聊。尤其是昨天的中午。</p>
+<h3 class="mdui-valign" id="中午的活动"><span>中午的活动&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#中午的活动"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>中午我们可能会很无聊。尤其是昨天的中午。</p>
 <p>5,6班的10个人。拉着其他人的手或者扶着其他人的背。组成一个化合物。</p>
 <p>最初的玩法还是比较原始的。我们会组成碳链，双键链接。</p>
 <p>后来开始搞出更多的支链。</p>

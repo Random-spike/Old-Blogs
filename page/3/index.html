@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Random-spike">
 <meta name="twitter:card" content="summary">
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
     <div class="mdui-theme-layout-light">
     <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
@@ -136,26 +136,30 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>给定 $n$ 个正整数，要求询问在这 $n$ 个数中有多少数不可以被写成连续的正整数相加的形式。</p>
-<h3 id="题目思路"><a href="#题目思路" class="headerlink" title="题目思路"></a>题目思路</h3><p>首先分析样例：</p>
+        <h3 class="mdui-valign" id="题目大意"><span>题目大意&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#题目大意"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>给定 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个正整数，要求询问在这 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个数中有多少数不可以被写成连续的正整数相加的形式。</p>
+<h3 class="mdui-valign" id="题目思路"><span>题目思路&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#题目思路"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>首先分析样例：</p>
 <ul>
-<li>$3&#x3D;1+2$</li>
-<li>$6&#x3D;1+2+3$</li>
-<li>$8&#x3D;1+3+4$</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mo>=</mo><mn>1</mn><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">3=1+2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mbin">+</span><span class="mord mathrm">2</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>6</mn><mo>=</mo><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">6=1+2+3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">6</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mbin">+</span><span class="mord mathrm">3</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>8</mn><mo>=</mo><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">8=1+3+4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">8</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mbin">+</span><span class="mord mathrm">3</span><span class="mbin">+</span><span class="mord mathrm">4</span></span></span></span></li>
 </ul>
-<p>$8$ 不满足要求。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">8</span></span></span></span> 不满足要求。</p>
 <p>因为题目要求中包含连续的正整数相加，这就可以联想到等差数列求和公式：</p>
-<p>$$\frac{(a_1+a_n)\times n}{2}&#x3D;\displaystyle\sum_{i&#x3D;1}^na_i$$</p>
-<p>设该数为 $x$，首项为 $a$，末项为 $b$，且 $a&gt;b$。因为公差是 $1$，所以可以求出项数是 $b-a+1$。</p>
-<p>所以如果 $x$ 可以表示成：</p>
-<p>$$2x&#x3D;(a+b)\times(b-a+1)$$</p>
-<p>那么 $x$ 就符合要求。</p>
-<p>可以通过枚举的方式证明右边的式子中两部分奇偶性不相同，因为 $a&gt;b$，所以 $a$ 和 $b$ 不相同。</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mo>(</mo><msub><mi>a</mi><mn>1</mn></msub><mo>+</mo><msub><mi>a</mi><mi>n</mi></msub><mo>)</mo><mo>×</mo><mi>n</mi></mrow><mrow><mn>2</mn></mrow></mfrac><mo>=</mo><mstyle scriptlevel="0" displaystyle="true"><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>a</mi><mi>i</mi></msub></mstyle></mrow><annotation encoding="application/x-tex">\frac{(a_1+a_n)\times n}{2}=\displaystyle\sum_{i=1}^na_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.6513970000000002em;"></span><span class="strut bottom" style="height:2.929066em;vertical-align:-1.277669em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mbin">×</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="reset-textstyle displaystyle textstyle uncramped"><span class="mop op-limits"><span class="vlist"><span style="top:1.1776689999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.000005000000000143778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span><span class="op-symbol large-op mop">∑</span></span></span><span style="top:-1.2500050000000003em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span></span></p>
+<p>设该数为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>，首项为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span></span></span></span>，末项为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span></span></span></span>，且 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>&gt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a&gt;b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span><span class="mrel">&gt;</span><span class="mord mathit">b</span></span></span></span>。因为公差是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span>，所以可以求出项数是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>−</mo><mi>a</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">b-a+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span><span class="mbin">−</span><span class="mord mathit">a</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>。</p>
+<p>所以如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 可以表示成：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>x</mi><mo>=</mo><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>×</mo><mo>(</mo><mi>b</mi><mo>−</mo><mi>a</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">2x=(a+b)\times(b-a+1)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit">x</span><span class="mrel">=</span><span class="mopen">(</span><span class="mord mathit">a</span><span class="mbin">+</span><span class="mord mathit">b</span><span class="mclose">)</span><span class="mbin">×</span><span class="mopen">(</span><span class="mord mathit">b</span><span class="mbin">−</span><span class="mord mathit">a</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span></span></p>
+<p>那么 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 就符合要求。</p>
+<p>可以通过枚举的方式证明右边的式子中两部分奇偶性不相同，因为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>&gt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a&gt;b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span><span class="mrel">&gt;</span><span class="mord mathit">b</span></span></span></span>，所以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span></span></span></span> 不相同。</p>
 <p>因为右边式子必定包含奇数质因子，所以要构造出奇偶性不同的式子，就需要左边也包含。</p>
-<p>因此如果 $x$ 没有奇数质因子，$x$ 就不符合要求，其余情况均可以用解方程的方式构造出合适的式子。</p>
-<p>因此得出结论 $x$ 如果是 $2$ 的幂就不符合要求。</p>
-<h3 id="AC-code"><a href="#AC-code" class="headerlink" title="AC code"></a>AC code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(i,a,b) for(int i=a;i&lt;=b;i++)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e6</span>,M=<span class="number">1e3</span>,mod=<span class="number">1e9</span><span class="number">+7</span>,INF=<span class="number">1e9</span>;</span><br><span class="line"><span class="type">int</span> n,ans;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(x!=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(x%<span class="number">2</span>==<span class="number">0</span>) x/=<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">		<span class="type">int</span> x;</span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">check</span>(x)) ans++;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<p>因此如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 没有奇数质因子，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 就不符合要求，其余情况均可以用解方程的方式构造出合适的式子。</p>
+<p>因此得出结论 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 如果是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 的幂就不符合要求。</p>
+<h3 class="mdui-valign" id="AC-code"><span>AC code&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#AC-code"><i class="mdui-icon material-icons">link</i></a></h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(i,a,b) for(int i=a;i&lt;=b;i++)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e6</span>,M=<span class="number">1e3</span>,mod=<span class="number">1e9</span><span class="number">+7</span>,INF=<span class="number">1e9</span>;</span><br><span class="line"><span class="type">int</span> n,ans;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(x!=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(x%<span class="number">2</span>==<span class="number">0</span>) x/=<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">		<span class="type">int</span> x;</span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">check</span>(x)) ans++;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
         
         <blockquote class="mdui-m-x-0 mdui-m-t-4">
@@ -194,19 +198,19 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h2 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h2><p>部分分：用 <code>dfs</code> 可以得到 $30$ 分。</p>
+        <h2 class="mdui-valign" id="题目思路："><span>题目思路：&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#题目思路："><i class="mdui-icon material-icons">link</i></a></h2>
+<p>部分分：用 <code>dfs</code> 可以得到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">30</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span><span class="mord mathrm">0</span></span></span></span> 分。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> cur,<span class="type">int</span> cnt)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(cur==<span class="number">1</span>)&#123;</span><br><span class="line">		cnt++;</span><br><span class="line">		<span class="keyword">if</span>(cnt&lt;ans) ans=cnt;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(cur%<span class="number">2</span>==<span class="number">0</span>) <span class="built_in">dfs</span>(cur/<span class="number">2</span>,cnt);</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">dfs</span>(cur/<span class="number">2</span>,cnt<span class="number">+1</span>);</span><br><span class="line">		<span class="built_in">dfs</span>((cur<span class="number">+1</span>)/<span class="number">2</span>,cnt<span class="number">+1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>根据题意，可以得知：</p>
 <ul>
-<li>当该数是偶数时，可以直接除以 $2$。</li>
-<li>当该数是奇数时，可以选择 $\frac{n+1}{2}$ 或者 $\frac{n-1}{2}$，但是结果应该增加 $1$。</li>
+<li>当该数是偶数时，可以直接除以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span>。</li>
+<li>当该数是奇数时，可以选择 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n+1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.845108em;"></span><span class="strut bottom" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span> 或者 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n-1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.845108em;"></span><span class="strut bottom" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>，但是结果应该增加 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span>。</li>
 </ul>
 <p>为了让结果尽可能的小，也就是应该最小化出现奇数的次数。</p>
-<p>因为偶数由质因子 $2$ 决定，所以当出现奇数的时候应该选择 $n+1$ 和 $n-1$ 中质因子 $2$ 的那一个数。</p>
-<p>为了找出两个数的质因子 $2$ 的数量，可以使用快速幂的方法实现，但是本题并不需要。</p>
-<h2 id="AC-code"><a href="#AC-code" class="headerlink" title="AC code"></a>AC code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int  unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(i,a,b) for(int i=a;i&lt;=b;i++)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e6</span>,M=<span class="number">1e3</span>,mod=<span class="number">1e9</span><span class="number">+7</span>,INF=<span class="number">1e9</span>;</span><br><span class="line"><span class="type">int</span> n,ans,T;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">divide</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		<span class="keyword">if</span>(x%<span class="number">2</span>==<span class="number">0</span>) res++,x/=<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> tmp=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(n)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</span><br><span class="line">			ans++;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>) n/=<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">divide</span>((n<span class="number">+1</span>)/<span class="number">2</span>)&gt;<span class="built_in">divide</span>((n<span class="number">-1</span>)/<span class="number">2</span>)) n=(n<span class="number">+1</span>)/<span class="number">2</span>,ans++;</span><br><span class="line">			<span class="keyword">else</span> n/=<span class="number">2</span>,ans++; </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;T;</span><br><span class="line">	<span class="keyword">while</span>(T--)&#123;</span><br><span class="line">		ans=<span class="number">0</span>;</span><br><span class="line">		cin&gt;&gt;n;</span><br><span class="line">		<span class="built_in">work</span>();</span><br><span class="line">		cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<p>因为偶数由质因子 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 决定，所以当出现奇数的时候应该选择 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 中质因子 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 的那一个数。</p>
+<p>为了找出两个数的质因子 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 的数量，可以使用快速幂的方法实现，但是本题并不需要。</p>
+<h2 class="mdui-valign" id="AC-code"><span>AC code&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#AC-code"><i class="mdui-icon material-icons">link</i></a></h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int  unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(i,a,b) for(int i=a;i&lt;=b;i++)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e6</span>,M=<span class="number">1e3</span>,mod=<span class="number">1e9</span><span class="number">+7</span>,INF=<span class="number">1e9</span>;</span><br><span class="line"><span class="type">int</span> n,ans,T;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">divide</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		<span class="keyword">if</span>(x%<span class="number">2</span>==<span class="number">0</span>) res++,x/=<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> tmp=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(n)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</span><br><span class="line">			ans++;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>) n/=<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">divide</span>((n<span class="number">+1</span>)/<span class="number">2</span>)&gt;<span class="built_in">divide</span>((n<span class="number">-1</span>)/<span class="number">2</span>)) n=(n<span class="number">+1</span>)/<span class="number">2</span>,ans++;</span><br><span class="line">			<span class="keyword">else</span> n/=<span class="number">2</span>,ans++; </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;T;</span><br><span class="line">	<span class="keyword">while</span>(T--)&#123;</span><br><span class="line">		ans=<span class="number">0</span>;</span><br><span class="line">		cin&gt;&gt;n;</span><br><span class="line">		<span class="built_in">work</span>();</span><br><span class="line">		cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
         
         <blockquote class="mdui-m-x-0 mdui-m-t-4">
@@ -245,19 +249,24 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h2 id="小心！你身边可能有外星人！"><a href="#小心！你身边可能有外星人！" class="headerlink" title="小心！你身边可能有外星人！"></a>小心！你身边可能有外星人！</h2><p>众所周知，很多外星人可能披着人类的外衣，让你看不出他是外星人，外星人这么做的动机可能有很多，先说说对我们的的影响。</p>
+        <h2 class="mdui-valign" id="小心！你身边可能有外星人！"><span>小心！你身边可能有外星人！&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#小心！你身边可能有外星人！"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>众所周知，很多外星人可能披着人类的外衣，让你看不出他是外星人，外星人这么做的动机可能有很多，先说说对我们的的影响。</p>
 <p>首先，如果你是人（自己应该心知肚明）。</p>
 <p>如果你有的时候做题调了很久，到最后发现是一个弱智错误；如果你有的时候本来想打比赛结果忘记了；如果有的时候你打游戏被你的家长发现；如果你打游戏的时候运气很差。那么说明你最近24 hour内接触过外星人。</p>
 <p>如何找出外星人呢？这就需要做一些研究。</p>
 <p>某 AI 表明，外星人的血缘关系有几大定律：</p>
 <ul>
-<li><p>外星人只会最简单的欺诈，有思考难度的问题只会说真话。</p>
+<li>
+<p>外星人只会最简单的欺诈，有思考难度的问题只会说真话。</p>
 </li>
-<li><p>外星人的亲人肯定都是外星人，外星人和地球人没有血缘关系。</p>
+<li>
+<p>外星人的亲人肯定都是外星人，外星人和地球人没有血缘关系。</p>
 </li>
-<li><p><strong>外星人的父亲的父亲可能是外星人。A外星人任何祖先的父亲可能是外星人本人A</strong>。</p>
+<li>
+<p><strong>外星人的父亲的父亲可能是外星人。A外星人任何祖先的父亲可能是外星人本人A</strong>。</p>
 </li>
-<li><p>外星人知道部分外星人是外星人，但不知道地球人是地球人。</p>
+<li>
+<p>外星人知道部分外星人是外星人，但不知道地球人是地球人。</p>
 </li>
 </ul>
 <p>这些意思就是说，外星人群体是一个封闭的结构，并且可能形成环。</p>
@@ -273,15 +282,20 @@
 <p>你家的关系是一个强连通图吗？</p>
 </blockquote>
 <p>如果他面露喜色，就说明他是了，如果他来打你，那你应该庆幸排除了一个外星人的可能性。</p>
-<h2 id="外星人的种类"><a href="#外星人的种类" class="headerlink" title="外星人的种类"></a>外星人的种类</h2><p>外星人有很多中，有火星人，有水星人，有木星人（别忘了他们可是外星人，可存活在非类地行星上面）三体人…..当然也有太阳人。</p>
+<h2 class="mdui-valign" id="外星人的种类"><span>外星人的种类&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#外星人的种类"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>外星人有很多中，有火星人，有水星人，有木星人（别忘了他们可是外星人，可存活在非类地行星上面）三体人…当然也有太阳人。</p>
 <ul>
-<li><p>每个外星种族和外星人种族一样也是封闭的。</p>
+<li>
+<p>每个外星种族和外星人种族一样也是封闭的。</p>
 </li>
-<li><p>不同的外星种族中间有歧视关系，太阳人歧视一切外星人，接下来按照轨道半径由小到大顺次排序。可以理解为原子轨道的屏蔽效应。</p>
+<li>
+<p>不同的外星种族中间有歧视关系，太阳人歧视一切外星人，接下来按照轨道半径由小到大顺次排序。可以理解为原子轨道的屏蔽效应。</p>
 </li>
-<li><p>地球上存在的一般都是太阳系的外星人。</p>
+<li>
+<p>地球上存在的一般都是太阳系的外星人。</p>
 </li>
-<li><p>太阳人的边是无向的，就是说，每两个节点之间的边有两条方向不同的有向边。也有可能是自环。</p>
+<li>
+<p>太阳人的边是无向的，就是说，每两个节点之间的边有两条方向不同的有向边。也有可能是自环。</p>
 </li>
 </ul>
 <p>所有太阳人身份尊贵。</p>
@@ -295,7 +309,8 @@
 <p>你是海王星来的海王吗？</p>
 </blockquote>
 <p>如果他表示愤怒，那么他就是外星人。</p>
-<h2 id="外星人更多的蛛丝马迹"><a href="#外星人更多的蛛丝马迹" class="headerlink" title="外星人更多的蛛丝马迹"></a>外星人更多的蛛丝马迹</h2><p>你可以思考一下，你迄今为止对外星人有多少了解呢？长时间以来，外星人把控着地球人的媒体部门。</p>
+<h2 class="mdui-valign" id="外星人更多的蛛丝马迹"><span>外星人更多的蛛丝马迹&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#外星人更多的蛛丝马迹"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>你可以思考一下，你迄今为止对外星人有多少了解呢？长时间以来，外星人把控着地球人的媒体部门。</p>
 <p>因此我们可以得出结论。</p>
 <ul>
 <li>自媒体和官方媒体平台的运营者有都是外星人。</li>
@@ -303,7 +318,8 @@
 <p>有人不是外星人是因为他们自己也不知道。</p>
 <p>还有谁之情不报呢？大家可以自己推测。</p>
 <p>我觉得应该更多的地球人像我一样把真相揭露给大家。</p>
-<h2 id="如何消灭外星人"><a href="#如何消灭外星人" class="headerlink" title="如何消灭外星人"></a>如何消灭外星人</h2><p><strong>为了写题，打游戏的安全，我们有必要消灭掉外星人。</strong></p>
+<h2 class="mdui-valign" id="如何消灭外星人"><span>如何消灭外星人&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#如何消灭外星人"><i class="mdui-icon material-icons">link</i></a></h2>
+<p><strong>为了写题，打游戏的安全，我们有必要消灭掉外星人。</strong></p>
 <p>外星人的弱点是什么呢？我不是外星人我怎么知道。</p>
 <p>对于这个问题，你可以先询问你的老师。</p>
 <p>但是使用我之前告诉你们的方法就显得太没有素质，亦或者老师听不懂。</p>
@@ -328,13 +344,15 @@
 <li>让他不认自己的儿子，比如失忆，家庭事故。</li>
 </ol>
 <p>断点的方式可能有些粗暴，这里不介绍了，他们虽然是外星人，<strong>但至少也是人啊，我们应该给予他们一定的尊重。</strong></p>
-<h2 id="为什么我知道这么多"><a href="#为什么我知道这么多" class="headerlink" title="为什么我知道这么多"></a>为什么我知道这么多</h2><p>可能有人会好奇为什么我知道的这么多，因为我在偶然间发现wyn是外星人，因为我盗取过wyn的电话手表，wyn妹妹wyq（q代表qiao）告诉我她是外星人。</p>
+<h2 class="mdui-valign" id="为什么我知道这么多"><span>为什么我知道这么多&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#为什么我知道这么多"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>可能有人会好奇为什么我知道的这么多，因为我在偶然间发现wyn是外星人，因为我盗取过wyn的电话手表，wyn妹妹wyq（q代表qiao）告诉我她是外星人。</p>
 <p>我通过冒充我是外星人的方式获取了wyn的信任，这些一部分是 AI 告诉我的，一部分是wyn告诉我的，一部分是我推导的。</p>
 <p>我后来发现，zms也是外星人，zms是火星人。</p>
 <p>我可以很负责任的告诉你是真的，根据可靠的消息，外星人已经覆盖了全球除去南极洲以外的每一块大陆，占据总人口30%以上。</p>
 <p><strong>因为身老病死的缘故，所以外星人是可能自然变成人类的，除去太阳人。</strong></p>
 <p>理论上，我们地球人可以通过我们锦薄之力，消灭除去太阳人以外的所有外星人（没有环之后他们就是地球人）。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>我担保这篇文章的内容都是真的，如果外星人的父辈都不在环中。</p>
+<h2 class="mdui-valign" id="后记"><span>后记&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#后记"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>我担保这篇文章的内容都是真的，如果外星人的父辈都不在环中。</p>
 
         
         <blockquote class="mdui-m-x-0 mdui-m-t-4">
@@ -387,32 +405,35 @@
 <p>以此文纪我们初中的丰功伟绩。正如某年某区语文一卷所引用人民日报的那篇文章一样。</p>
 <blockquote>
 <p>碑需自立，名由己传</p>
-<p>—— <del>人民日报</del></p>
+<p>—— <s>人民日报</s></p>
 </blockquote>
-<h3 id="1-书包搭建"><a href="#1-书包搭建" class="headerlink" title="1. 书包搭建"></a>1. 书包搭建</h3><p>有时放学后，我们会显得很闲，如果这时候X没有光临教室的话，那就是进行书包搭建的必要条件了。</p>
-<p>为了<del>减速同学清理教室的速度</del>好玩，有时候我会把椅子用不同寻常的方式放在桌子上面，来减轻值日生的工作量。</p>
+<h3 class="mdui-valign" id="1-书包搭建"><span>1. 书包搭建&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#1-书包搭建"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>有时放学后，我们会显得很闲，如果这时候X没有光临教室的话，那就是进行书包搭建的必要条件了。</p>
+<p>为了<s>减速同学清理教室的速度</s>好玩，有时候我会把椅子用不同寻常的方式放在桌子上面，来减轻值日生的工作量。</p>
 <p>包括但不限于，这样:</p>
 <p><a target="_blank" rel="noopener" href="https://imgse.com/i/pAPbrkj"><img src="https://s21.ax1x.com/2024/08/20/pAPbrkj.png" alt="pAPbrkj.png"></a></p>
 <p>有时候呢，在周五放学后，我会很善良的帮助同学携带他们的书包。但是看到他们的书包，又转念一想，为什么不让它们体会一下<code>高处不胜寒</code>的感觉呢？</p>
 <p>于是就成了这样：</p>
 <p><a target="_blank" rel="noopener" href="https://imgse.com/i/pAPbcpq"><img src="https://s21.ax1x.com/2024/08/20/pAPbcpq.png" alt="pAPbcpq.png"></a></p>
-<h3 id="2-粉笔"><a href="#2-粉笔" class="headerlink" title="2.粉笔"></a>2.粉笔</h3><p>很多学生都喜欢玩老师的粉笔，不包括大玮专用粉笔。</p>
+<h3 class="mdui-valign" id="2-粉笔"><span>2.粉笔&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#2-粉笔"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>很多学生都喜欢玩老师的粉笔，不包括大玮专用粉笔。</p>
 <p>粉笔有很多种花样玩，可以用来打二战，可以用来制作烟雾弹，也可以在别人的桌子上施展艺术天赋。</p>
-<p>我作为常年占据素质榜 $\text{RK 1}$ 的人，自然是 <del>总来不会涉及上述事情的</del>。</p>
+<p>我作为常年占据素质榜 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">R</mi><mi mathvariant="normal">K</mi><mtext> </mtext><mn>1</mn></mtext></mrow><annotation encoding="application/x-tex">\text{RK 1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">R</span><span class="mord mathrm">K</span><span class="mord mspace"> </span><span class="mord mathrm">1</span></span></span></span></span> 的人，自然是 <s>总来不会涉及上述事情的</s>。</p>
 <p>我们曾经做过粉笔雕塑。</p>
-<p>用针，剪刀，尺子作为工具，用粉笔作为材料，制作一些人像，虽然看起来并不真实，但还是很好玩的，可惜就玩了一天。我制作的 $4$ 个雕塑被人破坏了，倒在地上死无全尸。后来我就不玩了。</p>
+<p>用针，剪刀，尺子作为工具，用粉笔作为材料，制作一些人像，虽然看起来并不真实，但还是很好玩的，可惜就玩了一天。我制作的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">4</span></span></span></span> 个雕塑被人破坏了，倒在地上死无全尸。后来我就不玩了。</p>
 <p>粉笔中，彩色粉笔的用处格外的少，因为白色粉笔质量优秀，老师和学生都喜欢使用。又因为黑板擦，扫帚有其他的用途（详见后文：冰球），因此我们班成为教具新陈代谢最快的一个班，每次领取也自然需要拿彩色粉笔，于是乎，彩色粉笔泛滥成灾。</p>
 <p>为了解决这个难题，卡洛斯·刘自告奋勇的为班级奉献力量，拿出他的水杯将彩色粉笔研磨成细末，又因为某个同学有一个<code>南瓜灯</code>。我们便把水和粉笔灰倒入其中。</p>
 <p>出现了一个自告奋勇的同学就会出现下一个，某同学自愿将咖啡粉倒入其中，经过搅拌，就成为令人垂涎欲滴的饮品了！</p>
 <p>制作完这个胶体过后，我们并不满足，由于材料限制，我们加入了某个同学的柠檬，和一些枯萎的树叶。</p>
 <p>试想你面前放着一杯由粉笔灰，咖啡粉，柠檬，树叶，氧化氢构成的混合物，你怎能忍住不去尝一口的诱惑呢？</p>
 <p>P.S. 某化学老师说过，粉笔是很多工厂制作豆腐的必备原料。(胶体的凝聚)所以粉笔时刻实用的。</p>
-<p>但是正当我们举办<code>品茶会</code>的时候，X出现并且制止了我们，也避免了校门口被 $120$ 堵住的情况。</p>
+<p>但是正当我们举办<code>品茶会</code>的时候，X出现并且制止了我们，也避免了校门口被 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>2</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">120</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">2</span><span class="mord mathrm">0</span></span></span></span> 堵住的情况。</p>
 <p>尽管最后，卡洛斯·刘用薯片罐子保存了我们的饮品。</p>
 <p>突然想到的，我和wyn保存这2024.2，喝了一半的冰糖雪梨，目前仍在我初中的书包柜，不止安好可否？</p>
-<h3 id="3-擦汗巾"><a href="#3-擦汗巾" class="headerlink" title="3.擦汗巾"></a>3.擦汗巾</h3><p>有一个同学，名字叫wcx，很喜欢打球。</p>
+<h3 class="mdui-valign" id="3-擦汗巾"><span>3.擦汗巾&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#3-擦汗巾"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>有一个同学，名字叫wcx，很喜欢打球。</p>
 <p>可能很多人很喜欢打球，但是wcx是唯一一个打完球使用擦汗巾的，多数人会和我一样，站在<code>A/C</code>的下面。</p>
-<p>wcx的擦汗巾总是遭遇厄运。包括但不限于被其他同学&#x2F;wcx本人投掷到某个她或者多个她身上。</p>
+<p>wcx的擦汗巾总是遭遇厄运。包括但不限于被其他同学/wcx本人投掷到某个她或者多个她身上。</p>
 <p>我觉得还是不如上树。</p>
 <p>两年前的 顾【数据删除】，一年前的SB同学，现在的德尔塔爆炸同学，喜欢尝试一个叫做<code>摸高</code>的运动。具体的，把wcx的擦汗巾挂在尽可能高的他可以够到的树枝上去。</p>
 <p>虽然我的表述方式很可能让你联系到二分答案，但这其实是找极大值，因为德尔塔爆炸同学会不断地尝试挂在更高的树枝上。</p>
@@ -423,7 +444,8 @@
 <p><code>德尔塔爆炸</code>胆子真大，徐大W都要来了。</p>
 </blockquote>
 <p>显然ssy同学预判了XDW，XDW预判了ssy的预判。XDW走进了教室，用祥和的语气询问ssy“谁来了啊？”</p>
-<h3 id="4-空调，吊灯"><a href="#4-空调，吊灯" class="headerlink" title="4.空调，吊灯"></a>4.空调，吊灯</h3><p>我们班的同学总是试图把东西放在更高的地方。因为熊培云讲过：</p>
+<h3 class="mdui-valign" id="4-空调，吊灯"><span>4.空调，吊灯&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#4-空调，吊灯"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我们班的同学总是试图把东西放在更高的地方。因为熊培云讲过：</p>
 <blockquote>
 <p>自由在高处。</p>
 </blockquote>
@@ -434,45 +456,53 @@
 <p>还有一次，我记得我将wcx的一个什么东西放到了吊灯上面，但显然我这次拿不下来。</p>
 <p>于是乎，我召集了很多同学，毕竟人多力量大。最后把他拿下来了。庆幸的是没有引起X的注意。</p>
 <p>不像德尔塔爆炸同学，将一个称为hr的同学的笔放在吊灯上，被X约谈。</p>
-<h3 id="5-游戏"><a href="#5-游戏" class="headerlink" title="5.游戏"></a>5.游戏</h3><p>中一的时候，我们有信息技术课，也可以叫做游戏技术课，我们体验了很多io游戏，比如paper，diep，arras，yorg，digdig，那时候这些游戏加上mc基本是我们全部玩的了。（指我所在的圈子）</p>
+<h3 class="mdui-valign" id="5-游戏"><span>5.游戏&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#5-游戏"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>中一的时候，我们有信息技术课，也可以叫做游戏技术课，我们体验了很多io游戏，比如paper，diep，arras，yorg，digdig，那时候这些游戏加上mc基本是我们全部玩的了。（指我所在的圈子）</p>
 <p>中一下的时候，我们上网课，我们开始玩florr的长条pvp地图，那时候我没觉得很好玩，但也跟着玩。</p>
 <p>中二开始我就一直玩florr了，我们曾全班85%以上的同学打开过<code>florr.io</code>这个网站20分钟以上。后来分道扬镳了。</p>
 <p>但是我们有一种很神奇的游戏，虽然它有官方的名字，但是我们更喜欢通俗的叫它<code>拍手游戏</code>。虽然这个游戏有点唐氏，但是我们都爱玩，大概有十几个人和我一样玩了初中3年。因为学校和老师总是有更唐氏的东西，比如早操，我们会一起玩拍手游戏。</p>
 <p>其他班的班主任通常禁止了他们班的学生玩，X是一位开明的老师，并没有反对我们玩。只是又是后我们玩的很吵闹，X会表示我们很幼稚。</p>
-<h3 id="6-撅斗"><a href="#6-撅斗" class="headerlink" title="6.撅斗"></a>6.撅斗</h3><p>这个事情其实参与的人并不多。<del>也是这么多事情中我唯一没有参与的。</del> 只有4个。</p>
+<h3 class="mdui-valign" id="6-撅斗"><span>6.撅斗&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#6-撅斗"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>这个事情其实参与的人并不多。<s>也是这么多事情中我唯一没有参与的。</s> 只有4个。</p>
 <p>具体的，就是拿长柄伞撑开可以当盾牌，收起可以当<code>攻击武器</code>。左手和右手分别拿一把伞，可以称为秦始皇的兵马俑。</p>
-<p>大家似乎看兵马俑的复活赛很热情，兵马俑也在伞中加入了$\text{H}_2\text{O}$，让我们在夏天更加清凉，也给对手增加魔法攻击。</p>
+<p>大家似乎看兵马俑的复活赛很热情，兵马俑也在伞中加入了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mtext><mi mathvariant="normal">H</mi></mtext><mn>2</mn></msub><mtext><mi mathvariant="normal">O</mi></mtext></mrow><annotation encoding="application/x-tex">\text{H}_2\text{O}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="text mord textstyle uncramped"><span class="mord mathrm">H</span></span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="text mord textstyle uncramped"><span class="mord mathrm">O</span></span></span></span></span>，让我们在夏天更加清凉，也给对手增加魔法攻击。</p>
 <p>可惜不久就被X爆破了。</p>
-<h3 id="7-名字-一种神奇的字符串"><a href="#7-名字-一种神奇的字符串" class="headerlink" title="7.名字-一种神奇的字符串"></a>7.名字-一种神奇的字符串</h3><p>我们可能对名字并不是很看重，比如zms，还有我。但是zms更加蔑视他的名字。</p>
+<h3 class="mdui-valign" id="7-名字-一种神奇的字符串"><span>7.名字-一种神奇的字符串&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#7-名字-一种神奇的字符串"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我们可能对名字并不是很看重，比如zms，还有我。但是zms更加蔑视他的名字。</p>
 <p>在网课的时候，流行冒充别人的游戏。</p>
 <p>比如，可以冒充别人发一些逆天的言论，这个可以自行脑补。</p>
 <p>也可以起一点奇奇怪怪的名字，比如<code>客服</code>，但zms并不屑于起这些低级的名字，他自称为<code>学生菊</code>。我觉得真是一个不错的名字，于是出现了<code>学生逊</code>，后来出现了更多的学生。</p>
 <p>后来，我们开始在作业上尝试更创新的名字，起点便是学生X，以至于某一次X质问我和zms，谁是<code>学生菊</code>，谁是<code>学生逊</code>。</p>
 <p>再后来，zms会写上shk的名字，我已经尚能饭否了。</p>
 <p>最后来，中考第二次模拟考试，简称二模，我们学校体制不同，当做验收考，zms在数学考卷上并没有写下他的名字。老师最后还是把分给他了。</p>
-<h3 id="8-笔袋怎么你了"><a href="#8-笔袋怎么你了" class="headerlink" title="8.笔袋怎么你了"></a>8.笔袋怎么你了</h3><p>有段时间，我们很喜欢藏东西，比如藏同学的笔袋，文件袋。</p>
+<h3 class="mdui-valign" id="8-笔袋怎么你了"><span>8.笔袋怎么你了&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#8-笔袋怎么你了"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>有段时间，我们很喜欢藏东西，比如藏同学的笔袋，文件袋。</p>
 <p>这么做可以合理阻止同学内卷，做新时代好少年。</p>
 <p>藏的地方有很多，比如消防栓。</p>
 <p>相信nty同学深受其害。</p>
-<h3 id="9-作业本"><a href="#9-作业本" class="headerlink" title="9.作业本"></a>9.作业本</h3><p>随着作业本变多，老师懒得搬本子了。</p>
+<h3 class="mdui-valign" id="9-作业本"><span>9.作业本&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#9-作业本"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>随着作业本变多，老师懒得搬本子了。</p>
 <p>那就会让课代表去跑腿，于是<code>德尔塔爆炸</code>同学不禁提出了「这刘Y怎么这么懒，为什么下来的时候不自己搬一点呢？」的疑问。</p>
 <p>他每次回纠集一些人去搬运本子，比如我，因为我认为这样可以光明正大的逃避眼保健操。</p>
 <p>如果仅仅是为了眼保健操，那就显得我们太菜了，我们应该找一点说服自己的理由。</p>
 <p>结合时事，我提出了某知名理论。于是我们将执行轰炸任务的热情到发作业中。</p>
-<h3 id="10-城北徐公"><a href="#10-城北徐公" class="headerlink" title="10.城北徐公"></a>10.城北徐公</h3><p>城北徐公貌美，这是千年来中国人都知道的。</p>
+<h3 class="mdui-valign" id="10-城北徐公"><span>10.城北徐公&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#10-城北徐公"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>城北徐公貌美，这是千年来中国人都知道的。</p>
 <p>徐公教授物理，因为某些不知名的原因提出了一些有趣想法。</p>
 <p>卡洛斯·刘同学很好的执行了该想法，在他的笔记本上批斗 <code>smy</code>，最初他记载的很仔细，包括但不限于我上课时痛骂出题人，提出逆天结论误导他人，使用那套理论发作业，后来开始胡编乱造的加入了许多内容，最后大概100多条？</p>
 <p>城北徐公还引到大家思考人一般的功率大小，比如走路，摸高的功率，我自然地联想到从自由的位置自由落体运动可以获得很大的功率。</p>
 <p>他希望我们之后成为伟大的实验物理学家，后来，pzx的语文书做到了，尽管释怀得似了。</p>
-<h3 id="11-化学式"><a href="#11-化学式" class="headerlink" title="11.化学式"></a>11.化学式</h3><p>有些同学对化学有着极大的热情，比如，构造奇奇怪怪的化学式。</p>
-<p>我们的化学老师叫做<code>刘Y</code>，读音和化学元素$\text{SIn}$ 拼起来是一模一样的。于是，ljs同学构造了酸根$\text{SIn}_3^{-}$。</p>
+<h3 class="mdui-valign" id="11-化学式"><span>11.化学式&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#11-化学式"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>有些同学对化学有着极大的热情，比如，构造奇奇怪怪的化学式。</p>
+<p>我们的化学老师叫做<code>刘Y</code>，读音和化学元素<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">S</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">n</mi></mtext></mrow><annotation encoding="application/x-tex">\text{SIn}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">S</span><span class="mord mathrm">I</span><span class="mord mathrm">n</span></span></span></span></span> 拼起来是一模一样的。于是，ljs同学构造了酸根<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mtext><mi mathvariant="normal">S</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">n</mi></mtext><mn>3</mn><mrow><mo>−</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">\text{SIn}_3^{-}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.811462em;"></span><span class="strut bottom" style="height:1.0777700000000001em;vertical-align:-0.266308em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="text mord textstyle uncramped"><span class="mord mathrm">S</span><span class="mord mathrm">I</span><span class="mord mathrm">n</span></span><span class="vlist"><span style="top:0.266308em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span style="top:-0.403131em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">−</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</p>
 <blockquote>
 <p>子曰：</p>
 <p>有其酸根必有其酸。</p>
 </blockquote>
-<p>那么就应该是 $\text{HSIn}_3$，那么学过最基础的初中化学的人就应该知道这个东西怎么读。如果觉得读音没什么问题就去再复习一下。</p>
+<p>那么就应该是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mtext><mi mathvariant="normal">H</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">n</mi></mtext><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">\text{HSIn}_3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="text mord textstyle uncramped"><span class="mord mathrm">H</span><span class="mord mathrm">S</span><span class="mord mathrm">I</span><span class="mord mathrm">n</span></span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，那么学过最基础的初中化学的人就应该知道这个东西怎么读。如果觉得读音没什么问题就去再复习一下。</p>
 <p>ljs同学在创造其酸的时候应该没有意识到谐音，他大声的报出来了，全班为之震撼，后来我们就越来越抽象了。</p>
-<h3 id="12-音乐"><a href="#12-音乐" class="headerlink" title="12.音乐"></a>12.音乐</h3><p>尽管我们不喜欢音乐课和音乐老师，我认为这些比较唐氏。</p>
+<h3 class="mdui-valign" id="12-音乐"><span>12.音乐&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#12-音乐"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>尽管我们不喜欢音乐课和音乐老师，我认为这些比较唐氏。</p>
 <p>既然提到音乐老师了，那就不得不提到其名言了，运用其独特的嗓音说出的：「侬ve能WA啦WA啦。」</p>
 <p>音乐老师布置过一个很烦人的作业，让我们拍摄一些短剧，我们都为拍摄绞尽脑汁，zms甚至想出了某些当代互联网唐氏小孩都会说的东西作为题材，后来他也这么做了。</p>
 <p>我们喜欢音乐课以外的音乐，比如<code>See you again</code>。下课时时常集体在教室中追忆牢大。因为我们对牢大怀念至极，我们的毕业典礼节目也是<code>See you again</code>，虽然唱的很难听，但是十分接地气。</p>
@@ -482,44 +512,47 @@
 </blockquote>
 <p>在社会考察的时候，我们除了打游戏就是一起乱唱，比如谷歌翻译后的<code>Never gOnna gIve you uP</code>，当地一名老年居民直言我们<code>神经病</code>。</p>
 <p>在社会考察的晚上，我们住在酒店，自然非常的<code>嗨</code>。我们在当地少儿台节目看到了猪猪侠。由于和某个人的绰号很像，我们开始唱起了猪猪侠主题曲：<code>GG bond</code>。声音还是很魔性的。那天晚上X查寝，看到我们对着播放着猪猪侠动画片的电视齐唱<code>GG bond</code>，便很严肃的教育我们了一番。</p>
-<h3 id="13-TDC-FBI-N-8"><a href="#13-TDC-FBI-N-8" class="headerlink" title="13.TDC&amp;FBI&amp;N+8"></a>13.TDC&amp;FBI&amp;N+8</h3><p>我们对很多组织感兴趣。</p>
+<h3 class="mdui-valign" id="13-TDC-FBI-N-8"><span>13.TDC&amp;FBI&amp;N+8&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#13-TDC-FBI-N-8"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我们对很多组织感兴趣。</p>
 <p>在中二的时候，也就是一年半前，我们学到了一篇课文:<code>最后的讲演</code>。因为我们在中一的时候要求所有人看了一遍三体，因此为这个梗提供了良好的条件。</p>
-<p>学课文的时候，我不知道想些什么，可能是担心演讲者和观众有内急吧，把三体中的行星防御理事会 $\text{PDC}$ 改成了 厕所防御理事会 $\text{TDC}$。</p>
+<p>学课文的时候，我不知道想些什么，可能是担心演讲者和观众有内急吧，把三体中的行星防御理事会 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">P</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">C</mi></mtext></mrow><annotation encoding="application/x-tex">\text{PDC}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">P</span><span class="mord mathrm">D</span><span class="mord mathrm">C</span></span></span></span></span> 改成了 厕所防御理事会 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">T</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">C</mi></mtext></mrow><annotation encoding="application/x-tex">\text{TDC}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">T</span><span class="mord mathrm">D</span><span class="mord mathrm">C</span></span></span></span></span>。</p>
 <p>全称是：</p>
-<p>$$\texttt{Toilet Defence Council}$$</p>
+\texttt{Toilet Defence Council}
+
 <p>虽然看起很高级，但实际上有点唐。不过还是觉得挺好玩的。</p>
-<p>我们赋予了它非常多的职能，包括但不限于: </p>
+<p>我们赋予了它非常多的职能，包括但不限于:</p>
 <ul>
 <li>修建厕所。</li>
 <li>维护厕所。</li>
 <li>管理坑位。</li>
 </ul>
-<p>后来，我们与时俱进，由于那个时候我们准备历史中考有点魔怔了，做了一张卷子是关于<code>土山湾孤儿院</code>的。于是 $\text{TDC}$ 又多了很多职能：</p>
+<p>后来，我们与时俱进，由于那个时候我们准备历史中考有点魔怔了，做了一张卷子是关于<code>土山湾孤儿院</code>的。于是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">T</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">C</mi></mtext></mrow><annotation encoding="application/x-tex">\text{TDC}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">T</span><span class="mord mathrm">D</span><span class="mord mathrm">C</span></span></span></span></span> 又多了很多职能：</p>
 <ul>
 <li>精神病院</li>
 <li>孤儿院</li>
 <li>缅北诈骗</li>
 <li>米哈游</li>
 </ul>
-<p>为了证明我们 $\text{TDC}$ 是一个合法组织，我用 $0$ 元聘请了同学在我的座位上写上了 $\text{TDC}$，最后这个椅子我用了一年半，直到中三结束。</p>
+<p>为了证明我们 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">T</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">C</mi></mtext></mrow><annotation encoding="application/x-tex">\text{TDC}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">T</span><span class="mord mathrm">D</span><span class="mord mathrm">C</span></span></span></span></span> 是一个合法组织，我用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span> 元聘请了同学在我的座位上写上了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">T</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">C</mi></mtext></mrow><annotation encoding="application/x-tex">\text{TDC}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">T</span><span class="mord mathrm">D</span><span class="mord mathrm">C</span></span></span></span></span>，最后这个椅子我用了一年半，直到中三结束。</p>
 <p>期间，我说很多独树一帜的话，比如</p>
 <blockquote>
 <p>农村包围城市，厕所包围教室。</p>
 </blockquote>
 <p>大部分我都想不起来了。</p>
-<p>大概到了中三 $10$ 月份，也就是社会考察的时候，我们又开始玩 $\text{FBI}$ 的梗。</p>
-<p>每当我们走进教室，我们会学习 $\text{FBI}$ 突击队员的精神肘击教室门，不过后来被X禁止了。</p>
+<p>大概到了中三 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span> 月份，也就是社会考察的时候，我们又开始玩 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">F</mi><mi mathvariant="normal">B</mi><mi mathvariant="normal">I</mi></mtext></mrow><annotation encoding="application/x-tex">\text{FBI}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">F</span><span class="mord mathrm">B</span><span class="mord mathrm">I</span></span></span></span></span> 的梗。</p>
+<p>每当我们走进教室，我们会学习 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">F</mi><mi mathvariant="normal">B</mi><mi mathvariant="normal">I</mi></mtext></mrow><annotation encoding="application/x-tex">\text{FBI}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">F</span><span class="mord mathrm">B</span><span class="mord mathrm">I</span></span></span></span></span> 突击队员的精神肘击教室门，不过后来被X禁止了。</p>
 <p>但是我们还是要高喊一声：</p>
 <blockquote>
 <p><strong>FBI</strong>，open the door！</p>
 </blockquote>
-<p><del>来刷存在感。</del></p>
-<p>也是这个时候，我们又搞出了 $\text{N+8 OI}$，主要成员有我，<code>德尔塔爆炸</code>，<code>卡洛斯·刘</code>。因为他们有蓝勾，想出公开赛，后来觉得搞不了，放弃了，虽然题已经出好了，但是数据没配。</p>
-<p>你也可以叫做 $\text{N}^{8+}$ ，因为某同学发明了四氧化氮这个元素，所以我们提取出来了正八价的氮离子，感觉并不过分。其实我觉得可以更深入的研究一些所构成物质杂化轨道和构型这些，但是只是觉得，并没有搞，以后可以试试看。</p>
-<p>在社会考察的时候，我们有 $8$ 个人，所以我们也叫我们小组 $\text{N}^{8+}$，并且把每个人作为一个电子。</p>
-<p>后来X觉得我们聚在一起能量太大，所构成物质不稳定，于是把一些电子给了一些电负性比较大的人，构成稳定结构，看来X对 $\text{MO}$（分子轨道理论）有很深入的认识啊。我并没有作为电子被转移。你也可以叫这个过程，氧化还原。虽然我们被氧化了，但是我们仍然有很强的能量，啥瞎搞的事情我们都参与（）</p>
+<p><s>来刷存在感。</s></p>
+<p>也是这个时候，我们又搞出了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">N</mi><mi mathvariant="normal">+</mi><mn>8</mn><mtext> </mtext><mi mathvariant="normal">O</mi><mi mathvariant="normal">I</mi></mtext></mrow><annotation encoding="application/x-tex">\text{N+8 OI}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">N</span><span class="mord mathrm">+</span><span class="mord mathrm">8</span><span class="mord mspace"> </span><span class="mord mathrm">O</span><span class="mord mathrm">I</span></span></span></span></span>，主要成员有我，<code>德尔塔爆炸</code>，<code>卡洛斯·刘</code>。因为他们有蓝勾，想出公开赛，后来觉得搞不了，放弃了，虽然题已经出好了，但是数据没配。</p>
+<p>你也可以叫做 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mtext><mi mathvariant="normal">N</mi></mtext><mrow><mn>8</mn><mo>+</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\text{N}^{8+}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="text mord textstyle uncramped"><span class="mord mathrm">N</span></span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">8</span><span class="mbin">+</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> ，因为某同学发明了四氧化氮这个元素，所以我们提取出来了正八价的氮离子，感觉并不过分。其实我觉得可以更深入的研究一些所构成物质杂化轨道和构型这些，但是只是觉得，并没有搞，以后可以试试看。</p>
+<p>在社会考察的时候，我们有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">8</span></span></span></span> 个人，所以我们也叫我们小组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mtext><mi mathvariant="normal">N</mi></mtext><mrow><mn>8</mn><mo>+</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\text{N}^{8+}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="text mord textstyle uncramped"><span class="mord mathrm">N</span></span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">8</span><span class="mbin">+</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，并且把每个人作为一个电子。</p>
+<p>后来X觉得我们聚在一起能量太大，所构成物质不稳定，于是把一些电子给了一些电负性比较大的人，构成稳定结构，看来X对 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi></mtext></mrow><annotation encoding="application/x-tex">\text{MO}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">M</span><span class="mord mathrm">O</span></span></span></span></span>（分子轨道理论）有很深入的认识啊。我并没有作为电子被转移。你也可以叫这个过程，氧化还原。虽然我们被氧化了，但是我们仍然有很强的能量，啥瞎搞的事情我们都参与（）</p>
 <p>（如果没理解换成人话说X把我们组中有的人转移到其他组去tla了XD）</p>
-<h3 id="14-奇怪的绰号"><a href="#14-奇怪的绰号" class="headerlink" title="14.奇怪的绰号"></a>14.奇怪的绰号</h3><p>我们中有一些同学，很喜欢锐评老师，<del>不是我</del>。比如体型。</p>
+<h3 class="mdui-valign" id="14-奇怪的绰号"><span>14.奇怪的绰号&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#14-奇怪的绰号"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我们中有一些同学，很喜欢锐评老师，<s>不是我</s>。比如体型。</p>
 <p>在中一第一个学期，未来的天皇（双关）zzq，在X的英语课上高声说<code>xxx肥妞</code>。开始了锐评之基。</p>
 <p>评价老师和同学的体重有很多，qzh（ses-lightning）称那些肥大的人为<code>压路机</code>。很长一段时间听到这个词我就很难绷住。</p>
 <p>后来我们有开发了很多新的绰号，一般都来源于同学本身的名字或者所作所为。</p>
@@ -532,7 +565,8 @@
 <p>我把另一个人的名字和nty名字拼音相同，读音不同的字，移植到nty的名字上面，于是nty的y从4声变成2声，具体可以看我之前写的专栏<code>为什么nitianyi的名字非常地好？</code></p>
 <p>因为那个受害的同学和nty同学曾经做过同桌，并且有一些传闻。尽管是假的。这个新的名字推行的很好，和zzq的一样好。</p>
 <p>lolchnn0，在中一的时候，活学活用的使用<code>菊</code>文化，给自己起了一个绰号，沿用至今。</p>
-<h3 id="15-教室的多媒体电子屏"><a href="#15-教室的多媒体电子屏" class="headerlink" title="15.教室的多媒体电子屏"></a>15.教室的多媒体电子屏</h3><p>我们无聊且疲劳的时候，有时候会玩教室的电脑。</p>
+<h3 class="mdui-valign" id="15-教室的多媒体电子屏"><span>15.教室的多媒体电子屏&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#15-教室的多媒体电子屏"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我们无聊且疲劳的时候，有时候会玩教室的电脑。</p>
 <p><code>zms</code>便是因为通过教室的电脑登录洛谷后去打球，便被德尔塔爆炸同学给每一个洛谷管理员（除去关闭私信的chen_zhe）发送了信息。最后被封禁了私信。</p>
 <p>我们会使用教室的电脑紧随时势。</p>
 <p>我们会见缝插针的打开<code>高三八班</code>高考100天宣誓词，并且富有激情的跟随他朗诵。</p>
@@ -541,7 +575,7 @@
 <ul>
 <li>厕所怪物。</li>
 </ul>
-<p>曾经我们对厕所很感兴趣，于是看到了厕所怪物的额新闻，具体来说就是谁上厕所不用 $\text{H}_2 \text{O}$ 冲洗，就会有一个头上顶着棕色有机物的怪物来找到你，投掷那些有机物，把你抓回去进行清洁。虽然我认为那个怪物才是不清洁的根源所在。</p>
+<p>曾经我们对厕所很感兴趣，于是看到了厕所怪物的额新闻，具体来说就是谁上厕所不用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mtext><mi mathvariant="normal">H</mi></mtext><mn>2</mn></msub><mtext><mi mathvariant="normal">O</mi></mtext></mrow><annotation encoding="application/x-tex">\text{H}_2 \text{O}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="text mord textstyle uncramped"><span class="mord mathrm">H</span></span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="text mord textstyle uncramped"><span class="mord mathrm">O</span></span></span></span></span> 冲洗，就会有一个头上顶着棕色有机物的怪物来找到你，投掷那些有机物，把你抓回去进行清洁。虽然我认为那个怪物才是不清洁的根源所在。</p>
 <ul>
 <li>某酒店厕所爆炸</li>
 </ul>
@@ -551,50 +585,60 @@
 </ul>
 <p>其实应该并不是夫妻，可能是情侣关系。他们偷取了一辆在地下停车库停着的奥迪，车内行车记录仪显示男性盗车者进行了表白。</p>
 <p>巧合的是，他并没有将女性盗车者的名字直接说出，应该只报出了一个子串，这个子串和我们班某个人的名字的子串是全等的，没有哈希冲突。于是我们班的某个人的某什么，也就是<code>卡洛斯·刘</code>一再强调盗车者不是他，他也不会说那句话。</p>
-<h3 id="16-电信诈骗"><a href="#16-电信诈骗" class="headerlink" title="16.电信诈骗"></a>16.电信诈骗</h3><p>社会考察的时候，给每个小组长下发了班级所有同学的通信表，也就是电话号。</p>
+<h3 class="mdui-valign" id="16-电信诈骗"><span>16.电信诈骗&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#16-电信诈骗"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>社会考察的时候，给每个小组长下发了班级所有同学的通信表，也就是电话号。</p>
 <p><code>德尔塔爆炸</code> 同学作为我们能量最大的原子中的一个电子，开发了给别人打诈骗电话的方式，我们的内容很简单。</p>
 <ul>
 <li>冒充保险的客服，但是没有收费渠道。</li>
 <li>伪造出别人亲人的消息。</li>
 </ul>
 <p>后来，一个叫做<code>wy</code>的人开发出了短信诈骗，他冒充的是楚黎教育，还是用了我的邮箱地址。</p>
-<p>后来，我们开始和客服打电话，比如米哈游，尚海整装，联邦调查局。对于米哈游，基本是询问一通<code>原神</code>的问题后，用礼貌&#x2F;不礼貌的方式得出结论<code>原神降智游戏</code>。</p>
+<p>后来，我们开始和客服打电话，比如米哈游，尚海整装，联邦调查局。对于米哈游，基本是询问一通<code>原神</code>的问题后，用礼貌/不礼貌的方式得出结论<code>原神降智游戏</code>。</p>
 <p>到了今年暑假，也就是最近。</p>
 <p>我和其他班的几个同学又因为无聊，开发出新的诈骗。</p>
 <p>给别人打电话，然后不说话，听别人说<code>喂？</code>，我们随机拨电话，然后录音录下来。</p>
 <p>这是我们听到几个比较搞笑的：</p>
 <ul>
-<li><p>某老太用及其祥和的嗓音询问多次 <code>喂</code> ,<code>你说话呀</code></p>
+<li>
+<p>某老太用及其祥和的嗓音询问多次 <code>喂</code> ,<code>你说话呀</code></p>
 </li>
-<li><p>某老太边打电话边跳广场舞，因为我们听到了那欢快，富有节奏感的韵律。</p>
+<li>
+<p>某老太边打电话边跳广场舞，因为我们听到了那欢快，富有节奏感的韵律。</p>
 </li>
-<li><p>某中年男子没有素质的谩骂，我们几个联合把他骂回去了。我们很文明，用国际社会几个臭名昭著的政治人物骂他。</p>
+<li>
+<p>某中年男子没有素质的谩骂，我们几个联合把他骂回去了。我们很文明，用国际社会几个臭名昭著的政治人物骂他。</p>
 </li>
 </ul>
 <p>最后，某同学胆子很大，给化学老师打电话。他打电话的时候，我们都在笑，尽管控制了音量，他小声跟我们说：「等她挂了电话我们听录音」然后听录音的时候发现他的这句被录进去了。</p>
-<h3 id="17-叠叠乐"><a href="#17-叠叠乐" class="headerlink" title="17.叠叠乐"></a>17.叠叠乐</h3><p>有些同学，喜欢卷。我们要阻止他们！</p>
+<h3 class="mdui-valign" id="17-叠叠乐"><span>17.叠叠乐&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#17-叠叠乐"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>有些同学，喜欢卷。我们要阻止他们！</p>
 <p>我们有很多办法，比如：</p>
 <ol>
-<li><p>把他的文件袋和笔袋藏起来。</p>
+<li>
+<p>把他的文件袋和笔袋藏起来。</p>
 </li>
-<li><p>把他的笔放在吊灯或者空调上。</p>
+<li>
+<p>把他的笔放在吊灯或者空调上。</p>
 </li>
-<li><p>用压路机的物理方式阻止他。</p>
+<li>
+<p>用压路机的物理方式阻止他。</p>
 </li>
 </ol>
 <p>具体的，一个人直接跑过去，叠在他的身上，因为那个很肥大，所以他就没法写字了。由于很快会招来一群好事者，所以会叠很多人，会出现很大的响声，X就会出现并且抓住第一个好事者，也就是倒数第二层。</p>
-<h3 id="18-窗帘"><a href="#18-窗帘" class="headerlink" title="18.窗帘"></a>18.窗帘</h3><p>我们教室的窗帘，有一个吊绳，可以用来控制升降。</p>
-<p>我们教室后面，有 $3$ 个挂钩，不知道是干什么用的。</p>
-<p>于是我们喜欢摆动吊绳，试图让吊绳同时套在 $3$ 个挂钩上面，这三个挂钩呈倒三角排列。</p>
+<h3 class="mdui-valign" id="18-窗帘"><span>18.窗帘&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#18-窗帘"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我们教室的窗帘，有一个吊绳，可以用来控制升降。</p>
+<p>我们教室后面，有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span></span></span></span> 个挂钩，不知道是干什么用的。</p>
+<p>于是我们喜欢摆动吊绳，试图让吊绳同时套在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span></span></span></span> 个挂钩上面，这三个挂钩呈倒三角排列。</p>
 <p><a target="_blank" rel="noopener" href="https://imgse.com/i/pAPbwnS"><img src="https://s21.ax1x.com/2024/08/20/pAPbwnS.png" alt="pAPbwnS.png"></a></p>
 <p>摆动吊绳搭住一个挂钩很简单。</p>
-<p>挂住 $2$ 个需要技巧。</p>
-<p>挂住 $3$ 个还是有一定难度的。</p>
-<p>大概成功的人不超过 $4$ 个？</p>
+<p>挂住 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span> 个需要技巧。</p>
+<p>挂住 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span></span></span></span> 个还是有一定难度的。</p>
+<p>大概成功的人不超过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">4</span></span></span></span> 个？</p>
 <p>有一节道法课，我不想听讲，于是我换位置做到了最后一排，专注的玩窗帘。</p>
 <p>总共尝试了一千多次？我也成功了。</p>
-<h3 id="19-乒乓球-冰球"><a href="#19-乒乓球-冰球" class="headerlink" title="19.乒乓球&amp;冰球"></a>19.乒乓球&amp;冰球</h3><p>我们班级教室的门口有一块画了 $4\times4$ 的格子空地，我们用来打乒乓球。</p>
-<p>我们使用乒乓球，但是不使用乒乓拍，用手打，开发了很多模式，比如1v1，2v2,1v1v1v1….</p>
+<h3 class="mdui-valign" id="19-乒乓球-冰球"><span>19.乒乓球&amp;冰球&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#19-乒乓球-冰球"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我们班级教室的门口有一块画了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn><mo>×</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">4\times4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">4</span><span class="mbin">×</span><span class="mord mathrm">4</span></span></span></span> 的格子空地，我们用来打乒乓球。</p>
+<p>我们使用乒乓球，但是不使用乒乓拍，用手打，开发了很多模式，比如1v1，2v2,1v1v1v1…</p>
 <p>有时候我们会玩气球，在隔壁的空地，找一根水泥的分界线，就开始打气球。</p>
 <p>wyh把我们的气球用一指禅搞爆了QAQ。</p>
 <p>还是冰球最高级。</p>
@@ -602,7 +646,8 @@
 <p>为了看着更像冰球，我们拿来了扫把，通过挥舞扫把的方式驱赶放在地上的黑板擦，然后打入设定好的对方的球门。</p>
 <p>值得一提的是，扫把和黑板擦都是新领取的，这也是我们班教具新陈代谢快的原因。</p>
 <p>因为打冰球太消耗扫把了，我们学校的扫把质量很差，玩了2天扫把柄就断了，黑板擦也裂开来了。</p>
-<h3 id="20-值日生"><a href="#20-值日生" class="headerlink" title="20.值日生"></a>20.值日生</h3><p>我们要求每一个同学值日，除了劳动委员，因为劳动委员每天都需要帮助同学值日。</p>
+<h3 class="mdui-valign" id="20-值日生"><span>20.值日生&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#20-值日生"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>我们要求每一个同学值日，除了劳动委员，因为劳动委员每天都需要帮助同学值日。</p>
 <p>值日的有以下项目：</p>
 <ul>
 <li>扫地</li>
@@ -611,7 +656,7 @@
 <li>擦黑板</li>
 </ul>
 <p>擦窗台最轻松，擦黑板最好玩。</p>
-<p>某个擦窗台的同学破坏了我的 $4$ 个粉笔雕塑，我不说是谁。 </p>
+<p>某个擦窗台的同学破坏了我的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">4</span></span></span></span> 个粉笔雕塑，我不说是谁。</p>
 <p>我看用全湿的抹布在黑板从上往下拖，效率很高，创造了有趣的擦黑板方式。</p>
 <p>有时候老师看到黑板没擦会叫班长和劳动委员擦。然后X会怪罪到值日生头上，zzq同学经常被怪罪。</p>
 <hr>
@@ -655,7 +700,8 @@
     <div class="mdui-divider"></div>
     <div class="mdui-card-content mdui-typo">
         
-        <h3 id="SES-某英语老师规则类怪谈"><a href="#SES-某英语老师规则类怪谈" class="headerlink" title="SES 某英语老师规则类怪谈"></a>SES 某英语老师规则类怪谈</h3><p>本文同步到个人博客。</p>
+        <h3 class="mdui-valign" id="SES-某英语老师规则类怪谈"><span>SES 某英语老师规则类怪谈&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#SES-某英语老师规则类怪谈"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>本文同步到个人博客。</p>
 <p>该老师用X表示。</p>
 <p>课后</p>
 <ol>
@@ -668,7 +714,7 @@
 <li>当你看到X在上课前进教室时手上有且只有一本英语书，小心 ！</li>
 <li>当你看见shk同学今天比较活跃，小心！</li>
 <li>当你的同学在做高难度技术活时（包括但不限于把纸牌试图飞上5层教学楼，把同学的笔放在吊灯上，把教室后面的摆设放在空调上，把同学的擦汗巾挂在树上），小心！</li>
-<li>当你在教室里面拿多媒体屏幕观看视频&#x2F;浏览洛谷&#x2F;研究同学的U盘时，小心！你的声音不应该高于40分贝。</li>
+<li>当你在教室里面拿多媒体屏幕观看视频/浏览洛谷/研究同学的U盘时，小心！你的声音不应该高于40分贝。</li>
 <li>当你打完篮球回到教室的路上听到了眼保健操的铃声，小心！</li>
 </ol>
 <p>课上</p>
@@ -681,11 +727,12 @@
 <li>当你在X说明今日作业的时候表现出急不可待想下课的时候，小心！</li>
 <li>当你脸上浮现出诡异笑容的时候，小心！</li>
 <li>当你在传作业的时候探究空气力学原理的时候，小心！</li>
-<li>当你为同学表达鼓励&#x2F;佩服&#x2F;支持&#x2F;嘲讽使用<code>鼓掌</code>的方式时，小心！</li>
+<li>当你为同学表达鼓励/佩服/支持/嘲讽使用<code>鼓掌</code>的方式时，小心！</li>
 </ol>
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><ol>
+<h3 class="mdui-valign" id="解释"><span>解释&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#解释"><i class="mdui-icon material-icons">link</i></a></h3>
+<ol>
 <li>在时间接近12：00时，X遇到你通常会要求你搬运&amp;收发作业。通常原因是没有素质的2个英语课代表眷恋着篮球场。</li>
-<li>当你周围的同学总是积极解答老师的问题时，X总会加下来请他&#x2F;她附近的人，比如说你。</li>
+<li>当你周围的同学总是积极解答老师的问题时，X总会加下来请他/她附近的人，比如说你。</li>
 <li>X总会在信息课结束后（也就是放学前光临教室，看到无所事事的你会要求你加入义务劳动。</li>
 <li>打球前，切记保证足够的本分。X通常会逮捕当天作业完成情况不好的人。或者要求你坐在教室读报纸并且保持安静。</li>
 <li>X总会在考试结束来到教室，通常管理的条目包括但不限于<code> 痛骂出题人</code>。</li>
@@ -694,14 +741,14 @@
 <li>shk的活跃通常伴随的是X心情的指数级别降低，任何和shk接触过的人可能被执法。</li>
 <li>这些事情通常会被办公室的老师发现，最后被X得知。</li>
 <li>较大的响度一般会吸引隔壁班的同学产生更大的响度。如果你被X发现，后果包括但不限于：被同学机惨，被邀请到教室休息室约谈，同学的U盘被保管。</li>
-<li>X总是会在大课间&#x2F;午休快结束的时候出现在教室门口。<del>实为班主任中的标杆。</del></li>
-<li>第一排的同学总是需要帮助老师拿本子&#x2F;手机&#x2F;麦克风，然后回教室时发现同学正在默写。</li>
+<li>X总是会在大课间/午休快结束的时候出现在教室门口。<s>实为班主任中的标杆。</s></li>
+<li>第一排的同学总是需要帮助老师拿本子/手机/麦克风，然后回教室时发现同学正在默写。</li>
 <li>露出笑容意味着下一个将会请回答问题不知所云的人给其他同学带来轻松的课堂氛围，这个倒霉的同学，比如你。</li>
-<li>猖狂大笑&#x2F;嘲讽的行为意味着你将成为该同学的后继。</li>
+<li>猖狂大笑/嘲讽的行为意味着你将成为该同学的后继。</li>
 <li>与上一条类似，你将被邀请为同学答疑解惑。</li>
 <li>X有30%的可能要求你重新写一遍该作业，30%的可能性告诉你你考试的分数会在以你写的字符串为名字的同学上。</li>
 <li>X有50%的可能性要求你复述作业内容，50的可能性要求你添加作业，包括但不限于：报纸抄写段落并且翻译。</li>
-<li>脸上露出的笑容总是会被X要求站起来&#x2F;回答问题。</li>
+<li>脸上露出的笑容总是会被X要求站起来/回答问题。</li>
 <li>X通常会请你在走廊上谈论该行为的意义与合适性。</li>
 <li>X有100%的可能性会要求你到办公室鼓一个课间的掌。</li>
 </ol>
@@ -745,53 +792,59 @@
         
         <p>往期文章请查看 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/7fq99ceu">合集</a> 。</p>
 <hr>
-<h2 id="公会"><a href="#公会" class="headerlink" title="公会"></a>公会</h2><p>公会通常作用是组车队&#x2F;聊天</p>
+<h2 class="mdui-valign" id="公会"><span>公会&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#公会"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>公会通常作用是组车队/聊天</p>
 <p>组车队一般含有挂机车和farm车，一般相近水平的玩家会组成公会。</p>
 <p>公会变化速度非常快，半年前的grim还是顶尖公会，1个月前的star还是世界第二的公会。</p>
 <p>目前情况是NF垄断几乎所有高水平玩家。</p>
-<h2 id="NPC"><a href="#NPC" class="headerlink" title="NPC"></a>NPC</h2><p>NPC有两中，trader和Oracle。</p>
-<h3 id="trader"><a href="#trader" class="headerlink" title="trader"></a>trader</h3><p>作用是把卡片换成同等级coin。coin伤害血量和同等级骨相同。</p>
+<h2 class="mdui-valign" id="NPC"><span>NPC&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#NPC"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>NPC有两中，trader和Oracle。</p>
+<h3 class="mdui-valign" id="trader"><span>trader&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#trader"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>作用是把卡片换成同等级coin。coin伤害血量和同等级骨相同。</p>
 <p>虽然scoin放在沙轮中并不出色，但是scoin在转速1.2s的轮子（地狱轮，scoin轮）中dps是大于usand的。scoin平常farm比几乎大部分u卡都强。（包括地狱粉卡）</p>
 <p>trader一般在沙漠左边红区向右下的延伸部分，但是trader会动。在一个服务器几个小时会把trader重刷在原位置。</p>
-<h3 id="Oracle"><a href="#Oracle" class="headerlink" title="Oracle"></a>Oracle</h3><p>Oracle可以将一定数量低等级花瓣换成高等级花瓣，成功率为100%。但是所需花瓣数高于期望值。冷却时间为27min。</p>
+<h3 class="mdui-valign" id="Oracle"><span>Oracle&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#Oracle"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>Oracle可以将一定数量低等级花瓣换成高等级花瓣，成功率为100%。但是所需花瓣数高于期望值。冷却时间为27min。</p>
 <p>Oracle通常会在海洋的通道处游荡，因为海洋的通道并不宽，所以寻找起来难度较小。</p>
 <p>兑换列表如下：</p>
 <div class="mdui-table-fluid mdui-shadow-0"><table class="mdui-table mdui-table-hoverable">
 <thead>
 <tr>
-<th align="center">稀有度</th>
-<th align="center">数量</th>
+<th style="text-align:center">稀有度</th>
+<th style="text-align:center">数量</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Unusual</td>
-<td align="center">7common</td>
+<tbody>
+<tr>
+<td style="text-align:center">Unusual</td>
+<td style="text-align:center">7common</td>
 </tr>
 <tr>
-<td align="center">Rare</td>
-<td align="center">11unusual</td>
+<td style="text-align:center">Rare</td>
+<td style="text-align:center">11unusual</td>
 </tr>
 <tr>
-<td align="center">Epic</td>
-<td align="center">19rare</td>
+<td style="text-align:center">Epic</td>
+<td style="text-align:center">19rare</td>
 </tr>
 <tr>
-<td align="center">Legendary</td>
-<td align="center">34epic</td>
+<td style="text-align:center">Legendary</td>
+<td style="text-align:center">34epic</td>
 </tr>
 <tr>
-<td align="center">Mythic</td>
-<td align="center">65legendary</td>
+<td style="text-align:center">Mythic</td>
+<td style="text-align:center">65legendary</td>
 </tr>
 <tr>
-<td align="center">Ultra</td>
-<td align="center">128mythic</td>
+<td style="text-align:center">Ultra</td>
+<td style="text-align:center">128mythic</td>
 </tr>
 <tr>
-<td align="center">Super</td>
-<td align="center">253ultra</td>
+<td style="text-align:center">Super</td>
+<td style="text-align:center">253ultra</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 
         
         <blockquote class="mdui-m-x-0 mdui-m-t-4">
@@ -832,27 +885,38 @@
         
         <p>往期文章请查看 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/7fq99ceu">合集</a> 。</p>
 <hr>
-<h2 id="二创"><a href="#二创" class="headerlink" title="二创"></a>二创</h2><h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>在2023年初，出现了floof的第一个版本，一般认为是florr的第一个二创游戏。该版本在一个方块中游戏，非常卡顿。</p>
+<h2 class="mdui-valign" id="二创"><span>二创&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#二创"><i class="mdui-icon material-icons">link</i></a></h2>
+<h3 class="mdui-valign" id="历史"><span>历史&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#历史"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>在2023年初，出现了floof的第一个版本，一般认为是florr的第一个二创游戏。该版本在一个方块中游戏，非常卡顿。</p>
 <p>后来floof接连开发了很多版本，经历了和florr类似的maze多地图和长条地图+wave room。在几个月内，floof逐渐消亡。在不久前，floof关闭服务器。网页代码被作者传出只给第一名获得的人，而floof的支持党并没有获得该代码，获得者没有分享，也没有服务器搭建能力。因此floof彻底消失。</p>
-<p>在2023年6月出现了hornex.pro 本意是模拟florr的spiral时期，短时间有非常大的热度并且延续了非常久的时间。</p>
-<p>在2023年8月出现了rrolf.io 。该游戏完全模拟还原了florr wave的玩法，只是地图为恐龙时代。在短时间内有非常大的热度，很多之名退游florr人参与，如YOBA。热度持续的时间并不长。后来rrolf的spiral模式再次振兴热度。rrolf在之后的时间内一蹶不振。</p>
+<p><a target="_blank" rel="noopener" href="http://xn--20236hornex-nx9q927aiisyzz6n4a078b.pro">在2023年6月出现了hornex.pro</a> 本意是模拟florr的spiral时期，短时间有非常大的热度并且延续了非常久的时间。</p>
+<p><a target="_blank" rel="noopener" href="http://xn--20238rrolf-ym3pp54am2ql8xgn3agl6b.io">在2023年8月出现了rrolf.io</a> 。该游戏完全模拟还原了florr wave的玩法，只是地图为恐龙时代。在短时间内有非常大的热度，很多之名退游florr人参与，如YOBA。热度持续的时间并不长。后来rrolf的spiral模式再次振兴热度。rrolf在之后的时间内一蹶不振。</p>
 <p>在2023年底，flowr.fun出现，完全还原了florr的wave模式。后来添加了少部分新生物和卡片。目前玩家数量应该和hornex差不多（？</p>
-<h3 id="hornex相关"><a href="#hornex相关" class="headerlink" title="hornex相关"></a>hornex相关</h3><ul>
-<li><p>hornex因为共号盗号问题经常产生矛盾。</p>
+<h3 class="mdui-valign" id="hornex相关"><span>hornex相关&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#hornex相关"><i class="mdui-icon material-icons">link</i></a></h3>
+<ul>
+<li>
+<p>hornex因为共号盗号问题经常产生矛盾。</p>
 </li>
-<li><p>hornex开发了沙盒模式</p>
+<li>
+<p>hornex开发了沙盒模式</p>
 </li>
-<li><p>hornex经常更新florr的卡片，并且有怀疑m28会更新florr其二创受欢迎的机制和物品。</p>
+<li>
+<p>hornex经常更新florr的卡片，并且有怀疑m28会更新florr其二创受欢迎的机制和物品。</p>
 </li>
 </ul>
-<h3 id="flowr相关"><a href="#flowr相关" class="headerlink" title="flowr相关"></a>flowr相关</h3><ul>
-<li><p>等级刷新非常大，一个顶尖号一个月不打就会变得比较弱。</p>
+<h3 class="mdui-valign" id="flowr相关"><span>flowr相关&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#flowr相关"><i class="mdui-icon material-icons">link</i></a></h3>
+<ul>
+<li>
+<p>等级刷新非常大，一个顶尖号一个月不打就会变得比较弱。</p>
 </li>
-<li><p>flowr仍然是伪随机。</p>
+<li>
+<p>flowr仍然是伪随机。</p>
 </li>
-<li><p>flowr有过类diep模式（现在有没有不知道）</p>
+<li>
+<p>flowr有过类diep模式（现在有没有不知道）</p>
 </li>
-<li><p>flowr开发者经常更新florr的新花瓣。</p>
+<li>
+<p>flowr开发者经常更新florr的新花瓣。</p>
 </li>
 </ul>
 
@@ -896,43 +960,51 @@
         <p>往期文章请查看 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/7fq99ceu">合集</a> 。</p>
 <p>上一期文章请移步 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/irkbyjrq">蛋装，沙轮</a></p>
 <hr>
-<h2 id="更高的dps"><a href="#更高的dps" class="headerlink" title="更高的dps"></a>更高的dps</h2><p>在有了蛋套装和沙轮套装之后，可以选择不断地挂机获取Super花瓣，也可以选择通过刷hel的方式获取更高的dps以抢到更多Super怪掉落。</p>
+<h2 class="mdui-valign" id="更高的dps"><span>更高的dps&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#更高的dps"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>在有了蛋套装和沙轮套装之后，可以选择不断地挂机获取Super花瓣，也可以选择通过刷hel的方式获取更高的dps以抢到更多Super怪掉落。</p>
 <p>在u卡中常用的最高dps配置有两种，打泡泡等定点怪可以使用的阴阳米轮，以及打大部分Super怪使用的地狱轮。</p>
 <p>地狱轮通常由dice和chip构成，在满天赋情况下，dice优于chip，地狱轮另一个非常大的亮点是可以兼容很多常见Super花瓣，比如coin，talisman，wing这些。</p>
 <p>刷地狱轮的唯一方式是坐牢地狱。</p>
 <p>刷阴阳米轮更多的依靠Super babyant或者ah2.</p>
-<h2 id="刷地狱的基本配装"><a href="#刷地狱的基本配装" class="headerlink" title="刷地狱的基本配装"></a>刷地狱的基本配装</h2><p>刷地狱需要配出以下几个配装。</p>
+<h2 class="mdui-valign" id="刷地狱的基本配装"><span>刷地狱的基本配装&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#刷地狱的基本配装"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>刷地狱需要配出以下几个配装。</p>
 <ul>
-<li><p>回血装</p>
+<li>
+<p>回血装</p>
 </li>
-<li><p>常规打伤害抢怪装</p>
+<li>
+<p>常规打伤害抢怪装</p>
 </li>
-<li><p>极限dps装</p>
+<li>
+<p>极限dps装</p>
 </li>
-<li><p>防毒装（可以并入回血装&#x2F;给每个装里面加Ulotus）</p>
+<li>
+<p>防毒装（可以并入回血装/给每个装里面加Ulotus）</p>
 </li>
 </ul>
 <p>基本抢怪优先级是：</p>
-<p>Ugambler &gt; MGambler &gt; Uwasp &gt; Ubeetle Ucenti Uspider…..</p>
+<p>Ugambler &gt; MGambler &gt; Uwasp &gt; Ubeetle Ucenti Uspider…</p>
 <p>介绍一下一些配装，这里假定7号位装海绵。</p>
 <ul>
 <li>回血装</li>
 </ul>
-<p>$\text{cotton,cotton,yucca,yucca,yucca,rubber,sponge,basil,basil}$</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">c</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">l</mi></mtext></mrow><annotation encoding="application/x-tex">\text{cotton,cotton,yucca,yucca,yucca,rubber,sponge,basil,basil}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">c</span><span class="mord mathrm">o</span><span class="mord mathrm">t</span><span class="mord mathrm">t</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span><span class="mord mathrm">,</span><span class="mord mathrm">c</span><span class="mord mathrm">o</span><span class="mord mathrm">t</span><span class="mord mathrm">t</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span><span class="mord mathrm">,</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">u</span><span class="mord mathrm">c</span><span class="mord mathrm">c</span><span class="mord mathrm">a</span><span class="mord mathrm">,</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">u</span><span class="mord mathrm">c</span><span class="mord mathrm">c</span><span class="mord mathrm">a</span><span class="mord mathrm">,</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">u</span><span class="mord mathrm">c</span><span class="mord mathrm">c</span><span class="mord mathrm">a</span><span class="mord mathrm">,</span><span class="mord mathrm">r</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">,</span><span class="mord mathrm">s</span><span class="mord mathrm">p</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">a</span><span class="mord mathrm">s</span><span class="mord mathrm">i</span><span class="mord mathrm">l</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">a</span><span class="mord mathrm">s</span><span class="mord mathrm">i</span><span class="mord mathrm">l</span></span></span></span></span></p>
 <p>这里的rubber作用是防止beetle造成持续伤害，背包可以携带plank，shovel，poo之类的辅助必备物品。</p>
 <ul>
 <li>常规装</li>
 </ul>
-<p>$\text{Antenna,pinger,pinger,bubble,bubble,bubble,sponge,cotton,pinger,iris}$</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">A</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi></mtext></mrow><annotation encoding="application/x-tex">\text{Antenna,pinger,pinger,bubble,bubble,bubble,sponge,cotton,pinger,iris}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">A</span><span class="mord mathrm">n</span><span class="mord mathrm">t</span><span class="mord mathrm">e</span><span class="mord mathrm">n</span><span class="mord mathrm">n</span><span class="mord mathrm">a</span><span class="mord mathrm">,</span><span class="mord mathrm">p</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">,</span><span class="mord mathrm">p</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">s</span><span class="mord mathrm">p</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">c</span><span class="mord mathrm">o</span><span class="mord mathrm">t</span><span class="mord mathrm">t</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span><span class="mord mathrm">,</span><span class="mord mathrm">p</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">,</span><span class="mord mathrm">i</span><span class="mord mathrm">r</span><span class="mord mathrm">i</span><span class="mord mathrm">s</span></span></span></span></span></p>
 <p>没有这么多的pinger可以使用其他高储伤花瓣，也可以用claw。</p>
 <p>背包需要携带一些的starfish，cotton，以及shovel，poo，eye，具体位置可以根据个人喜好。antenna下面可以放置cotton。</p>
 <p>主要作用是在别人引怪的时候用储存的伤害（pinger）抢到足够的伤害后可以与怪保持距离。用shovel取消仇恨，poo减少仇恨，eye可以抢Ugambler，与其他玩家保持距离。</p>
 <p>如果开始掉血切sponge，如果使用过second chance就放出cotton。刷u gambler切ante然后一个stf切pinger，对技术有自信可以bbl切dps。（基本意思是短时间打到足够伤害（？）</p>
-<h2 id="赌博技巧"><a href="#赌博技巧" class="headerlink" title="赌博技巧"></a>赌博技巧</h2><p>赌博的概率是均等的，也就是说在基数非常大的时候概率非常接近1.</p>
+<h2 class="mdui-valign" id="赌博技巧"><span>赌博技巧&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#赌博技巧"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>赌博的概率是均等的，也就是说在基数非常大的时候概率非常接近1.</p>
 <p>Uchip最好不要赌，因为单次赌博大概率*0。</p>
 <p>在Mchip较少的时候可以尝试赌博，在Mchip较多的时候建议直接合成。</p>
 <p>当然只是个人观点，每个人可能各有不同，但我觉得这个还是比较合理（？</p>
-<h2 id="集齐地狱轮后"><a href="#集齐地狱轮后" class="headerlink" title="集齐地狱轮后"></a>集齐地狱轮后</h2><p>集齐地狱轮是一个比较费时的事情，完成通常代表进入游戏较高水平。</p>
+<h2 class="mdui-valign" id="集齐地狱轮后"><span>集齐地狱轮后&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#集齐地狱轮后"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>集齐地狱轮是一个比较费时的事情，完成通常代表进入游戏较高水平。</p>
 <p>接下来可以刷Super（afk），抢Super，也可以选择打丛林和花园粉区。丛林和花园粉区有非常好的队伍效率非常高。</p>
 <p>这里介绍一下花园粉区的玩法（本人并没有过多次经历，经验主要来源于Youtube中florr players的视频）</p>
 <p><strong>Super花瓣在平常的farm中是非常有用的，几乎所有的Ultra花瓣效果都不及Super花瓣</strong></p>
@@ -984,76 +1056,103 @@
         <p>往期文章请查看 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/7fq99ceu">合集</a> 。</p>
 <p>上一期文章请移步 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/go9mad6x">Ultra 花瓣的获得和使用</a></p>
 <hr>
-<h2 id="更快的速度"><a href="#更快的速度" class="headerlink" title="更快的速度"></a>更快的速度</h2><p>在有多张 U 卡之后 （大约30张），比较重要的事情是更新配装，比如说跑路装。</p>
+<h2 class="mdui-valign" id="更快的速度"><span>更快的速度&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#更快的速度"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>在有多张 U 卡之后 （大约30张），比较重要的事情是更新配装，比如说跑路装。</p>
 <p>跑路装通常由泡泡，light，天线，阴阳构成，这些花瓣至少应该是Mythic稀有度（阴阳除外）</p>
 <p>这里提供一种构筑：(主槽+背包)</p>
-<p>$\text{Antenna,yinyang,bubble,bubble,bubble,bubble,bubble,bubble,light,powder}$</p>
-<p>$\text{Antenna,yinyang,poo,shovel,ygg,starfish,starfish,rubber,light,fangs}$</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">A</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi></mtext></mrow><annotation encoding="application/x-tex">\text{Antenna,yinyang,bubble,bubble,bubble,bubble,bubble,bubble,light,powder}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">A</span><span class="mord mathrm">n</span><span class="mord mathrm">t</span><span class="mord mathrm">e</span><span class="mord mathrm">n</span><span class="mord mathrm">n</span><span class="mord mathrm">a</span><span class="mord mathrm">,</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">l</span><span class="mord mathrm">i</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">h</span><span class="mord mathrm">t</span><span class="mord mathrm">,</span><span class="mord mathrm">p</span><span class="mord mathrm">o</span><span class="mord mathrm" style="margin-right:0.01389em;">w</span><span class="mord mathrm">d</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">A</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">v</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">s</mi></mtext></mrow><annotation encoding="application/x-tex">\text{Antenna,yinyang,poo,shovel,ygg,starfish,starfish,rubber,light,fangs}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">A</span><span class="mord mathrm">n</span><span class="mord mathrm">t</span><span class="mord mathrm">e</span><span class="mord mathrm">n</span><span class="mord mathrm">n</span><span class="mord mathrm">a</span><span class="mord mathrm">,</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">,</span><span class="mord mathrm">p</span><span class="mord mathrm">o</span><span class="mord mathrm">o</span><span class="mord mathrm">,</span><span class="mord mathrm">s</span><span class="mord mathrm">h</span><span class="mord mathrm">o</span><span class="mord mathrm" style="margin-right:0.01389em;">v</span><span class="mord mathrm">e</span><span class="mord mathrm">l</span><span class="mord mathrm">,</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">,</span><span class="mord mathrm">s</span><span class="mord mathrm">t</span><span class="mord mathrm">a</span><span class="mord mathrm">r</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mathrm">i</span><span class="mord mathrm">s</span><span class="mord mathrm">h</span><span class="mord mathrm">,</span><span class="mord mathrm">s</span><span class="mord mathrm">t</span><span class="mord mathrm">a</span><span class="mord mathrm">r</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mathrm">i</span><span class="mord mathrm">s</span><span class="mord mathrm">h</span><span class="mord mathrm">,</span><span class="mord mathrm">r</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">,</span><span class="mord mathrm">l</span><span class="mord mathrm">i</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">h</span><span class="mord mathrm">t</span><span class="mord mathrm">,</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">s</span></span></span></span></span></p>
 <p>在高级怪等级区域最好有一个专门的跑路装，可以有更高的安全性。</p>
-<p>$\text{输出花瓣,yinyang,starfish,bubble,bubble,bubble,Antenna,Sponge,light,输出花瓣}$</p>
-<p>$\text{starfish,yinyang,poo,shovel,ygg,starfish,starfish,bubble,basil,fangs}$</p>
+<p>\text{输出花瓣,yinyang,starfish,bubble,bubble,bubble,Antenna,Sponge,light,输出花瓣}</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">v</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">s</mi></mtext></mrow><annotation encoding="application/x-tex">\text{starfish,yinyang,poo,shovel,ygg,starfish,starfish,bubble,basil,fangs}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">s</span><span class="mord mathrm">t</span><span class="mord mathrm">a</span><span class="mord mathrm">r</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mathrm">i</span><span class="mord mathrm">s</span><span class="mord mathrm">h</span><span class="mord mathrm">,</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">,</span><span class="mord mathrm">p</span><span class="mord mathrm">o</span><span class="mord mathrm">o</span><span class="mord mathrm">,</span><span class="mord mathrm">s</span><span class="mord mathrm">h</span><span class="mord mathrm">o</span><span class="mord mathrm" style="margin-right:0.01389em;">v</span><span class="mord mathrm">e</span><span class="mord mathrm">l</span><span class="mord mathrm">,</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">,</span><span class="mord mathrm">s</span><span class="mord mathrm">t</span><span class="mord mathrm">a</span><span class="mord mathrm">r</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mathrm">i</span><span class="mord mathrm">s</span><span class="mord mathrm">h</span><span class="mord mathrm">,</span><span class="mord mathrm">s</span><span class="mord mathrm">t</span><span class="mord mathrm">a</span><span class="mord mathrm">r</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mathrm">i</span><span class="mord mathrm">s</span><span class="mord mathrm">h</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span><span class="mord mathrm">b</span><span class="mord mathrm">l</span><span class="mord mathrm">e</span><span class="mord mathrm">,</span><span class="mord mathrm">b</span><span class="mord mathrm">a</span><span class="mord mathrm">s</span><span class="mord mathrm">i</span><span class="mord mathrm">l</span><span class="mord mathrm">,</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">s</span></span></span></span></span></p>
 <p>（这里starfish尽量都是u等级）</p>
-<h2 id="获取召唤流"><a href="#获取召唤流" class="headerlink" title="获取召唤流"></a>获取召唤流</h2><p>召唤流在很多地方都是挂机获取花瓣的必备物品，比如在下水道，fah，ck。</p>
+<h2 class="mdui-valign" id="获取召唤流"><span>获取召唤流&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#获取召唤流"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>召唤流在很多地方都是挂机获取花瓣的必备物品，比如在下水道，fah，ck。</p>
 <p>沙漠是高级召唤物的唯一来源。所有也是为了获取召唤流的必刷之地，一般沙漠的挂机车队会在地图四周，farm队伍会在地图中间。</p>
 <p>沙漠的u怪一般伤害都不低，beetle的体伤，蝎子的毒伤都有比较大的威胁。因此在没有比较强的把握下尽量带上一个海绵（再给海绵配一个回血装）。</p>
 <p>因为有很多使用沙轮的人来刷沙漠，所以尽量集中伤害打一个怪能保证更多的掉落。</p>
 <p>在bgg和stick有一定数目后，可以使用Queen获得的agg进行挂机(当然，肯定进不去一些高级队伍)。</p>
 <p>在这段刷沙漠的时间中，可以留心获取 Mygg，现在沙漠会刷出比较多数的Ultra Shinyladybug，因此mygg不再稀有。</p>
-<h2 id="海洋综合发展"><a href="#海洋综合发展" class="headerlink" title="海洋综合发展"></a>海洋综合发展</h2><h3 id="沙轮"><a href="#沙轮" class="headerlink" title="沙轮"></a>沙轮</h3><p>沙轮现在成为这个版本必须有的东西。</p>
+<h2 class="mdui-valign" id="海洋综合发展"><span>海洋综合发展&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#海洋综合发展"><i class="mdui-icon material-icons">link</i></a></h2>
+<h3 class="mdui-valign" id="沙轮"><span>沙轮&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#沙轮"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>沙轮现在成为这个版本必须有的东西。</p>
 <p>在有了full bgg+stick（其实也可以不满但尽量满），可以更好的在crab kindom刷泡泡，沙子，爪子等非常有用的花瓣。</p>
 <p>ck一般挂机点在顶部的分割墙2处，底部一处，一般来说，顶部的效率会更加高（可以获取更多的泡泡），ck最理想的情况便是3个队伍12个人构成的挂机池，效率比较高，理想状态1个小时可以期望出一个Ultra claw。</p>
 <p>获取沙轮需要夜以继日的挂机，但获取满Ultra 泡泡更难，在合成泡泡的基础上，可以通过抢Super的方式尝试通过掉落的方式获取。</p>
 <p>如果实在难以获取全满的泡泡，3个粉泡泡在平时farm可以满足大部分需要。</p>
-<h3 id="Omaze"><a href="#Omaze" class="headerlink" title="Omaze"></a>Omaze</h3><p>Omaze 本来是一个难度比较大的区域，后来经过削减后难度并不大，怪的构成主要为m+U怪，在遇到相应的怪做好相关的准备。</p>
+<h3 class="mdui-valign" id="Omaze"><span>Omaze&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#Omaze"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>Omaze 本来是一个难度比较大的区域，后来经过削减后难度并不大，怪的构成主要为m+U怪，在遇到相应的怪做好相关的准备。</p>
 <ul>
-<li><p><strong>U jellyfish</strong>：Urubber（没有U的可以使用M的）。</p>
+<li>
+<p><strong>U jellyfish</strong>：Urubber（没有U的可以使用M的）。</p>
 </li>
-<li><p><strong>U leech</strong>：准备好回血装，回血装的背包应该带battery&#x2F;lightning</p>
+<li>
+<p><strong>U leech</strong>：准备好回血装，回血装的背包应该带battery/lightning</p>
 </li>
-<li><p><strong>U Crab</strong>：如果要安全解决可以使用三眼，相信自己的技术可以不携带。</p>
+<li>
+<p><strong>U Crab</strong>：如果要安全解决可以使用三眼，相信自己的技术可以不携带。</p>
 </li>
-<li><p><strong>U Starfish</strong>：携带dandelion。</p>
+<li>
+<p><strong>U Starfish</strong>：携带dandelion。</p>
 </li>
 </ul>
-<p>解决以上问题可以很轻松的2人组队&#x2F;刷Omaze。但是速度可能有待提升。</p>
-<h3 id="O-end-trench"><a href="#O-end-trench" class="headerlink" title="O end(trench)"></a>O end(trench)</h3><p>O end(trench)是海星区下方的S型衍生区域，里面基本生物构成为U怪。</p>
+<p>解决以上问题可以很轻松的2人组队/刷Omaze。但是速度可能有待提升。</p>
+<h3 class="mdui-valign" id="O-end-trench"><span>O end(trench)&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#O-end-trench"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>O end(trench)是海星区下方的S型衍生区域，里面基本生物构成为U怪。</p>
 <p>打发和O maze是大同小异的，但是为了安全和效率，可以组更多人的队伍，比如通过公会的方式。</p>
-<h2 id="挂机"><a href="#挂机" class="headerlink" title="挂机"></a>挂机</h2><p>有了基本的一套Ultra后，接下来的目标应该定在出S。</p>
+<h2 class="mdui-valign" id="挂机"><span>挂机&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#挂机"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>有了基本的一套Ultra后，接下来的目标应该定在出S。</p>
 <p>由于现在抢S难度的陡增和farmUltra的效率的提升，抢S不再是获取Super的唯一途径。</p>
-<h3 id="CK挂机点"><a href="#CK挂机点" class="headerlink" title="CK挂机点"></a>CK挂机点</h3><p>常见的3个挂机位置已经讲了。</p>
+<h3 class="mdui-valign" id="CK挂机点"><span>CK挂机点&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#CK挂机点"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>常见的3个挂机位置已经讲了。</p>
 <ul>
-<li><p>掉落物：实用。</p>
+<li>
+<p>掉落物：实用。</p>
 </li>
-<li><p>效率：一般。</p>
+<li>
+<p>效率：一般。</p>
 </li>
-<li><p>难度：中。（全队至少24bgg）</p>
+<li>
+<p>难度：中。（全队至少24bgg）</p>
 </li>
 </ul>
-<h3 id="沙漠挂机点"><a href="#沙漠挂机点" class="headerlink" title="沙漠挂机点"></a>沙漠挂机点</h3><p>位置在沙漠右下角方块的边角。</p>
+<h3 class="mdui-valign" id="沙漠挂机点"><span>沙漠挂机点&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#沙漠挂机点"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>位置在沙漠右下角方块的边角。</p>
 <ul>
-<li><p>掉落物：一般。</p>
+<li>
+<p>掉落物：一般。</p>
 </li>
-<li><p>效率：一般偏低。</p>
+<li>
+<p>效率：一般偏低。</p>
 </li>
-<li><p>难度：中。（也取决于位置）（全队至少24bgg）</p>
+<li>
+<p>难度：中。（也取决于位置）（全队至少24bgg）</p>
 </li>
 </ul>
-<h3 id="火蚁穴"><a href="#火蚁穴" class="headerlink" title="火蚁穴"></a>火蚁穴</h3><p>位置在FAH最下面的一格。</p>
+<h3 class="mdui-valign" id="火蚁穴"><span>火蚁穴&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#火蚁穴"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>位置在FAH最下面的一格。</p>
 <ul>
-<li><p>掉落物：不实用。</p>
+<li>
+<p>掉落物：不实用。</p>
 </li>
-<li><p>效率：比较高。</p>
+<li>
+<p>效率：比较高。</p>
 </li>
-<li><p>难度：中高，（在最中心）（如果要非常安全的挂机需要一个Super召唤）</p>
+<li>
+<p>难度：中高，（在最中心）（如果要非常安全的挂机需要一个Super召唤）</p>
 </li>
 </ul>
-<h3 id="下水道"><a href="#下水道" class="headerlink" title="下水道"></a>下水道</h3><p>位置一般处于下水道方块的四个角，队伍很有实力可以位位置。</p>
+<h3 class="mdui-valign" id="下水道"><span>下水道&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#下水道"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>位置一般处于下水道方块的四个角，队伍很有实力可以位位置。</p>
 <ul>
-<li><p>掉落物：不实用。</p>
+<li>
+<p>掉落物：不实用。</p>
 </li>
-<li><p>效率非常高。</p>
+<li>
+<p>效率非常高。</p>
 </li>
-<li><p>难度：极高。（只存在少量挂机点的情况下必须有Super召唤和多数U树枝才能保证安全的挂机）</p>
+<li>
+<p>难度：极高。（只存在少量挂机点的情况下必须有Super召唤和多数U树枝才能保证安全的挂机）</p>
 </li>
 </ul>
 <p>注：本文安全的挂机指3小时以上完全没有任何非人为灭队事件。</p>
@@ -1098,17 +1197,21 @@
         <p>往期文章请查看 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/7fq99ceu">合集</a> 。</p>
 <p>上一期文章请移步 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/b3bxdp20">全青之路</a></p>
 <hr>
-<h2 id="如何获取u卡"><a href="#如何获取u卡" class="headerlink" title="如何获取u卡"></a>如何获取u卡</h2><p>上一期已经完成了获取有效和更多种类的青卡的目标，接下来的目标是获取u卡。</p>
+<h2 class="mdui-valign" id="如何获取u卡"><span>如何获取u卡&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#如何获取u卡"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>上一期已经完成了获取有效和更多种类的青卡的目标，接下来的目标是获取u卡。</p>
 <p>如果你的目标是获取高质量的u卡，那么可以跳过这一章节进入下一环节了。</p>
-<h3 id="AH1"><a href="#AH1" class="headerlink" title="AH1"></a>AH1</h3><p>火蚁穴是获取粉卡最快的区域之一，但是可能时常有挂机车队，一般来说，在倒数第二格（u怪相对较少）是比较好的选择。</p>
+<h3 class="mdui-valign" id="AH1"><span>AH1&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#AH1"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>火蚁穴是获取粉卡最快的区域之一，但是可能时常有挂机车队，一般来说，在倒数第二格（u怪相对较少）是比较好的选择。</p>
 <p>在火蚁穴的倒数第二个，最好的情况是有一个挂机点，或者一个比较安全的环境。</p>
 <p>可使用包含以下元素的更好的抢怪：fangs，tringer，bubble。</p>
 <p>获取的第一章ah1u卡最好可以换成coin以换取更高的输出，yucca在后期的回血装还是有一定作用的。</p>
-<h3 id="AH2"><a href="#AH2" class="headerlink" title="AH2"></a>AH2</h3><p>AH2的效率因为u怪的伤害比较低&#x2F;有人抢u，加上安全性的因素效率可能并不比ah1差。ah2最后一格房间里面有很多m怪，在生成的uQueen后面也会召唤出很多m兵蚁。</p>
+<h3 class="mdui-valign" id="AH2"><span>AH2&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#AH2"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>AH2的效率因为u怪的伤害比较低/有人抢u，加上安全性的因素效率可能并不比ah1差。ah2最后一格房间里面有很多m怪，在生成的uQueen后面也会召唤出很多m兵蚁。</p>
 <p>因此ah2也是一个理想的出u点。获取的clover可以换成coin。</p>
 <p><strong>为了保证输出足以应对后期的需要，可以在获取u卡快速的地方获取更多的u卡。</strong></p>
 <hr>
-<h2 id="获取海洋的粉卡"><a href="#获取海洋的粉卡" class="headerlink" title="获取海洋的粉卡"></a>获取海洋的粉卡</h2><p>海洋的粉卡通常有用，而且在海洋的生物遭到了削弱以后海洋是一个比较理想的场所。</p>
+<h2 class="mdui-valign" id="获取海洋的粉卡"><span>获取海洋的粉卡&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#获取海洋的粉卡"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>海洋的粉卡通常有用，而且在海洋的生物遭到了削弱以后海洋是一个比较理想的场所。</p>
 <p>在海星区有一定数量的m怪和u怪，虽然难度较大，但是里面的u卡都非常值得获取。</p>
 <ul>
 <li>推荐携带花瓣：dandelion，rubber，输出花瓣，fangs。</li>
@@ -1118,36 +1221,44 @@
 <li>推荐携带花瓣：dandelion，rubber，输出花瓣，fangs，cotton，sponge。</li>
 </ul>
 <p><strong>其中粉电是一个比较重要的花瓣。</strong></p>
-<p>在下方的地图中，在Omaze和CK的分岔路是一个难度比较适宜的区域，主要是m&#x2F;l怪，并且附件有重生点。</p>
+<p>在下方的地图中，在Omaze和CK的分岔路是一个难度比较适宜的区域，主要是m/l怪，并且附件有重生点。</p>
 <p>里面的怪比较多样，并且四周比较开阔，可以调整合适自己的难度（有全m的区域），适合作为一个长期farm的地方。</p>
 <ul>
 <li>推荐携带花瓣：dandelion，rubber，输出花瓣，fangs，lightning。</li>
 <li>推荐配置切换：回血电装，输出装。</li>
 </ul>
 <hr>
-<h2 id="沙漠粉卡"><a href="#沙漠粉卡" class="headerlink" title="沙漠粉卡"></a>沙漠粉卡</h2><p>沙漠中最实用的粉卡是 beetle egg 和 iris。这两者都是可以用很久的，也非常重要的。</p>
+<h2 class="mdui-valign" id="沙漠粉卡"><span>沙漠粉卡&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#沙漠粉卡"><i class="mdui-icon material-icons">link</i></a></h2>
+<p>沙漠中最实用的粉卡是 beetle egg 和 iris。这两者都是可以用很久的，也非常重要的。</p>
 <p>在右下角的区域通常有很多的u怪，难度较大，在沿着通道往下走，可以找一个合适的位置进行farm，但难度和效率不成正比，因此不建议在没有高dps的时候大规模刷沙漠。</p>
 <ul>
 <li>推荐携带花瓣：lotus，rubber，输出花瓣，fangs。</li>
 </ul>
 <hr>
-<h2 id="蚂蚁穴"><a href="#蚂蚁穴" class="headerlink" title="蚂蚁穴"></a>蚂蚁穴</h2><h3 id="AH3"><a href="#AH3" class="headerlink" title="AH3"></a>AH3</h3><p>虽然在前文中已经在蚂蚁穴获取过一定数量的u卡了，但蚂蚁穴仍然是刷u非常重要的一个地区，是从少量粉卡进阶到多数粉卡中比较重要的一环。</p>
+<h2 class="mdui-valign" id="蚂蚁穴"><span>蚂蚁穴&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#蚂蚁穴"><i class="mdui-icon material-icons">link</i></a></h2>
+<h3 class="mdui-valign" id="AH3"><span>AH3&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#AH3"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>虽然在前文中已经在蚂蚁穴获取过一定数量的u卡了，但蚂蚁穴仍然是刷u非常重要的一个地区，是从少量粉卡进阶到多数粉卡中比较重要的一环。</p>
 <p>ah3的难度并没有非常高，但是其掉落物骨头是非常实用的前期花瓣之一。ah3挂机的人通常不会很多（没有fah多）。</p>
 <ul>
 <li>推荐携带花瓣：web，fangs，输出。</li>
 </ul>
-<h3 id="AH2-1"><a href="#AH2-1" class="headerlink" title="AH2"></a>AH2</h3><p>现在有了更多的海洋粉卡和高质量粉卡后，AH2的效率是可以有所提升的，用粉电获取蚂蚁后的掉落速度会更加快和多，使用更多的输出卡打m怪会更加的安全和高效率。</p>
+<h3 class="mdui-valign" id="AH2-2"><span>AH2&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#AH2-2"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>现在有了更多的海洋粉卡和高质量粉卡后，AH2的效率是可以有所提升的，用粉电获取蚂蚁后的掉落速度会更加快和多，使用更多的输出卡打m怪会更加的安全和高效率。</p>
 <p>ubone对于m兵蚁可以打出很高的伤害，ucoin在面对低体伤m怪的时候还是可以有比较不错的表现的，因此效率可以提高。</p>
 <p>U Ant egg 在前期挂机点时还是有一定作用的。值得获取。</p>
-<h3 id="AH1-1"><a href="#AH1-1" class="headerlink" title="AH1"></a>AH1</h3><p>在获取了足够的u卡片之后ah1的效率也会变得更高和更安全。</p>
+<h3 class="mdui-valign" id="AH1-2"><span>AH1&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#AH1-2"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>在获取了足够的u卡片之后ah1的效率也会变得更高和更安全。</p>
 <p>AH1的效率可以达到非常高（3hours 10kl*2+240m），因此后期也被有人看做出s的地点。</p>
-<h2 id="花园，下水道，丛林"><a href="#花园，下水道，丛林" class="headerlink" title="花园，下水道，丛林"></a>花园，下水道，丛林</h2><h3 id="花园-丛林"><a href="#花园-丛林" class="headerlink" title="花园&amp;丛林"></a>花园&amp;丛林</h3><p>花园和丛林难度一般公认为比较高，粉卡也比较难以获取。</p>
+<h2 class="mdui-valign" id="花园，下水道，丛林"><span>花园，下水道，丛林&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#花园，下水道，丛林"><i class="mdui-icon material-icons">link</i></a></h2>
+<h3 class="mdui-valign" id="花园-丛林"><span>花园&amp;丛林&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#花园-丛林"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>花园和丛林难度一般公认为比较高，粉卡也比较难以获取。</p>
 <p>花园右下角的bee zone会刷新红和青等级的蜜蜂，效率并不高，但可以获取足够tringer。</p>
 <p>如果想找一个难度比较低且保证效率的区域，右上方比较合适，其粉怪数量更加少。</p>
 <p>丛林的cotton，bur，天线等是比较有用的花瓣，但是u怪比较多，难度比较大。</p>
 <p>因为花园和丛林的粉卡难以快速获取粉卡，因此目标可以为获取足够m卡以备后时之需。</p>
-<h3 id="下水道"><a href="#下水道" class="headerlink" title="下水道"></a>下水道</h3><p>下水道的下方区域会有很多的u怪，难度较大，但通道前期还是有部分m怪的，蹭其他人的蛋车进去也是一个非常好的选择。</p>
-<p>因为下水道很多怪移动速度快，因此可以携带pincer&#x2F;jelly&#x2F;bubble。</p>
+<h3 class="mdui-valign" id="下水道"><span>下水道&nbsp;&nbsp;</span><a aria-hidden="true" class="mdui-btn mdui-btn-icon mdui-ripple" href="#下水道"><i class="mdui-icon material-icons">link</i></a></h3>
+<p>下水道的下方区域会有很多的u怪，难度较大，但通道前期还是有部分m怪的，蹭其他人的蛋车进去也是一个非常好的选择。</p>
+<p>因为下水道很多怪移动速度快，因此可以携带pincer/jelly/bubble。</p>
 <p>在进入内部之后，如果有足够的蛋车的话，可以尝试在蛋车附近抢怪。如果没有足够蛋车，可以在安全的地方放上ankh（比如一个蛋车中心点），然后尝试用pincer小心攻击其中的u怪保证安全的基础上引到蛋车附近。（目的就是不要把蛋车搞灭队了）</p>
 <hr>
 <p>下一章目标便是刷蛋车和沙轮。</p>

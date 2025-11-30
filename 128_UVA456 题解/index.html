@@ -34,12 +34,12 @@
     
     <title>UVA456 题解 | Old Blogs</title>
     <link rel="canonical" href="https://Random-spike.github.io/Old-Blogs/Old-Blogs/128_UVA456%20%E9%A2%98%E8%A7%A3/">
-    <meta name="description" content="UVA456 原题传送门 题目大意：给定一个如 $A+B$ 或者 $A\times B$ 的表达式。分别判断 $A$，$B$，以及该表达式的结果是否超过 int 数据范围。 解题思路：这道题目的主要难点在于，用 long long 数据范围也不够用。 所以，引入函数 atof()，可以将一个字符数组转化为浮点数组。 atof() 函数详解 AC 代码： AC 记录 1234567891011121">
+    <meta name="description" content="UVA456 原题传送门 题目大意： 给定一个如 A+BA+BA+B 或者 A×BA\times BA×B 的表达式。分别判断 AAA，BBB，以及该表达式的结果是否超过 int 数据范围。 解题思路： 这道题目的主要难点在于，用 long long 数据范围也不够用。 所以，引入函数 atof()，可以将一个字符数组转化为浮点数组。 atof() 函数详解 AC 代码：  AC 记录 12345">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UVA456 题解">
 <meta property="og:url" content="https://random-spike.github.io/Old-Blogs/128_UVA456%20%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Old Blogs">
-<meta property="og:description" content="UVA456 原题传送门 题目大意：给定一个如 $A+B$ 或者 $A\times B$ 的表达式。分别判断 $A$，$B$，以及该表达式的结果是否超过 int 数据范围。 解题思路：这道题目的主要难点在于，用 long long 数据范围也不够用。 所以，引入函数 atof()，可以将一个字符数组转化为浮点数组。 atof() 函数详解 AC 代码： AC 记录 1234567891011121">
+<meta property="og:description" content="UVA456 原题传送门 题目大意： 给定一个如 A+BA+BA+B 或者 A×BA\times BA×B 的表达式。分别判断 AAA，BBB，以及该表达式的结果是否超过 int 数据范围。 解题思路： 这道题目的主要难点在于，用 long long 数据范围也不够用。 所以，引入函数 atof()，可以将一个字符数组转化为浮点数组。 atof() 函数详解 AC 代码：  AC 记录 12345">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img1.imgtp.com/2023/07/05/YvMx3ELF.png">
 <meta property="article:published_time" content="2023-08-23T15:23:02.000Z">
@@ -47,7 +47,7 @@
 <meta property="article:author" content="Random-spike">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img1.imgtp.com/2023/07/05/YvMx3ELF.png">
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
     <div class="mdui-theme-layout-light">
     <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
@@ -139,14 +139,16 @@
     <div class="mdui-card-content mdui-typo">
         
         <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA465">UVA456 原题传送门</a></p>
-<h3 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a><strong>题目大意</strong>：</h3><p>给定一个如 $A+B$ 或者 $A\times B$ 的表达式。分别判断 $A$，$B$，以及该表达式的结果是否超过 <code>int</code> 数据范围。</p>
-<h3 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a><strong>解题思路</strong>：</h3><p>这道题目的主要难点在于，用 <code>long long</code> 数据范围也不够用。</p>
+<h3 id="题目大意："><strong>题目大意</strong>：</h3>
+<p>给定一个如 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A+B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> 或者 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\times B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> 的表达式。分别判断 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>，以及该表达式的结果是否超过 <code>int</code> 数据范围。</p>
+<h3 id="解题思路："><strong>解题思路</strong>：</h3>
+<p>这道题目的主要难点在于，用 <code>long long</code> 数据范围也不够用。</p>
 <p>所以，引入函数 <code>atof()</code>，可以将一个字符数组转化为浮点数组。</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lanzhihui_10086/article/details/39989841">atof() 函数详解</a></p>
-<h3 id="AC-代码："><a href="#AC-代码：" class="headerlink" title="AC 代码："></a><strong>AC 代码</strong>：</h3><figure class="mdui-img-fluid"><img src="https://img1.imgtp.com/2023/07/05/YvMx3ELF.png" alt="屏幕截图 2023-07-05 134951.png"class="mdui-img-rounded" loading="lazy"></figure>
+<h3 id="AC-代码："><strong>AC 代码</strong>：</h3>
+<figure class="mdui-img-fluid"><img src="https://img1.imgtp.com/2023/07/05/YvMx3ELF.png" alt="屏幕截图 2023-07-05 134951.png"class="mdui-img-rounded" loading="lazy"></figure>
 <p>AC 记录</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define N 10000009</span><br><span class="line">using namespace std;</span><br><span class="line">const int MAX=2147483647;</span><br><span class="line">char a[N],b[N];</span><br><span class="line">char n;	</span><br><span class="line">int main()&#123;</span><br><span class="line">	while(cin&gt;&gt;a&gt;&gt;n&gt;&gt;b)&#123;</span><br><span class="line">		double x=atof(a),y=atof(b);      </span><br><span class="line">		cout&lt;&lt;a&lt;&lt;&quot; &quot;&lt;&lt;n&lt;&lt;&quot; &quot;&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">		if(x&gt;MAX)</span><br><span class="line">			cout&lt;&lt;&quot;first number too big&quot;&lt;&lt;endl;//单个数据判断 </span><br><span class="line">		if(y&gt;MAX)</span><br><span class="line">			cout&lt;&lt;&quot;second number too big&quot;&lt;&lt;endl;</span><br><span class="line">		if(n==&#x27;*&#x27;&amp;&amp;x*y&gt;MAX)</span><br><span class="line">				cout&lt;&lt;&quot;result too big&quot;&lt;&lt;endl;//表达式结果判断 </span><br><span class="line">		if(n==&#x27;+&#x27;&amp;&amp;x+y&gt;MAX)</span><br><span class="line">				cout&lt;&lt;&quot;result too big&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
         
         <blockquote class="mdui-m-x-0 mdui-m-t-4">
