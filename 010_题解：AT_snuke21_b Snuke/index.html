@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh" >
+<head>
+    <meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+
+    <link rel="dns-prefetch" //cdn.jsdelivr.net>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css">
+
+
+
+
+
+<meta name="theme-color" content="#3F51B5">
+
+
+<style>
+    html,body{scroll-behavior:smooth;min-height:100vh}
+    blockquote>strong>a{word-break:break-all}
+    .mdui-hoverable:hover,.mdui-hoverable:focus{-webkit-box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;}
+    .mdui-card-primary-title a{text-decoration:none !important}
+    .page-number{display:none !important}
+    .mdui-container-fluid{transition:opacity .4s}
+    
+        body{background-color: #f6f6f6}
+
+    
+</style>
+    
+    <title>题解：AT_snuke21_b Snuke | Old Blogs</title>
+    <link rel="canonical" href="https://Random-spike.github.io/Old-Blogs/Old-Blogs/010_%E9%A2%98%E8%A7%A3%EF%BC%9AAT_snuke21_b%20Snuke/">
+    <meta name="description" content="题解题目解析给定一个字符串 $S$，要求删除 $k$ 个字母 s，使得剩余字符串的字典序最小。 输入限制：  字符串长度 $|S|\leq10^5$ 删除次数 $k\leq10^5$  需要确保在删除 $k$ 个字母 s 后，字符串按字典序尽可能小。这一题的核心在于如何高效删除满足条件的字符，以达到字典序最小的目的。  解题思路根据题目要求，可以发现字典序最小化的主要策略是尽量优先删除在合适位置的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="题解：AT_snuke21_b Snuke">
+<meta property="og:url" content="https://random-spike.github.io/Old-Blogs/010_%E9%A2%98%E8%A7%A3%EF%BC%9AAT_snuke21_b%20Snuke/index.html">
+<meta property="og:site_name" content="Old Blogs">
+<meta property="og:description" content="题解题目解析给定一个字符串 $S$，要求删除 $k$ 个字母 s，使得剩余字符串的字典序最小。 输入限制：  字符串长度 $|S|\leq10^5$ 删除次数 $k\leq10^5$  需要确保在删除 $k$ 个字母 s 后，字符串按字典序尽可能小。这一题的核心在于如何高效删除满足条件的字符，以达到字典序最小的目的。  解题思路根据题目要求，可以发现字典序最小化的主要策略是尽量优先删除在合适位置的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-27T15:51:28.000Z">
+<meta property="article:modified_time" content="2025-11-30T09:29:38.488Z">
+<meta property="article:author" content="Random-spike">
+<meta name="twitter:card" content="summary">
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
+    <div class="mdui-theme-layout-light">
+    <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
+    <div class="mdui-toolbar">
+        <button mdui-drawer="{target: '.mdui-drawer'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></button>
+        <a href="/Old-Blogs/" class="mdui-typo-title">Old Blogs</a>
+        <div class="mdui-toolbar-spacer"></div>
+        
+        <a href="/Old-Blogs/search/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">search</i></a>
+        
+    </div>
+</header>
+    <aside class="mdui-drawer mdui-drawer-close">
+    <nav class="mdui-list" mdui-collapse="{accordion: true}">
+        <a href="/Old-Blogs/about/"  class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-avatar">
+                
+                <i class="mdui-color-theme-primary mdui-icon material-icons">person</i>
+                
+            </div>
+            <div class="mdui-list-item-content">Random-spike</div>
+        </a>
+        <div class="mdui-divider"></div>
+        
+        <a href="/Old-Blogs/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+            <div class="mdui-list-item-content">主页</div>
+        </a>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">inbox</i>
+                <div class="mdui-list-item-content">归档</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/11/">十一月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/10/">十月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/03/">三月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/02/">二月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/12/">十二月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/11/">十一月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/10/">十月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/09/">九月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/08/">八月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/07/">七月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/06/">六月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/05/">五月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/04/">四月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/03/">三月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/02/">二月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/01/">一月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/12/">十二月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/11/">十一月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/10/">十月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/09/">九月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/08/">八月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/07/">七月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/06/">六月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/05/">五月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/04/">四月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/03/">三月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/02/">二月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/01/">一月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2022/12/">十二月 2022</a>
+            </div>
+        </div>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">apps</i>
+                <div class="mdui-list-item-content">分类</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/florr/">florr</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%96%B0%E6%96%87/">新文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%97%A7%E6%96%87/">旧文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%9D%82%E6%96%87/">杂文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E7%94%9F%E6%B4%BB%E9%97%B4/">生活间</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="mdui-divider"></div>
+    <footer class="mdui-m-l-2 mdui-m-t-1 mdui-typo mdui-text-color-theme-disabled">
+        <p class="mdui-m-b-0">
+            
+            ©
+            2025 Random-spike<br>
+            
+            Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a><br>
+            
+            Theme - <a href="https://github.com/kwaa/hexo-theme-m" rel="noreferrer" target="_blank"
+                mdui-tooltip="{position:'right', content: 'by 藍+85CD'}">M</a></p>
+            
+    </footer>
+</aside>
+    </div>
+    <div class="mdui-container-fluid mdui-center" style="max-width:720px">
+        <article class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" >题解：AT_snuke21_b Snuke</a>
+        
+        <small> <a class="mdui-text-color-theme-text category-link" href="/Old-Blogs/categories/%E9%A2%98%E8%A7%A3/">题解</a></small>
+        
+    </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <span mdui-tooltip="{content:'创建时间：2024-10-27 11:51<br>最后更新时间：2025-11-30 05:29'}">2024-10-27 -</span>
+        
+            <span>/010_题解：AT_snuke21_b Snuke/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h4><p>给定一个字符串 $S$，要求删除 $k$ 个字母 <code>s</code>，使得剩余字符串的字典序最小。</p>
+<p><strong>输入限制：</strong></p>
+<ul>
+<li>字符串长度 $|S|\leq10^5$</li>
+<li>删除次数 $k\leq10^5$</li>
+</ul>
+<p>需要确保在删除 $k$ 个字母 <code>s</code> 后，字符串按字典序尽可能小。这一题的核心在于如何高效删除满足条件的字符，以达到字典序最小的目的。</p>
+<hr>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>根据题目要求，可以发现字典序最小化的主要策略是尽量优先删除在合适位置的字母 <code>s</code>。具体思路如下：</p>
+<ol>
+<li><strong>贪心删除策略</strong>：优先删除靠前位置、且前后相邻字符较小的 <code>s</code>，因为删除这些字符可以更明显地减小字典序。</li>
+<li><strong>连续删除判断</strong>：在出现一段连续的 <code>s</code> 时，如果其后一个字符字典序较小且删除次数 $k$ 足够，那么我们可以优先删除整段连续的 <code>s</code>。</li>
+<li><strong>补充删除</strong>：若遍历完字符串后仍有剩余删除次数 $k$，则从字符串的末尾向前删除 <code>s</code>，这样可以进一步减小字典序。</li>
+</ol>
+<hr>
+<h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><strong>遍历字符串</strong>：从前向后遍历字符串 $S$，对于每个字符 <code>s</code>：<ul>
+<li>若后一个字符的字典序小于 <code>s</code>，且删除次数 $k$ 足够，则删除该字符 <code>s</code>。</li>
+<li>若连续的 <code>s</code> 后一个字符较小且 $k$ 足够，删除整段连续 <code>s</code>。</li>
+</ul>
+</li>
+<li><strong>尾部补删</strong>：若遍历结束后删除次数 $k$ 仍未用完，从字符串末尾向前继续删除剩余的 <code>s</code>，这样对字典序影响最小。</li>
+<li><strong>输出结果</strong>：遍历完后输出剩余的字符串，即为字典序最小的结果。</li>
+</ol>
+<hr>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(i,a,b) for(int i=a;i&lt;=b;i++)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> antirep(i,a,b) for(int i=a;i&gt;=b;i--)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> speed ios::sync_with_stdio(false),cin.tie(0),cout.tie(0)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e6</span>,M=<span class="number">1e3</span>,mod=<span class="number">1e9</span><span class="number">+7</span>,INF=<span class="number">1e9</span>;</span><br><span class="line"><span class="type">int</span> k;</span><br><span class="line">string s;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">modify</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;s.<span class="built_in">erase</span>(l,r-l<span class="number">+1</span>);&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	speed;</span><br><span class="line">	cin&gt;&gt;k&gt;&gt;s;</span><br><span class="line">	s=<span class="string">&#x27; &#x27;</span>+s+<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,s.<span class="built_in">size</span>()<span class="number">-2</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(s[i]-<span class="string">&#x27;s&#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="type">int</span> len=<span class="number">1</span>;<span class="keyword">while</span>(s[i<span class="number">+1</span>]==<span class="string">&#x27;s&#x27;</span>) len++,i++;</span><br><span class="line">		<span class="keyword">if</span>(k&gt;=len&amp;&amp;s[i<span class="number">+1</span>]&lt;<span class="string">&#x27;s&#x27;</span>) <span class="built_in">modify</span>(i-len<span class="number">+1</span>,i),k-=len,i-=(len<span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(k&gt;<span class="number">0</span>&amp;&amp;k&lt;len&amp;&amp;s[i<span class="number">+1</span>]&lt;<span class="string">&#x27;s&#x27;</span>) <span class="built_in">modify</span>(i-k<span class="number">+1</span>,i),k=<span class="number">0</span>,i-=(k<span class="number">-1</span>);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span>(k&gt;<span class="number">0</span>) <span class="built_in">antirep</span>(i,s.<span class="built_in">size</span>()<span class="number">-2</span>,<span class="number">1</span>)<span class="keyword">if</span>(s[i]==<span class="string">&#x27;s&#x27;</span>&amp;&amp;k&gt;<span class="number">0</span>) <span class="built_in">modify</span>(i,i),k--;</span><br><span class="line">	cout&lt;&lt;s;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
+        链接：<a href="https://random-spike.github.io/Old-Blogs/010_%E9%A2%98%E8%A7%A3%EF%BC%9AAT_snuke21_b%20Snuke/">https://random-spike.github.io/Old-Blogs/010_%E9%A2%98%E8%A7%A3%EF%BC%9AAT_snuke21_b%20Snuke/</a><br>
+        
+            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</article>
+<nav class="mdui-theme-layout-light mdui-color-transparent mdui-row mdui-m-b-2">
+    
+        <div class="mdui-col-xs-12 mdui-m-b-2">
+            <a class="extend prev mdui-btn mdui-ripple mdui-float-left mdui-text-truncate" rel="prev"
+                style="max-width: 100%" href="/Old-Blogs/009_2024%20CSP-S/">
+                <i class="mdui-icon mdui-icon-left material-icons">arrow_back</i>2024 CSP-S
+            </a>
+        </div>
+    
+        <div class="mdui-col-xs-12">
+            <a class="extend next mdui-btn mdui-ripple mdui-float-right mdui-text-truncate" rel="next"
+                style="max-width: 100%" href="/Old-Blogs/011_%E4%BD%9C%E6%96%87%E8%B5%8F%E6%9E%90%E2%80%94%E2%80%94%E5%88%AB%E6%A0%B7%E7%9A%84%E7%A2%B0%E7%A2%B0%E8%BD%A6%E5%A4%A7%E6%88%98/">
+                <i class="mdui-icon mdui-icon-right material-icons">arrow_forward</i>作文赏析——别样的碰碰车大战
+            </a>
+        </div>
+    
+</nav>
+
+    </div>
+    <a href="#" class="mdui-fab mdui-fab-fixed mdui-hidden-xs mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">keyboard_arrow_up</i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+
+
+<script>
+    var $ = mdui.$;
+    function init(){
+        //
+    }
+    window.addEventListener("load", () => {
+        //
+        init()
+    }, {once: true});
+</script>
+
+</body>
+</html>

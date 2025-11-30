@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh" >
+<head>
+    <meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+
+    <link rel="dns-prefetch" //cdn.jsdelivr.net>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css">
+
+
+
+
+
+<meta name="theme-color" content="#3F51B5">
+
+
+<style>
+    html,body{scroll-behavior:smooth;min-height:100vh}
+    blockquote>strong>a{word-break:break-all}
+    .mdui-hoverable:hover,.mdui-hoverable:focus{-webkit-box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;}
+    .mdui-card-primary-title a{text-decoration:none !important}
+    .page-number{display:none !important}
+    .mdui-container-fluid{transition:opacity .4s}
+    
+        body{background-color: #f6f6f6}
+
+    
+</style>
+    
+    <title>题解：P1763 埃及分数 | Old Blogs</title>
+    <link rel="canonical" href="https://Random-spike.github.io/Old-Blogs/Old-Blogs/058_%E9%A2%98%E8%A7%A3%EF%BC%9AP1763%20%E5%9F%83%E5%8F%8A%E5%88%86%E6%95%B0/">
+    <meta name="description" content="思路这道题目可以使用迭代加深搜索，不过直接搜索肯定是会超时的，所以要做一定的剪枝。 先分析一下搜索的思路。枚举分数从大向小，这样可以保证输出方式是题目要求的顺序（分母从小到大），在枚举完一种情况后，用这种情况储存的数组和最优情况的数组最后一个分母大小进行比较，判断哪一种情况更好。 根据这种想法维护两个数组 ansnow 和 ans。ansnow 用来储存当次枚举的答案，ans 用于纪录目前最优解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="题解：P1763 埃及分数">
+<meta property="og:url" content="https://random-spike.github.io/Old-Blogs/058_%E9%A2%98%E8%A7%A3%EF%BC%9AP1763%20%E5%9F%83%E5%8F%8A%E5%88%86%E6%95%B0/index.html">
+<meta property="og:site_name" content="Old Blogs">
+<meta property="og:description" content="思路这道题目可以使用迭代加深搜索，不过直接搜索肯定是会超时的，所以要做一定的剪枝。 先分析一下搜索的思路。枚举分数从大向小，这样可以保证输出方式是题目要求的顺序（分母从小到大），在枚举完一种情况后，用这种情况储存的数组和最优情况的数组最后一个分母大小进行比较，判断哪一种情况更好。 根据这种想法维护两个数组 ansnow 和 ans。ansnow 用来储存当次枚举的答案，ans 用于纪录目前最优解。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-07T13:42:41.000Z">
+<meta property="article:modified_time" content="2025-11-30T09:29:38.775Z">
+<meta property="article:author" content="Random-spike">
+<meta name="twitter:card" content="summary">
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
+    <div class="mdui-theme-layout-light">
+    <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
+    <div class="mdui-toolbar">
+        <button mdui-drawer="{target: '.mdui-drawer'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></button>
+        <a href="/Old-Blogs/" class="mdui-typo-title">Old Blogs</a>
+        <div class="mdui-toolbar-spacer"></div>
+        
+        <a href="/Old-Blogs/search/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">search</i></a>
+        
+    </div>
+</header>
+    <aside class="mdui-drawer mdui-drawer-close">
+    <nav class="mdui-list" mdui-collapse="{accordion: true}">
+        <a href="/Old-Blogs/about/"  class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-avatar">
+                
+                <i class="mdui-color-theme-primary mdui-icon material-icons">person</i>
+                
+            </div>
+            <div class="mdui-list-item-content">Random-spike</div>
+        </a>
+        <div class="mdui-divider"></div>
+        
+        <a href="/Old-Blogs/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+            <div class="mdui-list-item-content">主页</div>
+        </a>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">inbox</i>
+                <div class="mdui-list-item-content">归档</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/11/">十一月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/10/">十月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/03/">三月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/02/">二月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/12/">十二月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/11/">十一月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/10/">十月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/09/">九月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/08/">八月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/07/">七月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/06/">六月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/05/">五月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/04/">四月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/03/">三月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/02/">二月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/01/">一月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/12/">十二月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/11/">十一月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/10/">十月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/09/">九月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/08/">八月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/07/">七月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/06/">六月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/05/">五月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/04/">四月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/03/">三月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/02/">二月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/01/">一月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2022/12/">十二月 2022</a>
+            </div>
+        </div>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">apps</i>
+                <div class="mdui-list-item-content">分类</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/florr/">florr</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%96%B0%E6%96%87/">新文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%97%A7%E6%96%87/">旧文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%9D%82%E6%96%87/">杂文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E7%94%9F%E6%B4%BB%E9%97%B4/">生活间</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="mdui-divider"></div>
+    <footer class="mdui-m-l-2 mdui-m-t-1 mdui-typo mdui-text-color-theme-disabled">
+        <p class="mdui-m-b-0">
+            
+            ©
+            2025 Random-spike<br>
+            
+            Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a><br>
+            
+            Theme - <a href="https://github.com/kwaa/hexo-theme-m" rel="noreferrer" target="_blank"
+                mdui-tooltip="{position:'right', content: 'by 藍+85CD'}">M</a></p>
+            
+    </footer>
+</aside>
+    </div>
+    <div class="mdui-container-fluid mdui-center" style="max-width:720px">
+        <article class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" >题解：P1763 埃及分数</a>
+        
+        <small> <a class="mdui-text-color-theme-text category-link" href="/Old-Blogs/categories/%E9%A2%98%E8%A7%A3/">题解</a></small>
+        
+    </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <span mdui-tooltip="{content:'创建时间：2024-07-07 09:42<br>最后更新时间：2025-11-30 05:29'}">2024-07-07 -</span>
+        
+            <span>/058_题解：P1763 埃及分数/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题目可以使用迭代加深搜索，不过直接搜索肯定是会超时的，所以要做一定的剪枝。</p>
+<p>先分析一下搜索的思路。枚举分数从大向小，这样可以保证输出方式是题目要求的顺序（分母从小到大），在枚举完一种情况后，用这种情况储存的数组和最优情况的数组最后一个分母大小进行比较，判断哪一种情况更好。</p>
+<p>根据这种想法维护两个数组 <code>ansnow</code> 和 <code>ans</code>。<code>ansnow</code> 用来储存当次枚举的答案，<code>ans</code> 用于纪录目前最优解。$now$ 变量用于储存当次枚举到第几个分数，$deep$ 用于储存总共需要的分数个数。</p>
+<p>以下是一些剪枝。</p>
+<ul>
+<li><p>可以限制枚举分母的范围，假设要枚举的分母是 $x$。显然的，当 $a\not&#x3D; 1$ 时（当 $a&#x3D;1$ 时已经进行特判了），$\frac{1}{x}&lt;\frac{a}{b}$。因此可以推出 $x&gt;\frac{b}{a}$。所以 $x\ge \lfloor \frac{b}{a} \rfloor+1$。</p>
+</li>
+<li><p>又因为根据分母从小到大的顺序。所以 $x\ge ansnow_{now-1}+1$。</p>
+</li>
+<li><p>因为可以求出接下来剩下的分数个数为 $deep-now+1$，并且剩下来的单位分数不应该相等，所以 $\frac{a}{b}\times \frac{1}{(deep-now+1)}&lt;\frac{1}{x}$。因此 $x&lt; \frac{(deep-now+1)\times b}{a}$。</p>
+</li>
+</ul>
+<p>剪枝剪完了之后，代码应该是以下这个样子。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2e7</span><span class="number">+9</span>;</span><br><span class="line"><span class="type">int</span> n,m,ans[N],ans1[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">turn</span><span class="params">(<span class="type">int</span> deap)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=deap;i++)</span><br><span class="line">		ans[i]=ans1[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> aa, <span class="type">int</span> bb)</span> </span>&#123; <span class="keyword">return</span> bb == <span class="number">0</span> ? aa : <span class="built_in">gcd</span>(bb, aa % bb); &#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> now,<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> deap)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(now&gt;deap)</span><br><span class="line">		<span class="keyword">if</span>(a==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(ans1[deap]&lt;ans[deap])&#123;</span><br><span class="line">				<span class="built_in">turn</span>(deap);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="type">bool</span> flag=<span class="literal">false</span>;</span><br><span class="line">	<span class="type">int</span> q=b/a;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> x=<span class="built_in">max</span>(q,ans1[now<span class="number">-1</span>]<span class="number">+1</span>);x&lt;=(deap-now<span class="number">+1</span>)*q;x++)&#123;</span><br><span class="line">		ans1[now]=x;</span><br><span class="line">		<span class="type">int</span> da=a*x-b;</span><br><span class="line">		<span class="type">int</span> db=b*x;</span><br><span class="line">		<span class="type">int</span> g=<span class="built_in">gcd</span>(a,b);</span><br><span class="line">		da/=g,db/=g;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">dfs</span>(now<span class="number">+1</span>,da,db,deap)) flag=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> flag;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="type">int</span> g=<span class="built_in">gcd</span>(n,m);</span><br><span class="line">	n/=g,m/=g;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> deap=<span class="number">1</span>;;deap++)&#123;</span><br><span class="line">		ans[deap]=N;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">dfs</span>(<span class="number">1</span>,n,m,deap)==<span class="literal">true</span>)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=deap;i++)</span><br><span class="line">		cout&lt;&lt;ans[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">			<span class="keyword">break</span>;	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>提交后会发现 <code>Hack</code> 数据过不了，原因是因为时间复杂度还是太大了，那么需要更有效的剪枝。</p>
+<p>当只剩下最后两个分数枚举时，也就是 $now&#x3D;deep-1$ 时，因为按照之前的方法枚举量太大，所以导致了超时。</p>
+<p>观察 $\frac{a}{b}&#x3D;\frac{1}{x}+\frac{1}{y}$ 这个式子。经过通分移项后可以得到 $\frac{a}{b}&#x3D;\frac{x+y}{x\times y}$。</p>
+<p>因此可以得到以下方程：</p>
+<p>$$\begin{cases}x+y&#x3D;ac\ x\times y&#x3D;bc\end{cases}$$</p>
+<p>接下来就相当于接一个一元二次方程 $n^2-acn+bc$。其中 $x$ 和 $y$ 分别是方程两根。</p>
+<p>不妨设 $x&lt;y$，所以 $\begin{cases}x&#x3D;\frac{ac-\sqrt{(ac)^2-4bc}}{2}\ y&#x3D;\frac{ac+\sqrt{(ac)^2-4bc}}{2}\end{cases}$。</p>
+<p>由此可以得知 $(ac)^2-4bc&gt;0$。又因为 $c$ 是正整数，所以 $c\ge \lfloor \frac{4b}{a^2}\rfloor+1$。得知了 $c$ 的下限之后要找到其上限。但是其上限没办法明确得知，因此只能用题目中给出的 $10^7$。但是这样做还是会超时，如果缩小范围，会导致其他点过不去，因此只能枚举分母的范围 $M$。</p>
+<p>最后只要判断 $x$,$y$ 是否是正整数即可。</p>
+<h2 id="AC-代码"><a href="#AC-代码" class="headerlink" title="AC 代码"></a>AC 代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define int long long</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e7;</span><br><span class="line">int n,m,ans[11],ansnow[11],M;</span><br><span class="line">bool flag;</span><br><span class="line">void turn(int deep)&#123;</span><br><span class="line">	for(int i=1;i&lt;=deep;i++)</span><br><span class="line">		ans[i]=ansnow[i];</span><br><span class="line">&#125;</span><br><span class="line">int gcd(int o, int p) &#123; return p == 0 ? o : gcd(p, o % p); &#125;</span><br><span class="line">void dfs(int now,int a,int b,int deep)&#123;</span><br><span class="line">	if(now&gt;deep) return;</span><br><span class="line">	if(a==1)&#123;//当到达最简分数时直接返回数值。</span><br><span class="line">		ansnow[now]=b;	</span><br><span class="line">			turn(deep);</span><br><span class="line">		flag=1;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	if(now == deep - 1)&#123;</span><br><span class="line">		int Min=(b*4/a/a)+1,Max=min(2*M/a,M*M/b);</span><br><span class="line">		for(int z=Min;z&lt;=Max;z++)&#123;</span><br><span class="line">			int delta=a*a*z*z-4*b*z;</span><br><span class="line">			int Delta=sqrt(delta);</span><br><span class="line">			int tmp=(a*z-Delta)/2;</span><br><span class="line">			if(Delta*Delta!=delta||tmp&lt;=0)</span><br><span class="line">				continue;</span><br><span class="line">			ansnow[now]=(a*z-Delta)/2;ansnow[now+1]=(a*z+Delta)/2;</span><br><span class="line">			if(ansnow[deep]&lt;ans[deep])&#123;</span><br><span class="line">				turn(deep);</span><br><span class="line">				flag=1;</span><br><span class="line">				break;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for(int x=max(b/a+1,ansnow[now-1]+1);x&lt;=(deep-now+1)*b/a;x++)&#123;	</span><br><span class="line">		ansnow[now]=x;</span><br><span class="line">		int da=a*x-b;</span><br><span class="line">		int db=b*x;</span><br><span class="line">		int g=gcd(da,db);</span><br><span class="line">		da/=g,db/=g;</span><br><span class="line">		dfs(now+1,da,db,deep);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">signed main()&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	int g=gcd(n,m);</span><br><span class="line">	n/=g,m/=g;</span><br><span class="line">	for(int deep=1;;deep++)&#123;</span><br><span class="line">		ans[deep]= N + 1;</span><br><span class="line">		for(M=1e5;M&lt;=N;M*=10)&#123;</span><br><span class="line">			dfs(1,n,m,deep);</span><br><span class="line">			if(flag)&#123;</span><br><span class="line">				for(int i = 1;i &lt;= deep;i++)</span><br><span class="line">					cout &lt;&lt; ans[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">				return 0;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<p>若本题解出现问题，请私信 <a href="www.luogu.com.cn/user/800468/">smydahaoren</a>。</p>
+
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
+        链接：<a href="https://random-spike.github.io/Old-Blogs/058_%E9%A2%98%E8%A7%A3%EF%BC%9AP1763%20%E5%9F%83%E5%8F%8A%E5%88%86%E6%95%B0/">https://random-spike.github.io/Old-Blogs/058_%E9%A2%98%E8%A7%A3%EF%BC%9AP1763%20%E5%9F%83%E5%8F%8A%E5%88%86%E6%95%B0/</a><br>
+        
+            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</article>
+<nav class="mdui-theme-layout-light mdui-color-transparent mdui-row mdui-m-b-2">
+    
+        <div class="mdui-col-xs-12 mdui-m-b-2">
+            <a class="extend prev mdui-btn mdui-ripple mdui-float-left mdui-text-truncate" rel="prev"
+                style="max-width: 100%" href="/Old-Blogs/057_%E6%AF%95%E4%B8%9A%E5%85%B8%E7%A4%BC/">
+                <i class="mdui-icon mdui-icon-left material-icons">arrow_back</i>毕业典礼
+            </a>
+        </div>
+    
+        <div class="mdui-col-xs-12">
+            <a class="extend next mdui-btn mdui-ripple mdui-float-right mdui-text-truncate" rel="next"
+                style="max-width: 100%" href="/Old-Blogs/059_%E6%96%B0-%E6%8B%89%E9%A9%AC%E5%8A%AA%E9%87%91%E2%80%94%E2%80%94%E5%A7%9C%E8%90%8D%EF%BC%88%E5%8E%9F%E5%88%9B%20%E5%B0%8F%E5%91%A8%E8%80%81%E5%B8%88%EF%BC%89/">
+                <i class="mdui-icon mdui-icon-right material-icons">arrow_forward</i>新-拉马努金——姜萍（原创 小周老师）
+            </a>
+        </div>
+    
+</nav>
+
+    </div>
+    <a href="#" class="mdui-fab mdui-fab-fixed mdui-hidden-xs mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">keyboard_arrow_up</i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+
+
+<script>
+    var $ = mdui.$;
+    function init(){
+        //
+    }
+    window.addEventListener("load", () => {
+        //
+        init()
+    }, {once: true});
+</script>
+
+</body>
+</html>

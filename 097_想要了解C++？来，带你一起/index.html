@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh" >
+<head>
+    <meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+
+    <link rel="dns-prefetch" //cdn.jsdelivr.net>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css">
+
+
+
+
+
+<meta name="theme-color" content="#3F51B5">
+
+
+<style>
+    html,body{scroll-behavior:smooth;min-height:100vh}
+    blockquote>strong>a{word-break:break-all}
+    .mdui-hoverable:hover,.mdui-hoverable:focus{-webkit-box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12) !important;}
+    .mdui-card-primary-title a{text-decoration:none !important}
+    .page-number{display:none !important}
+    .mdui-container-fluid{transition:opacity .4s}
+    
+        body{background-color: #f6f6f6}
+
+    
+</style>
+    
+    <title>想要了解C++？来，带你一起 | Old Blogs</title>
+    <link rel="canonical" href="https://Random-spike.github.io/Old-Blogs/Old-Blogs/097_%E6%83%B3%E8%A6%81%E4%BA%86%E8%A7%A3C++%EF%BC%9F%E6%9D%A5%EF%BC%8C%E5%B8%A6%E4%BD%A0%E4%B8%80%E8%B5%B7/">
+    <meta name="description" content="前两天在一个信奥教练群里面，看到了这么一条求助信息： 学生现在是五年级，想要了解下C++ 主要目的如下 1，认识什么是C++ 2，C++和其他的编程语言有什么区别 3，C++具体可以完成什么项目或工作 4，C++学习后可以获得什么（例如比赛，考试等） 我就觉得这套问题挺逗的：这些问题好像挺具体特接地气特诚恳，但实际上，这套求助者总结出来的问题，堪称花拳绣腿空气拳，完美避开所有重要的点。 所以我给的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="想要了解C++？来，带你一起">
+<meta property="og:url" content="https://random-spike.github.io/Old-Blogs/097_%E6%83%B3%E8%A6%81%E4%BA%86%E8%A7%A3C++%EF%BC%9F%E6%9D%A5%EF%BC%8C%E5%B8%A6%E4%BD%A0%E4%B8%80%E8%B5%B7/index.html">
+<meta property="og:site_name" content="Old Blogs">
+<meta property="og:description" content="前两天在一个信奥教练群里面，看到了这么一条求助信息： 学生现在是五年级，想要了解下C++ 主要目的如下 1，认识什么是C++ 2，C++和其他的编程语言有什么区别 3，C++具体可以完成什么项目或工作 4，C++学习后可以获得什么（例如比赛，考试等） 我就觉得这套问题挺逗的：这些问题好像挺具体特接地气特诚恳，但实际上，这套求助者总结出来的问题，堪称花拳绣腿空气拳，完美避开所有重要的点。 所以我给的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-21T07:00:46.000Z">
+<meta property="article:modified_time" content="2025-11-30T09:29:39.018Z">
+<meta property="article:author" content="Random-spike">
+<meta name="twitter:card" content="summary">
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar ">
+    <div class="mdui-theme-layout-light">
+    <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-hide">
+    <div class="mdui-toolbar">
+        <button mdui-drawer="{target: '.mdui-drawer'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></button>
+        <a href="/Old-Blogs/" class="mdui-typo-title">Old Blogs</a>
+        <div class="mdui-toolbar-spacer"></div>
+        
+        <a href="/Old-Blogs/search/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">search</i></a>
+        
+    </div>
+</header>
+    <aside class="mdui-drawer mdui-drawer-close">
+    <nav class="mdui-list" mdui-collapse="{accordion: true}">
+        <a href="/Old-Blogs/about/"  class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-avatar">
+                
+                <i class="mdui-color-theme-primary mdui-icon material-icons">person</i>
+                
+            </div>
+            <div class="mdui-list-item-content">Random-spike</div>
+        </a>
+        <div class="mdui-divider"></div>
+        
+        <a href="/Old-Blogs/" class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+            <div class="mdui-list-item-content">主页</div>
+        </a>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">inbox</i>
+                <div class="mdui-list-item-content">归档</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/11/">十一月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/10/">十月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/03/">三月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2025/02/">二月 2025</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/12/">十二月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/11/">十一月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/10/">十月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/09/">九月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/08/">八月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/07/">七月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/06/">六月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/05/">五月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/04/">四月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/03/">三月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/02/">二月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2024/01/">一月 2024</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/12/">十二月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/11/">十一月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/10/">十月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/09/">九月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/08/">八月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/07/">七月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/06/">六月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/05/">五月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/04/">四月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/03/">三月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/02/">二月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2023/01/">一月 2023</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/archives/2022/12/">十二月 2022</a>
+            </div>
+        </div>
+        
+        <div class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">apps</i>
+                <div class="mdui-list-item-content">分类</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/florr/">florr</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%96%B0%E6%96%87/">新文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%97%A7%E6%96%87/">旧文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E6%9D%82%E6%96%87/">杂文</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E7%94%9F%E6%B4%BB%E9%97%B4/">生活间</a><a class="mdui-list-item mdui-ripple m-link" href="/Old-Blogs/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="mdui-divider"></div>
+    <footer class="mdui-m-l-2 mdui-m-t-1 mdui-typo mdui-text-color-theme-disabled">
+        <p class="mdui-m-b-0">
+            
+            ©
+            2025 Random-spike<br>
+            
+            Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a><br>
+            
+            Theme - <a href="https://github.com/kwaa/hexo-theme-m" rel="noreferrer" target="_blank"
+                mdui-tooltip="{position:'right', content: 'by 藍+85CD'}">M</a></p>
+            
+    </footer>
+</aside>
+    </div>
+    <div class="mdui-container-fluid mdui-center" style="max-width:720px">
+        <article class="mdui-card mdui-hoverable mdui-shadow-1 mdui-m-y-2" style="opacity: 1; border-radius: 4px">
+    
+    <div class="mdui-card-primary mdui-ripple">
+    <div class="mdui-card-primary-title">
+        <a role="heading" aria-level="1" class="mdui-text-color-theme-text" >想要了解C++？来，带你一起</a>
+        
+        <small> <a class="mdui-text-color-theme-text category-link" href="/Old-Blogs/categories/%E6%96%B0%E6%96%87/">新文</a></small>
+        
+    </div>
+    <div class="mdui-card-primary-subtitle mdui-typo">
+        
+        <span mdui-tooltip="{content:'创建时间：2023-10-21 03:00<br>最后更新时间：2025-11-30 05:29'}">2023-10-21 -</span>
+        
+            <span>/097_想要了解C++？来，带你一起/</span>
+        
+    </div>
+</div>
+    
+    
+    <div class="mdui-divider"></div>
+    <div class="mdui-card-content mdui-typo">
+        
+        <p>前两天在一个信奥教练群里面，看到了这么一条求助信息：</p>
+<p><strong>学生现在是五年级，想要了解下C++</strong></p>
+<p><strong>主要目的如下</strong></p>
+<p><strong>1，认识什么是C++</strong></p>
+<p><strong>2，C++和其他的编程语言有什么区别</strong></p>
+<p><strong>3，C++具体可以完成什么项目或工作</strong></p>
+<p><strong>4，C++学习后可以获得什么（例如比赛，考试等）</strong></p>
+<p>我就觉得这套问题挺逗的：这些问题好像挺具体特接地气特诚恳，但实际上，这套求助者总结出来的问题，堪称花拳绣腿空气拳，完美避开所有重要的点。</p>
+<p>所以我给的答案是这样的：</p>
+<p><strong>1- 国内中小学生奥赛用编程语言</strong></p>
+<p><strong>2- 奥赛用</strong></p>
+<p><strong>3- 奥赛</strong></p>
+<p><strong>4- 奥赛</strong></p>
+<p>这还真是一个认真的回答，一点儿没瞎写。</p>
+<p>下面就逐一来说明一下</p>
+<p><strong>1-没必要认识什么是C++。</strong></p>
+<p>你认识C++干啥？去研究计算机语言的命名史？还是去开发游戏引擎？难不成是要去做个让大家翘首以待的计算机操作系统比如能够取代Windows的Doors系统？</p>
+<p>显然根本不是。</p>
+<p>上面这些内容，连臭名昭著的CSP-J&#x2F;S的初赛都不考。</p>
+<p>初赛顶多考个C和C++谁是面向对象语言，根本不需要知道C++实际上的名字是C with Classes。</p>
+<p>所以不需要认识C++。</p>
+<p>你只需要知道C++是国内中小学生考信奥需要用的编程语言就行了。</p>
+<p>以前还有个Pascal，现在已经全面被C++取代了。</p>
+<p><strong>2- C++和别的编程语言的真正区别，你知道了也没用。</strong></p>
+<p>比如，C++和Java有什么区别？让我来随便列几个：</p>
+<p>1- C++支持指针，Java不能操作指针</p>
+<p>2- C++支持多继承，而Java不支持多重继承，但有接口</p>
+<p>3- C++面向对象做的不彻底，Java 是完全面向对象的语言，只保留class取消了 C&#x2F;C++ 中的struct和union</p>
+<p>4- Java自动进行无用内存回收操作，不再需要程序员进行手动删除，而 C++ 中必须由程序释放内存资源</p>
+<p>5- Java不支持操作符重载，操作符重载则被认为是 C++ 的突出特征。</p>
+<p>6- goto语句是 C 和 C++ 的历史遗迹，Java不提供 goto 语句，这使程序更简洁易读。</p>
+<p>7- Java不支持 C++ 中的自动强制类型转换，如果需要，必须由程序显式进行强制类型转换。</p>
+<p>看懂了么？</p>
+<p>显然没看懂对不对？</p>
+<p>不管是你是五年级的同学，还是五年级同学的打算让娃学编程的家长。</p>
+<p>不是这个专业毕业的职业程序员，看都看不懂。</p>
+<p>看不懂就对了。</p>
+<p><strong>而且还不考。</strong></p>
+<p>所以，C++和其他编程语言有什么区别？</p>
+<p>那就是：</p>
+<p><strong>C++是奥赛用语言；其他语言不是。</strong></p>
+<p>这就是真正的区别。</p>
+<p>当然如果一定要抬杠，说USACO能用Java还能用Python呢！</p>
+<p>那升级一下回答：</p>
+<p><strong>C++快。</strong></p>
+<p>剩下的，关于为什么C++快的理由，涉及到CPU、寄存器、机器码以及汇编语言的这些事，你需要知道么？</p>
+<p>不需要。</p>
+<p>所以，就三个字：</p>
+<p><strong>奥赛用。</strong></p>
+<p><strong>没了。</strong></p>
+<p><strong>3- C++具体可以完成什么项目和学生没关系</strong></p>
+<p>能干的事儿多了。</p>
+<p>和奥赛生有关的，没有。</p>
+<p>就算是你全省第一，当学生的时候，就管当学生的事儿就行了。</p>
+<p>你当学生就是要去清华的，我说错了没？</p>
+<p>所以别说什么科技创新发明AI算法识别猫脸鲸鱼表情的事情，现在就聊奥赛，不聊别的。</p>
+<p>不是么？</p>
+<p><strong>所以，这次，就俩字儿。</strong></p>
+<p><strong>奥赛。</strong></p>
+<p>没了。</p>
+<p><strong>4-C++学习后就能考信奥了，这理由够充分不？</strong></p>
+<p>麻省理工发明的Scratch语言学习之后能获得什么？</p>
+<p>麻省理工的录取通知书吗？</p>
+<p>不是，对不对？</p>
+<p>连谷歌都在使用的Python语言，学习之后能获得什么？</p>
+<p>谷歌的offer吗？</p>
+<p>显然也不是，是不是？</p>
+<p><strong>C++不学没法考奥赛；学了之后能考奥赛。</strong></p>
+<p>就这。</p>
+<p>所以，依然是俩字儿：</p>
+<p><strong>奥赛。</strong></p>
+<p><strong>结语：</strong></p>
+<p>如果大家有选择，我觉得去山里骑个马，摘个果子，游个泳，划个船，比什么都好。学什么劳什子奥赛？学什么C++？控制什么指针？解什么图论？</p>
+<p>然而。</p>
+<p>然而，中考越来越难了。</p>
+<p>看着这两年双过来的孩子们面对中考数学压轴题瑟瑟发抖的时候，做家长的，有没有想好怎么给他们多铺一条路？</p>
+<p>这看起来好像是风马牛不相及的两件事，其实，这是一件事。</p>
+<p><strong>学奥赛，正是因为中考本身的课业太重了。</strong></p>
+<p><strong>把全部鸡蛋都放在中考一个篮子里面，一个趔趄，就完蛋。</strong></p>
+<p>分出一部分精力，从小学5年级开始，开始准备成为中考前的科技特长生，学好一门手艺，或许能够拯救自己的前途。</p>
+<p>所以，真的，学不学随意。</p>
+<p>反正前途都是自己的。</p>
+<p>噢，不，是孩子自己的。</p>
+<hr>
+<p>转自小周老师<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzIwMzcxMTY4OQ==&mid=2247485006&idx=1&sn=3f059046f602a34821e155116daf3fe7&chksm=96ca73e8a1bdfafeae51072beeda56e034d73dec5ae962bcdc7c8b4fe8bba919836c67774df8&scene=178&cur_album_id=2391244008955232256#rd">这里</a></p>
+<p>2022-06-29 01:05</p>
+
+        
+        <blockquote class="mdui-m-x-0 mdui-m-t-4">
+    <strong>
+        作者：<a href="/Old-Blogs/about/">Random-spike</a><br>
+        链接：<a href="https://random-spike.github.io/Old-Blogs/097_%E6%83%B3%E8%A6%81%E4%BA%86%E8%A7%A3C++%EF%BC%9F%E6%9D%A5%EF%BC%8C%E5%B8%A6%E4%BD%A0%E4%B8%80%E8%B5%B7/">https://random-spike.github.io/Old-Blogs/097_%E6%83%B3%E8%A6%81%E4%BA%86%E8%A7%A3C++%EF%BC%9F%E6%9D%A5%EF%BC%8C%E5%B8%A6%E4%BD%A0%E4%B8%80%E8%B5%B7/</a><br>
+        
+            本文采用 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 进行许可。
+        
+    </strong>
+</blockquote>
+        
+    </div>
+    
+</article>
+<nav class="mdui-theme-layout-light mdui-color-transparent mdui-row mdui-m-b-2">
+    
+        <div class="mdui-col-xs-12 mdui-m-b-2">
+            <a class="extend prev mdui-btn mdui-ripple mdui-float-left mdui-text-truncate" rel="prev"
+                style="max-width: 100%" href="/Old-Blogs/096_%E6%98%8E%E5%B9%B4%E7%9A%84%E5%A5%A5%E8%B5%9B%E7%94%9F/">
+                <i class="mdui-icon mdui-icon-left material-icons">arrow_back</i>明年的奥赛生
+            </a>
+        </div>
+    
+        <div class="mdui-col-xs-12">
+            <a class="extend next mdui-btn mdui-ripple mdui-float-right mdui-text-truncate" rel="next"
+                style="max-width: 100%" href="/Old-Blogs/098_%E4%BF%A1%E6%81%AF%E5%A5%A5%E8%B5%9B%E7%94%9F%E5%85%A5%E9%97%A8%E7%9A%84%E9%BB%84%E9%87%91%E6%9C%9F/">
+                <i class="mdui-icon mdui-icon-right material-icons">arrow_forward</i>信息奥赛生入门的黄金期
+            </a>
+        </div>
+    
+</nav>
+
+    </div>
+    <a href="#" class="mdui-fab mdui-fab-fixed mdui-hidden-xs mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">keyboard_arrow_up</i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+
+
+<script>
+    var $ = mdui.$;
+    function init(){
+        //
+    }
+    window.addEventListener("load", () => {
+        //
+        init()
+    }, {once: true});
+</script>
+
+</body>
+</html>
